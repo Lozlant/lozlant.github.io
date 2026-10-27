@@ -1,12 +1,11 @@
 <!doctype html>
-<html lang="zh-CN">
-<head>
+<html lang="zh-CN"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>陈韵好 · 系统策划作品集</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&amp;family=Noto+Sans+SC:wght@400;500;700&amp;display=swap" rel="stylesheet">
 <style>
   :root{
     --mist:#EDF3F1;      /* 晨光下的海雾：背景 */
@@ -50,7 +49,7 @@
   .facts{margin:6px 0 0;color:var(--muted);font-size:16px}
   .intro{max-width:32em;margin:36px 0 0;font-size:18px;line-height:1.9}
   .intro p{margin:0 0 .6em}
-  .jump{display:flex;flex-wrap:wrap;gap:8px 28px;margin:28px 0 0;font-size:15px}
+  .jump{display:flex;flex-wrap:wrap;gap:8px 28px;margin:36px 0 0;font-size:15px}
 
   /* ---------- 项目 ---------- */
   main{max-width:980px;margin:0 auto;padding:72px 24px 120px}
@@ -73,6 +72,8 @@
   .skills{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0;padding:0;list-style:none}
   .skills li{font-size:13px;line-height:1.6;padding:2px 11px;border:1px solid var(--tide);color:var(--tide);border-radius:999px}
   .skills li.core{background:var(--tide);color:var(--foam)}
+  .case-link{align-self:flex-start;margin-top:16px;font-size:14px;font-weight:500}
+  .mini-card .case-link{display:inline-block;margin-top:12px}
   details{margin-top:auto;padding-top:18px}
   summary{cursor:pointer;color:var(--tide);font-size:14px;list-style:none;display:inline-flex;align-items:center;gap:8px}
   summary::-webkit-details-marker{display:none}
@@ -108,6 +109,23 @@
   .mini h3{font-family:var(--serif);font-weight:600;font-size:21px;margin:0;line-height:1.3}
   .mini-line{font-size:15px;line-height:1.75;margin:12px 0 0}
   .mini .skills{margin-top:14px}
+  .now{margin-top:80px}
+  .now-frame{position:relative;background:var(--foam);border:1px solid var(--chart);border-left:3px solid var(--sun)}
+  .now-list{max-height:300px;overflow-y:auto;padding:0 28px;scrollbar-width:thin;scrollbar-color:var(--chart) transparent}
+  .now-list:focus-visible{outline:2px solid var(--sun);outline-offset:2px}
+  .now-frame::after{ /* 下方还有内容时出现的渐隐提示 */
+    content:"";position:absolute;left:0;right:0;bottom:0;height:48px;pointer-events:none;
+    background:linear-gradient(to bottom, rgba(248,251,250,0), var(--foam));opacity:0;transition:opacity .2s}
+  .now-frame.more-below::after{opacity:1}
+  .editing .now-list{max-height:none}
+  .now-item{display:grid;grid-template-columns:15em 1fr;gap:6px 32px;padding:22px 0;border-bottom:1px solid var(--chart);align-items:baseline}
+  .now-item:last-child{border-bottom:0}
+  .now-head{display:flex;flex-direction:column;gap:6px}
+  .now-item h3{font-family:var(--serif);font-weight:600;font-size:21px;margin:0;line-height:1.3}
+  .status{align-self:flex-start;font-size:13px;line-height:1.6;color:var(--ink);padding:1px 10px 1px 22px;position:relative;border:1px solid var(--sun);border-radius:999px;background:rgba(231,198,106,.16)}
+  .status::before{content:"";position:absolute;left:9px;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:var(--sun)}
+  .now-item p{margin:0;font-size:16px;max-width:36em}
+  .now-link{margin-left:10px;font-size:14px;white-space:nowrap}
   footer{
     position:relative;overflow:hidden;border-top:1px solid var(--chart);padding:96px 24px 40px;
     background-color:var(--mist);
@@ -135,6 +153,7 @@
     main{padding:56px 16px 96px}
     .astrolabe{width:440px;height:440px;right:-200px;top:120px;transform:none;opacity:.45}
     .grid{grid-template-columns:1fr}
+    .now-item{grid-template-columns:1fr}
     footer{padding:72px 16px 32px}
     .mark{gap:18px}
     .rose{width:64px;height:64px}
@@ -149,45 +168,40 @@
   <svg class="astrolabe" viewBox="0 0 620 620" aria-hidden="true">
     <defs>
       <radialGradient id="sunglow" cx="50%" cy="50%" r="50%">
-        <stop offset="0" stop-color="#E7C66A" stop-opacity=".55"/>
-        <stop offset="1" stop-color="#E7C66A" stop-opacity="0"/>
+        <stop offset="0" stop-color="#E7C66A" stop-opacity=".55"></stop>
+        <stop offset="1" stop-color="#E7C66A" stop-opacity="0"></stop>
       </radialGradient>
     </defs>
-    <circle cx="310" cy="310" r="300" fill="url(#sunglow)"/>
+    <circle cx="310" cy="310" r="300" fill="url(#sunglow)"></circle>
     <g fill="none" stroke="currentColor">
-      <circle cx="310" cy="310" r="290" stroke-opacity=".18"/>
-      <circle cx="310" cy="310" r="236" stroke-opacity=".22"/>
-      <circle cx="310" cy="310" r="150" stroke-opacity=".18" stroke-dasharray="2 6"/>
-      <line x1="10" y1="310" x2="610" y2="310" stroke-opacity=".14"/>
-      <line x1="310" y1="10" x2="310" y2="610" stroke-opacity=".14"/>
-      <ellipse cx="310" cy="310" rx="290" ry="110" stroke-opacity=".12"/>
+      <circle cx="310" cy="310" r="290" stroke-opacity=".18"></circle>
+      <circle cx="310" cy="310" r="236" stroke-opacity=".22"></circle>
+      <circle cx="310" cy="310" r="150" stroke-opacity=".18" stroke-dasharray="2 6"></circle>
+      <line x1="10" y1="310" x2="610" y2="310" stroke-opacity=".14"></line>
+      <line x1="310" y1="10" x2="310" y2="610" stroke-opacity=".14"></line>
+      <ellipse cx="310" cy="310" rx="290" ry="110" stroke-opacity=".12"></ellipse>
     </g>
     <g class="ring-slow" fill="none" stroke="currentColor">
-      <circle cx="310" cy="310" r="262" stroke-opacity=".3"/>
+      <circle cx="310" cy="310" r="262" stroke-opacity=".3"></circle>
       <g stroke-opacity=".35">
         <!-- 刻度 -->
-        <path d="M310 48v14M310 558v14M48 310h14M558 310h14"/>
-        <path d="M495.3 124.7l-9.9 9.9M134.6 485.4l-9.9 9.9M124.7 124.7l9.9 9.9M485.4 485.4l9.9 9.9"/>
+        <path d="M310 48v14M310 558v14M48 310h14M558 310h14"></path>
+        <path d="M495.3 124.7l-9.9 9.9M134.6 485.4l-9.9 9.9M124.7 124.7l9.9 9.9M485.4 485.4l9.9 9.9"></path>
       </g>
       <!-- 罗盘指针 -->
-      <path d="M310 70 L322 298 L310 310 L298 298 Z" fill="currentColor" fill-opacity=".10" stroke-opacity=".35"/>
-      <path d="M550 310 L322 322 L310 310 L322 298 Z" fill="currentColor" fill-opacity=".06" stroke-opacity=".25"/>
+      <path d="M310 70 L322 298 L310 310 L298 298 Z" fill="currentColor" fill-opacity=".10" stroke-opacity=".35"></path>
+      <path d="M550 310 L322 322 L310 310 L322 298 Z" fill="currentColor" fill-opacity=".06" stroke-opacity=".25"></path>
     </g>
-    <circle cx="310" cy="310" r="34" fill="#C39A2F" fill-opacity=".85"/>
-    <circle cx="310" cy="310" r="48" fill="none" stroke="#C39A2F" stroke-opacity=".5"/>
+    <circle cx="310" cy="310" r="34" fill="#C39A2F" fill-opacity=".85"></circle>
+    <circle cx="310" cy="310" r="48" fill="none" stroke="#C39A2F" stroke-opacity=".5"></circle>
   </svg>
 
   <div class="hero-inner">
     <h1 class="name">陈韵好</h1>
     <p class="role">系统策划</p>
     <p class="facts">谢尔丹学院 游戏设计本科，2027 届</p>
-    <!-- ============ 自我介绍：在下面这段里改写 ============ -->
-    <div class="intro">
-      <p>（在这里写自我介绍，建议 2–4 句：你是谁、为什么想做系统策划、你做设计的方式。）</p>
-    </div>
-    <!-- ============ 自我介绍结束 ============ -->
     <nav class="jump" aria-label="页面导航">
-      <a href="#projects">看项目</a>
+      <a href="#projects">项目</a>
       <a href="#contact">联系方式</a>
     </nav>
   </div>
@@ -197,11 +211,12 @@
   <h2 class="section-title">项目</h2>
   <div class="grid">
 
-  <article class="project">
+  <article class="project" id="lich">
     <div class="project-head"><h3>Project Lich</h3><span class="when">2026.04 至今</span></div>
     <p class="meta">主策划、程序、项目负责人｜6 人毕业设计</p>
     <p class="tagline">让误伤成为队友之间的玩笑，而不是挫败。</p>
     <ul class="skills" aria-label="体现的能力"><li class="core">系统设计</li><li>原型验证</li><li>程序实现</li><li>文档撰写</li><li>团队统筹</li><li>AI 辅助</li></ul>
+    <a class="case-link" href="projects/lich/index.html" data-hidden>详情</a>
     <details><summary>展开要点</summary><div class="more">
       <p style="margin:0">亡灵法师题材的 3D 俯视角合作魔法战斗游戏（Unity 6），目前处于 POC 阶段，目标是在 2027 年 5 月的 Level Up 展会上展出。</p>
       <ol class="route" aria-label="原型验证顺序"><li><b>纸面原型</b>玩家行为</li><li><b>数据原型</b>资源循环</li><li><b>可玩 POC</b>反馈手感</li></ol>
@@ -217,6 +232,7 @@
     <p class="meta">系统策划｜4 人课程作业，主导设计和文档</p>
     <p class="tagline">用专属支线关卡，让玩家真正认识每一位英雄。</p>
     <ul class="skills" aria-label="体现的能力"><li class="core">系统设计</li><li>玩家研究</li><li>养成数值</li></ul>
+    <a class="case-link" href="projects/kingdom-rush/index.html" data-hidden>详情</a>
     <details><summary>展开要点</summary><div class="more"><ul>
       <li>基于「指挥官」「英雄」两类玩家画像确定系统目标。</li>
       <li>为每个英雄设计 1–3 个支线关卡，含出战限制和分阶段的教学波次。</li>
@@ -229,6 +245,7 @@
     <p class="meta">游戏策划、程序｜4 人课程项目</p>
     <p class="tagline">在接送乘客的路上，认识一座海上城市。</p>
     <ul class="skills" aria-label="体现的能力"><li class="core">根据反馈迭代</li><li>玩法设计</li><li>程序实现</li></ul>
+    <a class="case-link" href="projects/sea-u/index.html" data-hidden>详情</a>
     <details><summary>展开要点</summary><div class="more"><ul>
       <li>主题「转变」：通过叙事和城市游览，引导玩家关注海平面上升。</li>
       <li>根据反馈，把体量过大的城市建造概念收缩为叙事和游览方案。</li>
@@ -241,6 +258,7 @@
     <p class="meta">主策划、叙事设计、程序｜3 人叙事课程项目</p>
     <p class="tagline">孤岛将沉，王后要在爱与牺牲之间做出选择。</p>
     <ul class="skills" aria-label="体现的能力"><li class="core">叙事设计</li><li>项目规划</li><li>程序实现</li></ul>
+    <a class="case-link" href="projects/tidebound/index.html" data-hidden>详情</a>
     <details><summary>展开要点</summary><div class="more"><ul>
       <li>撰写项目提案并分工，搭建世界观，撰写主线剧情。</li>
       <li>参考《凯瑟琳》设计方块世界解谜玩法方案。</li>
@@ -266,6 +284,7 @@
           <p class="meta">游戏程序｜机核 BOOOMx 开拓芯游戏创作挑战，最受欢迎 Top7</p>
           <p class="mini-line">协助策划设计技能释放规则和敌人 AI 行为逻辑，用状态机实现战斗循环；在 Unity 中实现敌人、兵种和防御塔。</p>
           <ul class="skills" aria-label="体现的能力"><li class="core">程序实现</li><li>战斗逻辑</li><li>敌人 AI</li></ul>
+          <a class="case-link" href="projects/niumiemie/index.html" data-hidden>详情</a>
         </div>
       </article>
       <article class="mini">
@@ -275,8 +294,24 @@
           <p class="meta">游戏策划、程序｜课程团队项目</p>
           <p class="mini-line">滑冰解谜类迷宫游戏。负责多处关卡和机制设计，注重解谜节奏和空间动线；设计并实现 UI 和物品系统。</p>
           <ul class="skills" aria-label="体现的能力"><li class="core">关卡设计</li><li>机制设计</li><li>程序实现</li></ul>
+          <a class="case-link" href="projects/woe/index.html" data-hidden>详情</a>
         </div>
       </article>
+    </div>
+  </section>
+  <section class="now" aria-labelledby="now-title">
+    <h2 class="section-title" id="now-title">正在进行</h2>
+    <div class="now-frame">
+    <div class="now-list" tabindex="0" aria-label="正在进行的项目，可上下滚动">
+      <article class="now-item">
+        <div class="now-head"><h3>Project Lich</h3><span class="status">POC 阶段</span></div>
+        <p>已完成一个测试关卡，目标是在 2027 年 5 月的 Level Up 展会上展出完整可玩的版本。<a href="#lich" class="now-link">查看项目</a></p>
+      </article>
+      <article class="now-item">
+        <div class="now-head"><h3>慈玉典押</h3><span class="status">人物台词收集中</span></div>
+        <p>星露谷物语同人模组，个人项目。计划加入来自《崩坏：星穹铁道》的可攻略角色翡翠，以及典贷玩法。<a href="projects/ciyu-diaya/index.html" class="now-link" data-hidden>详情</a></p>
+      </article>
+    </div>
     </div>
   </section>
 </main>
@@ -284,20 +319,20 @@
 <footer id="contact">
   <!-- 海图上的两条航线 -->
   <svg class="chart-lines" viewBox="0 0 1200 360" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M-20 300 C 260 220, 520 330, 820 250 S 1150 180, 1240 220" fill="none" stroke="currentColor" stroke-opacity=".18"/>
-    <path d="M-20 80 C 300 140, 640 40, 900 110 S 1150 150, 1240 100" fill="none" stroke="#C39A2F" stroke-opacity=".35" stroke-dasharray="3 7"/>
+    <path d="M-20 300 C 260 220, 520 330, 820 250 S 1150 180, 1240 220" fill="none" stroke="currentColor" stroke-opacity=".18"></path>
+    <path d="M-20 80 C 300 140, 640 40, 900 110 S 1150 150, 1240 100" fill="none" stroke="#C39A2F" stroke-opacity=".35" stroke-dasharray="3 7"></path>
   </svg>
   <div class="mark">
     <!-- 罗盘 -->
     <svg class="rose" viewBox="0 0 96 96" aria-hidden="true">
-      <circle cx="48" cy="48" r="44" fill="none" stroke="currentColor" stroke-opacity=".35"/>
-      <circle cx="48" cy="48" r="36" fill="none" stroke="currentColor" stroke-opacity=".2" stroke-dasharray="2 4"/>
-      <path d="M48 6 L54 42 L48 48 L42 42 Z" fill="currentColor"/>
-      <path d="M48 90 L42 54 L48 48 L54 54 Z" fill="currentColor" fill-opacity=".35"/>
-      <path d="M90 48 L54 54 L48 48 L54 42 Z" fill="currentColor" fill-opacity=".35"/>
-      <path d="M6 48 L42 42 L48 48 L42 54 Z" fill="currentColor" fill-opacity=".35"/>
-      <path d="M70 26 L52 46 L48 48 M26 70 L44 50 L48 48 M26 26 L46 44 M70 70 L50 52" stroke="#C39A2F" stroke-opacity=".7" fill="none"/>
-      <circle cx="48" cy="48" r="4" fill="#C39A2F"/>
+      <circle cx="48" cy="48" r="44" fill="none" stroke="currentColor" stroke-opacity=".35"></circle>
+      <circle cx="48" cy="48" r="36" fill="none" stroke="currentColor" stroke-opacity=".2" stroke-dasharray="2 4"></circle>
+      <path d="M48 6 L54 42 L48 48 L42 42 Z" fill="currentColor"></path>
+      <path d="M48 90 L42 54 L48 48 L54 54 Z" fill="currentColor" fill-opacity=".35"></path>
+      <path d="M90 48 L54 54 L48 48 L54 42 Z" fill="currentColor" fill-opacity=".35"></path>
+      <path d="M6 48 L42 42 L48 48 L42 54 Z" fill="currentColor" fill-opacity=".35"></path>
+      <path d="M70 26 L52 46 L48 48 M26 70 L44 50 L48 48 M26 26 L46 44 M70 70 L50 52" stroke="#C39A2F" stroke-opacity=".7" fill="none"></path>
+      <circle cx="48" cy="48" r="4" fill="#C39A2F"></circle>
     </svg>
     <div>
       <h2>联系方式</h2>
@@ -322,10 +357,20 @@
     if(rail&&arrows) arrows.hidden = rail.scrollWidth <= rail.clientWidth + 4;
   }
   window.addEventListener('resize',syncArrows); syncArrows();
+  // 「正在进行」框：下方还有内容时显示渐隐
+  (function(){
+    var list=document.querySelector('.now-list'), frame=document.querySelector('.now-frame');
+    if(!list||!frame) return;
+    function sync(){ frame.classList.toggle('more-below', list.scrollHeight - list.scrollTop - list.clientHeight > 4); }
+    list.addEventListener('scroll',sync); window.addEventListener('resize',sync); sync();
+  })();
 </script>
 <!-- ============ 编辑模式（只在本地或网址带 ?edit 时出现，访客看不到） ============ -->
 <style>
   .ed-ui{font-family:var(--sans)}
+  body:not(.local) [data-hidden]{display:none !important}
+  body.local [data-hidden]{opacity:.45;outline:1px dashed #A4473B;outline-offset:4px}
+  .ed-vis{margin-left:8px;vertical-align:middle;align-self:flex-start}
   .ed-btn{font:inherit;font-size:13px;line-height:1.4;padding:5px 12px;border:1px solid var(--tide);border-radius:999px;background:var(--foam);color:var(--tide);cursor:pointer}
   .ed-btn:hover{background:var(--tide);color:var(--foam)}
   .ed-btn.danger{border-color:#A4473B;color:#A4473B}
@@ -337,6 +382,7 @@
   .editing [contenteditable="true"]:focus{outline:2px solid var(--sun);background:rgba(231,198,106,.14)}
   .ed-card-tools{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;padding-top:12px;border-top:1px dashed var(--chart)}
   .ed-add{margin-top:8px;align-self:flex-start}
+  .now-item .ed-card-tools{grid-column:1 / -1;margin-top:4px}
   .ed-bar{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:60;width:min(760px,calc(100% - 24px));
     display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:12px 16px;background:var(--ink);color:var(--foam);
     border-radius:14px;box-shadow:0 8px 28px rgba(21,48,58,.28);font-size:14px;line-height:1.5}
@@ -349,8 +395,9 @@
   var isLocal = location.protocol === 'file:' || /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
   var wantEdit = /[?&]edit(\b|=|&|$)/.test(location.search);
   if (!isLocal && !wantEdit) return;
+  if (isLocal) document.body.classList.add('local');
 
-  var TEXT = '.name,.role,.facts,.intro,.section-title,.project h3,.mini h3,.when,.meta,.tagline,.skills li,.more p,.more li,.mini-line,footer h2,footer a,.sign';
+  var TEXT = '.name,.role,.facts,.intro,.section-title,.project h3,.mini h3,.when,.meta,.tagline,.skills li,.more p,.more li,.mini-line,.now-item h3,.now-item p,.status,footer h2,footer a,.sign';
   var dirty = false;
   function qsa(sel, root){ return Array.prototype.slice.call((root||document).querySelectorAll(sel)); }
   function btn(label, cls, onClick){
@@ -365,6 +412,15 @@
   function focusAll(el){
     el.focus(); var r = document.createRange(); r.selectNodeContents(el);
     var s = getSelection(); s.removeAllRanges(); s.addRange(r);
+  }
+
+  function visToggle(el){
+    var b = btn('', 'ed-ui ed-vis', function(){
+      if (el.hasAttribute('data-hidden')) el.removeAttribute('data-hidden'); else el.setAttribute('data-hidden','');
+      label(); dirty = true;
+    });
+    function label(){ b.textContent = el.hasAttribute('data-hidden') ? '已隐藏（点击公开）' : '公开中（点击隐藏）'; b.classList.toggle('danger', el.hasAttribute('data-hidden')); }
+    label(); return b;
   }
 
   function setupCard(card){
@@ -387,7 +443,7 @@
     });
     // 卡片工具
     var tools = document.createElement('div'); tools.className = 'ed-ui ed-card-tools';
-    var kind = card.classList.contains('mini') ? '.mini' : '.project';
+    var kind = card.classList.contains('mini') ? '.mini' : (card.classList.contains('now-item') ? '.now-item' : '.project');
     tools.appendChild(btn('前移', '', function(){
       var prev = card.previousElementSibling;
       if (prev && prev.matches(kind)) { prev.before(card); dirty = true; card.scrollIntoView({block:'nearest'}); }
@@ -409,6 +465,7 @@
         card.remove(); dirty = true; if (window.syncArrows) syncArrows();
       }
     }));
+    tools.appendChild(visToggle(card));
     card.appendChild(tools);
   }
 
@@ -422,7 +479,7 @@
       var t = a.textContent.trim(); if (t.indexOf('@') > 0) a.setAttribute('href', 'mailto:' + t);
     });
     qsa('.arrows', root).forEach(function(a){ a.removeAttribute('hidden'); });
-    var body = root.querySelector('body'); body.classList.remove('editing');
+    var body = root.querySelector('body'); body.classList.remove('editing'); body.classList.remove('local');
     if (!body.getAttribute('class')) body.removeAttribute('class');
     var html = '<!doctype html>\n' + root.outerHTML;
     var blob = new Blob([html], {type:'text/html;charset=utf-8'});
@@ -435,7 +492,8 @@
     document.body.classList.add('editing');
     makeEditable(document);
     qsa('details').forEach(function(d){ d.open = true; });
-    qsa('.project, .mini').forEach(function(c){ c.querySelectorAll('[contenteditable]').forEach(function(n){ n.removeAttribute('contenteditable'); }); setupCard(c); });
+    qsa('.case-link, .now-link').forEach(function(a){ a.after(visToggle(a)); });
+    qsa('.project, .mini, .now-item').forEach(function(c){ c.querySelectorAll('[contenteditable]').forEach(function(n){ n.removeAttribute('contenteditable'); }); setupCard(c); });
 
     // 编辑时链接不跳转
     document.addEventListener('click', function(e){
@@ -472,5 +530,6 @@
 })();
 </script>
 <!-- ============ 编辑模式结束 ============ -->
-</body>
-</html>
+
+
+</body></html>

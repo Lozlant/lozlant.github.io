@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>王国保卫战5 进程重设计｜陈韵好</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/sub.css">
+</head>
+<body data-page-hidden>
+<div class="wrap">
+<nav class="crumbs" aria-label="位置"><a href="../../index.html">首页</a><span>/</span>项目</nav>
+<header class="page-head">
+  <p class="kicker" data-edit>系统设计课程作业</p>
+  <h1 data-edit>王国保卫战5 进程重设计</h1>
+  <p class="tagline" data-edit>用专属支线关卡，让玩家真正认识每一位英雄。</p>
+  <dl class="facts">
+    <div><dt>职务</dt><dd data-edit>系统策划</dd></div>
+    <div><dt>团队</dt><dd data-edit>4 人，主导系统设计和文档撰写</dd></div>
+    <div><dt>时间</dt><dd data-edit>2024.11 – 2024.12</dd></div>
+    <div><dt>对象</dt><dd data-edit>《王国保卫战5：联盟》（Ironhide Game Studio，2024）</dd></div>
+  </dl>
+</header>
+
+<section class="block" aria-labelledby="s-overview">
+  <h2 class="section-title" id="s-overview">概览</h2>
+  <ul class="points" data-edit-list>
+    <li data-edit>基于「指挥官」「英雄」两类玩家画像，确定系统目标。</li>
+    <li data-edit>为每个英雄设计 1–3 个专属支线关卡，用出战限制和分阶段的波次教学英雄和防御塔的用法。</li>
+    <li data-edit>技能点总量不变，把英雄 9、10 级上限和部分技能点改为支线通关奖励；撰写功能规格文档，用 Excel 配置关卡和波次。</li>
+  </ul>
+</section>
+
+<section class="block" aria-labelledby="s-goal">
+  <h2 class="section-title" id="s-goal">设计目标</h2>
+  <div class="prose">
+    <p data-edit="multi">让玩家在玩的过程中真正认识每一位英雄：理解它的强项和弱项，知道它适合和哪些防御塔搭配，也了解它的故事。同时照顾两类玩家：喜欢策略挑战的「指挥官」，和更在意角色成长与故事的「英雄」。</p>
+  </div>
+</section>
+
+<section class="block" aria-labelledby="s-system">
+  <h2 class="section-title" id="s-system">系统一览</h2>
+  <ol class="loop" aria-label="系统循环">
+    <li data-edit-block><b data-edit>主线关卡</b><span data-edit>通关推进，解锁新英雄和支线关卡</span></li>
+    <li data-edit-block><b data-edit>英雄支线关卡</b><span data-edit>出战限制 + 分阶段教学波次 + 关卡前后的漫画</span></li>
+    <li data-edit-block><b data-edit>通关奖励</b><span data-edit>解锁 9、10 级上限，获得技能点，看到更多英雄故事</span></li>
+    <li data-edit-block><b data-edit>更强的英雄</b><span data-edit>更懂英雄和防御塔，主线关卡变得更容易</span></li>
+  </ol>
+  <p class="loop-note" data-edit>四个环节依次推进，最后回到主线关卡，形成循环。</p>
+</section>
+
+<section class="block" aria-labelledby="s-log">
+  <h2 class="section-title" id="s-log">设计日志</h2>
+  <p class="timeline-note" data-edit>点开每条记录，查看当时的问题、思考和决定。日期根据提案展示（2024.11.26）和功能规格文档（2024.12.10）推定。</p>
+  <ol class="timeline">
+  <li class="log-node" data-edit-block>
+    <a class="log-card" href="log-01.html" data-edit-href>
+      <span class="date" data-edit>2024.11</span>
+      <h3 data-edit>找到问题</h3>
+      <p data-edit>原作里玩家很难和英雄建立感情，对英雄和防御塔的理解也偏浅，难度和策略的提升衔接不够流畅。</p>
+      <span class="read">阅读这条记录</span>
+    </a>
+  </li>
+  <li class="log-node" data-edit-block>
+    <a class="log-card" href="log-02.html" data-edit-href>
+      <span class="date" data-edit>2024.11</span>
+      <h3 data-edit>玩家画像</h3>
+      <p data-edit>划分「指挥官」和「英雄」两类玩家，新系统要同时照顾策略型和养成型玩家。</p>
+      <span class="read">阅读这条记录</span>
+    </a>
+  </li>
+  <li class="log-node" data-edit-block>
+    <a class="log-card" href="log-03.html" data-edit-href>
+      <span class="date" data-edit>2024.11.26</span>
+      <h3 data-edit>提案：三个方向</h3>
+      <p data-edit>在课程展示中提出三个改动：支线挑战关卡、关卡奖励、在专属支线里补完英雄故事。</p>
+      <span class="read">阅读这条记录</span>
+    </a>
+  </li>
+  <li class="log-node" data-edit-block>
+    <a class="log-card" href="log-04.html" data-edit-href>
+      <span class="date" data-edit>2024.11 – 12</span>
+      <h3 data-edit>奖励设计：等级上限与技能点</h3>
+      <p data-edit>英雄的 9、10 级改为通关支线关卡后解锁，两级的技能点拆出一半作为通关奖励，总量不变。</p>
+      <span class="read">阅读这条记录</span>
+    </a>
+  </li>
+  <li class="log-node" data-edit-block>
+    <a class="log-card" href="log-05.html" data-edit-href>
+      <span class="date" data-edit>2024.12</span>
+      <h3 data-edit>支线关卡怎么教玩家</h3>
+      <p data-edit>用出战限制和四个阶段的波次，引导玩家认识英雄的强项和弱项，再综合运用。</p>
+      <span class="read">阅读这条记录</span>
+    </a>
+  </li>
+  <li class="log-node" data-edit-block>
+    <a class="log-card" href="log-06.html" data-edit-href>
+      <span class="date" data-edit>2024.12</span>
+      <h3 data-edit>入口与新手引导</h3>
+      <p data-edit>支线关卡放在英雄界面里；通关主线第 2 关后，引导玩家打开第一个支线关卡。</p>
+      <span class="read">阅读这条记录</span>
+    </a>
+  </li>
+  <li class="log-node" data-edit-block>
+    <a class="log-card" href="log-07.html" data-edit-href>
+      <span class="date" data-edit>2024.12</span>
+      <h3 data-edit>叙事怎么分配</h3>
+      <p data-edit>根据英雄的支线关卡数量，把「铺垫、冲突、解决」分配到各个关卡。</p>
+      <span class="read">阅读这条记录</span>
+    </a>
+  </li>
+  </ol>
+</section>
+</div>
+<footer class="page-foot">© 2026 陈韵好</footer>
+<script src="../../assets/edit.js"></script>
+</body>
+</html>
