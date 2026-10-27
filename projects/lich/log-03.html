@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>可玩 POC｜Project Lich｜陈韵好</title>
+<title>攻击队友的奖励｜Project Lich｜陈韵好</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -14,21 +14,26 @@
 <div class="wrap">
 <nav class="crumbs" aria-label="位置"><a href="../../index.html">首页</a><span>/</span><a href="index.html">Project Lich</a><span>/</span>设计日志</nav>
 <header class="page-head">
-  <p class="kicker" data-edit>记录 03　2026</p>
-  <h1 data-edit>可玩 POC</h1>
-  <p class="tagline" data-edit>验证机制效果和反馈手感，以及玩家是否会主动攻击队友。</p>
+  <p class="kicker" data-edit>记录 03　2026.10.18 – 10.20</p>
+  <h1 data-edit>攻击队友的奖励</h1>
+  <p class="tagline" data-edit>用元素反应和元素灵魂奖励攻击队友，让每次出手都是有得有失的取舍。</p>
 </header>
 <article class="entry block">
 <h2 data-edit>问题</h2>
-<p data-edit="multi">机制在实际游玩中效果如何？体验是否有足够的反馈（juicy）？玩家会不会真的主动攻击队友？</p>
+<p data-edit="multi">团队更担心的不是玩家攻击队友太多，而是玩家不敢攻击队友：大多数合作游戏都在教玩家避免伤害队友，玩家可能因为习惯或顾虑朋友的感受而不下手，错过核心乐趣。</p>
 <h2 data-edit>思考</h2>
-<p data-edit="multi">在 POC 开发中，用 AI 拆解任务、协助实现功能、调研相关设计、制作配置文件。</p><p class="todo" data-edit="multi">（待补充：POC 包含了哪些内容？）</p>
+<p data-edit="multi">攻击队友一定要带来正向收益，但不一定要击杀；奖励用元素反应和元素灵魂来表达，让攻击和击杀队友成为取舍，而不是单纯的惩罚。</p>
 <h2 data-edit>决定</h2>
-<p class="todo" data-edit="multi">（待补充：关键的实现决定。）</p>
+<ul class="points" data-edit-list>
+<li data-edit>对队友造成伤害时（包括误伤和爆炸波及），攻击者和被攻击者各获得一次元素反应攻击：灵魂条前端多出一份变色灵魂，下一次攻击必定放出。</li>
+<li data-edit>被队友击杀时，被击杀者身上产生元素反应爆炸，比被敌人击杀时的普通爆炸范围更大、伤害更高，会炸到击杀者和其他队友；击杀者直接获得被击杀者的 4 个特殊元素灵魂。</li>
+<li data-edit>同一个来源（同一发法球和它的爆炸）对同一名队友只触发一次，用 0.5 秒的计时器控制，放在配置里。</li>
+<li data-edit>拆分编程任务时发现普通子弹的爆炸半径约 2 米，贴墙或近身射击几乎每发都会伤到自己，于是把「自伤」做成开关，默认开启，试玩后再定。</li>
+</ul>
 <h2 data-edit>结果</h2>
-<p data-edit="multi">验证了目前的机制效果良好、体验有反馈感，玩家确实会主动攻击队友，并在过程中获得不错的情感体验。</p>
+<p data-edit="multi">结论回写到合作战斗与友军伤害、灵魂资源系统、死亡与复活等页面。爆炸连锁等效果要通过试玩判断。</p>
 </article>
-<nav class="pager" aria-label="上一条和下一条"><a href="log-02.html" data-edit-href><small>上一条</small>Python 数据原型</a><a class="next" href="log-04.html" data-edit-href><small>下一条</small>根据试玩反馈调整</a></nav>
+<nav class="pager" aria-label="上一条和下一条"><a href="log-02.html" data-edit-href><small>上一条</small>灵魂循环的 Python 模拟</a><a class="next" href="log-04.html" data-edit-href><small>下一条</small>可玩 POC</a></nav>
 </div>
 <footer class="page-foot">© 2026 陈韵好</footer>
 <script src="../../assets/edit.js"></script>

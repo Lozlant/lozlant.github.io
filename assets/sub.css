@@ -41,6 +41,39 @@ a:focus-visible{outline:2px solid var(--sun);outline-offset:3px;border-radius:2p
 .loop li b{display:block;font-family:var(--serif);font-weight:600;font-size:17px;margin-bottom:4px}
 .loop-note{margin:14px 0 0;font-size:14px;color:var(--muted)}
 
+/* 实机视频 */
+.demo{margin:0}
+.demo video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#0f1f25}
+.demo figcaption{margin-top:8px;font-size:14px;color:var(--muted)}
+
+.download{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 20px;margin-top:14px;padding:14px 18px;background:var(--foam);border:1px solid var(--chart);border-left:3px solid var(--sun)}
+.download-info{margin:0;font-size:15px;line-height:1.6}
+.download-info b{font-family:var(--serif);font-weight:600;font-size:17px;margin-right:12px}
+.download-btn{flex:none;display:inline-block;padding:7px 16px;border:1px solid var(--tide);border-radius:999px;background:var(--tide);color:var(--foam);font-size:14px;text-decoration:none}
+.download-btn:hover{background:var(--ink)}
+
+/* 循环与流程 */
+.play-points{margin-bottom:22px}
+.flows{display:grid;gap:16px}
+.flow-box{background:var(--foam);border:1px solid var(--chart);padding:16px 18px}
+.flow-box h3{font-family:var(--serif);font-weight:600;font-size:17px;margin:0 0 10px}
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px 0;margin:0;padding:0;list-style:none;counter-reset:none}
+.flow li{position:relative;display:flex;align-items:center;padding:6px 14px;background:var(--mist);border:1px solid var(--chart);border-radius:999px;font-size:15px;line-height:1.5;margin-right:28px}
+.flow li:not(:last-child)::after{content:"";position:absolute;right:-24px;top:50%;width:18px;border-top:1.5px solid var(--sun)}
+.flow li:not(:last-child)::before{content:"";position:absolute;right:-25px;top:50%;margin-top:-4px;border:4px solid transparent;border-left:6px solid var(--sun);border-right:0}
+.flow li:last-child{margin-right:0;background:var(--tide);color:var(--foam);border-color:var(--tide)}
+.flow-steps{margin-bottom:18px}
+.flow-steps li{flex-direction:column;align-items:flex-start;border-radius:0;padding:10px 14px;max-width:15em;background:var(--foam)}
+.flow-steps li b{font-family:var(--serif);font-weight:600;font-size:16px}
+.flow-steps li:last-child{background:var(--foam);color:var(--ink);border-color:var(--tide)}
+
+/* 系统卡片 */
+.sys-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.sys-grid li{background:var(--foam);border:1px solid var(--chart);border-top:2px solid var(--tide);padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.sys-grid b{font-family:var(--serif);font-weight:600;font-size:17px}
+.sys-grid span{font-size:15px;line-height:1.65}
+.sys-grid small{font-size:13px;line-height:1.6;color:var(--muted);border-top:1px dashed var(--chart);padding-top:6px;margin-top:auto}
+
 /* 竖向时间线 */
 .timeline{list-style:none;margin:0;padding:0 0 0 30px;position:relative}
 .timeline::before{content:"";position:absolute;left:8px;top:10px;bottom:10px;border-left:1px solid var(--sun)}

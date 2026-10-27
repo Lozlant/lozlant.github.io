@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Python 数据原型｜Project Lich｜陈韵好</title>
+<title>灵魂循环的 Python 模拟｜Project Lich｜陈韵好</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -14,21 +14,26 @@
 <div class="wrap">
 <nav class="crumbs" aria-label="位置"><a href="../../index.html">首页</a><span>/</span><a href="index.html">Project Lich</a><span>/</span>设计日志</nav>
 <header class="page-head">
-  <p class="kicker" data-edit>记录 02　2026</p>
-  <h1 data-edit>Python 数据原型</h1>
-  <p class="tagline" data-edit>验证灵魂资源会如何在系统里循环。</p>
+  <p class="kicker" data-edit>记录 02　2026.10.05 – 10.07</p>
+  <h1 data-edit>灵魂循环的 Python 模拟</h1>
+  <p class="tagline" data-edit>用蒙特卡罗模拟验证灵魂能否在战斗中正常循环，并据此定下小怪的掉落量。</p>
 </header>
 <article class="entry block">
 <h2 data-edit>问题</h2>
-<p data-edit="multi">灵魂作为施法资源，会如何在系统里循环？</p>
+<p data-edit="multi">灵魂是施法的唯一资源，而且不会自动恢复。玩家应该有多少伤害、敌人掉落多少灵魂、攻击消耗多少灵魂，才能让灵魂在战斗中循环起来，不至于全队耗尽、谁都打不动？</p>
 <h2 data-edit>思考</h2>
-<p data-edit="multi">用 Python 制作数据原型，并借助 AI 协助编写。</p><p class="todo" data-edit="multi">（待补充：数据原型模拟了哪些变量？）</p>
+<p data-edit="multi">先通过多轮问答把灵魂资源系统的规则写成具体条款，再据此建模。第一版模型：3 名玩家、只有小怪、一次战斗固定 3 波，1 步 = 0.5 秒；用 Python 蒙特卡罗模拟，每组设置跑 400 到 2000 局取平均。</p><p data-edit="multi">模型和设计规则不一致的地方（比如用「补刀代理」代替玩家手动攻击队友、拾取时停下 3 秒），都整理成一张 12 项的差异表，避免把模型假设误当成设计结论。</p>
 <h2 data-edit>决定</h2>
-<p class="todo" data-edit="multi">（待补充：根据数据原型调整了什么？）</p>
+<ul class="points" data-edit-list>
+<li data-edit>小怪掉 3 个灵魂球时，94.6% 的战斗因灵魂耗尽而卡死；掉 4 个是临界点（卡死率 0.3%，一场战斗全队灵魂净少约 4 份）；掉 5 个开始净增（约 +11.8 份），卡死率 0%。</li>
+<li data-edit>只靠误伤，每波平均只死 0.03 到 0.21 次，远低于「每波 2 到 3 次」的目标；只提高敌人伤害，死亡会变成主要由敌人造成。模型里加入「队友只剩最后一格血时其他队友主动出手」，才同时满足死亡次数和「以队友击杀为主」两个目标。</li>
+<li data-edit>拾取优先权（负反馈）只让玩家之间的灵魂差距缩小 2.6%，作用很小。</li>
+<li data-edit>地上灵魂球的消失方式影响很大：近似做法卡死率 23%，精确的「硬 5 秒」只有 0.3%，所以建模和 Unity 实现都改用「硬 5 秒」。</li>
+</ul>
 <h2 data-edit>结果</h2>
-<p class="todo" data-edit="multi">（待补充：可以补一张资源循环图或数据曲线。）</p>
+<p data-edit="multi">模拟结果页的决定是把小怪掉落定为 5 个；灵魂耗尽时的保底机制和负反馈暂不决定，等 Unity 实测后再定。下一步是在 Unity 里记录实测数据，和模拟值对照。</p><p class="todo" data-edit="multi">（待补充：可以补模拟的图表截图。）</p>
 </article>
-<nav class="pager" aria-label="上一条和下一条"><a href="log-01.html" data-edit-href><small>上一条</small>纸面原型</a><a class="next" href="log-03.html" data-edit-href><small>下一条</small>可玩 POC</a></nav>
+<nav class="pager" aria-label="上一条和下一条"><a href="log-01.html" data-edit-href><small>上一条</small>纸面原型</a><a class="next" href="log-03.html" data-edit-href><small>下一条</small>攻击队友的奖励</a></nav>
 </div>
 <footer class="page-foot">© 2026 陈韵好</footer>
 <script src="../../assets/edit.js"></script>
