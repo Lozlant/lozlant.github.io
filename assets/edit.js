@@ -64,8 +64,8 @@
       var wrap = document.createElement('div'); wrap.className = 'ed-ui ed-tools ed-href-wrap';
       wrap.appendChild(document.createTextNode('链接到：'));
       var input = document.createElement('input'); input.className = 'ed-href';
-      input.value = a.getAttribute('href') || '';
-      input.addEventListener('input', function(){ a.setAttribute('href', input.value.trim()); dirty = true; });
+      input.value = a.getAttribute('href') || a.getAttribute('data-off-href') || '';
+      input.addEventListener('input', function(){ a.setAttribute(a.hasAttribute('href') ? 'href' : 'data-off-href', input.value.trim()); dirty = true; });
       wrap.appendChild(input);
       a.after(wrap);
     });
@@ -87,6 +87,16 @@
       block.after(c); makeEditable(c); setupBlock(c); dirty = true;
       var first = c.querySelector('[data-edit]'); if (first) selectAll(first);
     }));
+    var card = block.querySelector('a.log-card');
+    if (card) {
+      var lt = btn('', '', function(){
+        if (card.hasAttribute('href')) { card.setAttribute('data-off-href', card.getAttribute('href')); card.removeAttribute('href'); }
+        else { card.setAttribute('href', card.getAttribute('data-off-href') || ''); card.removeAttribute('data-off-href'); }
+        lab(); dirty = true;
+      });
+      function lab(){ var off = !card.hasAttribute('href'); lt.textContent = off ? '链接：已隐藏（点击公开）' : '链接：公开中（点击隐藏）'; lt.classList.toggle('danger', off); }
+      lab(); tools.appendChild(lt);
+    }
     tools.appendChild(btn('删除', 'danger', function(){
       if (confirm('删除这一块？保存前都可以退出编辑来撤销。')) { block.remove(); dirty = true; }
     }));

@@ -113,3 +113,10 @@ a.log-card:hover{border-color:var(--tide)}
 body[data-page-hidden]:not(.local) > *{display:none !important}
 body[data-page-hidden]:not(.local)::before{content:"这个页面还在整理中，请先回到首页查看其他内容。";display:block;max-width:820px;margin:120px auto;padding:0 24px;font-family:var(--serif);font-size:22px;line-height:1.7;color:var(--ink)}
 body.local[data-page-hidden]::before{content:"本页未公开：线上访客看不到这里的内容。";display:block;padding:8px 16px;background:#A4473B;color:#fff;font-size:14px;text-align:center}
+
+/* 时间线上暂不开放的记录：没有链接，不显示「阅读这条记录」 */
+a.log-card:not([href]){cursor:default}
+a.log-card:not([href]):hover{border-color:var(--chart)}
+body:not(.local) a.log-card:not([href]) .read{display:none}
+body.local a.log-card:not([href]){outline:1px dashed #A4473B;outline-offset:3px}
+body.local a.log-card:not([href]) .read{opacity:.4;text-decoration:line-through}

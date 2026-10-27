@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/sub.css">
 </head>
-<body data-page-hidden>
+<body>
 <div class="wrap">
 <nav class="crumbs" aria-label="位置"><a href="../../index.html">首页</a><span>/</span>项目</nav>
 <header class="page-head">
@@ -52,13 +52,14 @@
 </section>
 
 <section class="block" aria-labelledby="s-goal">
-  <h2 class="section-title" id="s-goal">核心体验</h2>
+  <h2 class="section-title" id="s-goal">设计挑战</h2>
+  <div class="prose">
+    <p data-edit="multi">如何让玩家在合作战斗中主动选择互相攻击，并享受背刺、合作、策略与混乱的乐趣？</p>
+  </div>
   <ul class="points" data-edit-list>
-<li data-edit><b>混乱中的算计</b>：表面是一团混战，但每次出手都是有得有失的决定。</li>
-<li data-edit><b>队友是资源，也是代价</b>：攻击队友能得到增益、灵魂和元素；被攻击的队友可以反击，失去队友也会削弱队伍。</li>
-<li data-edit><b>死后的争夺</b>：阵亡后的头颅阶段，仍然有合作与竞争的选择。</li>
-<li data-edit><b>派对的愉快感</b>：比起通关技巧和来自朋友的压力，更强调派对般的愉快。</li>
-<li data-edit><b>降低通关压力</b>：让不同水平的玩家都能为队伍做贡献。</li>
+<li data-edit><b>一切以笑声收场</b>：无论是战斗、互相攻击还是死亡，带来的都是欢乐，而不是互相埋怨。</li>
+<li data-edit><b>无负担，有回报</b>：攻击队友不伤感情，还能为自己和全队带来好处。</li>
+<li data-edit><b>人人都有用武之地</b>：不同水平的玩家，都能找到自己帮助队伍的方式。</li>
 </ul>
 </section>
 
@@ -82,57 +83,37 @@
 <section class="block" aria-labelledby="s-system">
   <h2 class="section-title" id="s-system">系统一览</h2>
   <ul class="sys-grid">
-    <li data-edit-block><b data-edit>灵魂资源系统</b><span data-edit>灵魂是施法资源：怎么获得、持有、拾取与争夺。</span><small data-edit>基础规则已确定，数值暂定，正在用 Machinations 和 Python 模拟验证</small></li>
-    <li data-edit-block><b data-edit>合作战斗与友军伤害</b><span data-edit>核心玩法：攻击队友是有得有失的策略。</span><small data-edit>核心规则已确定，友军伤害数值暂定</small></li>
-    <li data-edit-block><b data-edit>攻击队友的奖励</b><span data-edit>对队友造成伤害时，双方各获得一次元素反应攻击；击杀队友引发元素反应爆炸。</span><small data-edit>规则已确定，爆炸连锁等效果待试玩</small></li>
-    <li data-edit-block><b data-edit>死亡与复活</b><span data-edit>死亡不是出局：变成头颅，仍可争夺灵魂，复活后回到战斗。</span><small data-edit>规则基本确定，已有 Unity 简易实现</small></li>
-    <li data-edit-block><b data-edit>元素</b><span data-edit>每位玩家有一种独有元素。</span><small data-edit>规则框架已确定，元素反应待探索</small></li>
-    <li data-edit-block><b data-edit>战斗波次</b><span data-edit>一次战斗由 2 到 3 波敌人组成：刷出、定时与提前清空、战斗结束。</span><small data-edit>基础规则已确定，间隔暂定</small></li>
-    <li data-edit-block><b data-edit>敌人 AI</b><span data-edit>PoC 只有一种发射法球的敌人。</span><small data-edit>敌人类型已定，行为待设计</small></li>
+    <li data-edit-block><b data-edit>灵魂资源系统</b><span data-edit>灵魂是施法资源：怎么获得、持有、拾取与争夺。</span></li>
+    <li data-edit-block><b data-edit>合作战斗与友军伤害</b><span data-edit>核心玩法：攻击队友是有得有失的策略。</span></li>
+    <li data-edit-block><b data-edit>攻击队友的奖励</b><span data-edit>对队友造成伤害时，双方各获得一次元素反应攻击；击杀队友引发元素反应爆炸。</span></li>
+    <li data-edit-block><b data-edit>死亡与复活</b><span data-edit>死亡不是出局：变成头颅，仍可争夺灵魂，复活后回到战斗。</span></li>
+    <li data-edit-block><b data-edit>元素</b><span data-edit>每位玩家有一种独有元素。</span></li>
+    <li data-edit-block><b data-edit>战斗波次</b><span data-edit>一次战斗由 2 到 3 波敌人组成：刷出、定时与提前清空、战斗结束。</span></li>
+    <li data-edit-block><b data-edit>敌人 AI</b><span data-edit>PoC 只有一种发射法球的敌人。</span></li>
   </ul>
-  <p class="loop-note" data-edit>每个系统的设计文档都按「确定、待探索、未定、暂缓」分类，标明哪些可以直接实现、哪些要靠原型验证。</p>
-</section>
-
-<section class="block" aria-labelledby="s-data">
-  <h2 class="section-title" id="s-data">数值与验证</h2>
-  <ol class="flow flow-steps" data-edit-list>
-    <li data-edit><b>资源总表</b>各项资源的上限、来源、消耗，作为数值的唯一来源</li>
-    <li data-edit><b>Python 蒙特卡罗模拟</b>每组设置跑 400 到 2000 局，验证灵魂能否循环</li>
-    <li data-edit><b>Unity 数据监听</b>记录实测数据，和模拟值逐项对照</li>
-  </ol>
-  <div class="prose">
-    <p data-edit="multi">第一版模拟的几个结论：</p>
-  </div>
-  <ul class="points" data-edit-list>
-<li data-edit>小怪掉 3 个灵魂球时 94.6% 的战斗卡死，掉 4 个是临界点，掉 5 个开始净增。</li>
-<li data-edit>只靠误伤，每波死亡次数远低于目标；需要玩家主动攻击残血队友，才能让死亡「以队友击杀为主」。</li>
-<li data-edit>拾取优先权（负反馈）只让灵魂差距缩小 2.6%，作用很小，等实测后再决定是否加强。</li>
-</ul>
-</section>
-
-<section class="block" aria-labelledby="s-risk">
-  <h2 class="section-title" id="s-risk">风险与应对</h2>
-  <ul class="points" data-edit-list>
-<li data-edit><b>玩家对背刺的情绪反应</b>：玩家可能不敢攻击队友，也可能陷入内战、反复被击杀而不满。应对：正在设计，目前用「攻击队友的奖励」鼓励玩家下手。</li>
-<li data-edit><b>战斗系统能否体现核心玩法</b>：攻击队友是否有意义，元素与灵魂能否形成真实取舍，敌人与关卡能否制造合适的压力。应对：测试中，用 Python 模拟和 Unity 实测对照验证。</li>
-<li data-edit><b>美术范围</b>：两种关卡主题需要的美术资源较多。应对：先做黑魔法景区的部分，再视情况决定是否制作教廷。</li>
-</ul>
 </section>
 
 <section class="block" aria-labelledby="s-log">
   <h2 class="section-title" id="s-log">设计日志</h2>
-  <p class="timeline-note" data-edit>点开每条记录，查看当时的问题、思考和决定。</p>
   <ol class="timeline">
   <li class="log-node" data-edit-block>
-    <a class="log-card" href="log-01.html" data-edit-href>
-      <span class="date" data-edit>2026（日期待补充）</span>
+    <a class="log-card" data-off-href="log-00.html" data-edit-href>
+      <span class="date" data-edit>2026.4</span>
+      <h3 data-edit>项目建立与概念探索</h3>
+      <p data-edit></p>
+      <span class="read">阅读这条记录</span>
+    </a>
+  </li>
+  <li class="log-node" data-edit-block>
+    <a class="log-card" data-off-href="log-01.html" data-edit-href>
+      <span class="date" data-edit>2026.9</span>
       <h3 data-edit>纸面原型</h3>
       <p data-edit>验证玩家会不会攻击队友，会选择什么样的方式战斗。</p>
       <span class="read">阅读这条记录</span>
     </a>
   </li>
   <li class="log-node" data-edit-block>
-    <a class="log-card" href="log-02.html" data-edit-href>
+    <a class="log-card" data-off-href="log-02.html" data-edit-href>
       <span class="date" data-edit>2026.10.05 – 10.07</span>
       <h3 data-edit>灵魂循环的 Python 模拟</h3>
       <p data-edit>用蒙特卡罗模拟验证灵魂能否在战斗中正常循环，并据此定下小怪的掉落量。</p>
@@ -140,7 +121,7 @@
     </a>
   </li>
   <li class="log-node" data-edit-block>
-    <a class="log-card" href="log-03.html" data-edit-href>
+    <a class="log-card" data-off-href="log-03.html" data-edit-href>
       <span class="date" data-edit>2026.10.18 – 10.20</span>
       <h3 data-edit>攻击队友的奖励</h3>
       <p data-edit>用元素反应和元素灵魂奖励攻击队友，让每次出手都是有得有失的取舍。</p>
@@ -148,18 +129,10 @@
     </a>
   </li>
   <li class="log-node" data-edit-block>
-    <a class="log-card" href="log-04.html" data-edit-href>
+    <a class="log-card" data-off-href="log-04.html" data-edit-href>
       <span class="date" data-edit>2026.10</span>
       <h3 data-edit>可玩 POC</h3>
       <p data-edit>验证机制效果和反馈手感，以及玩家是否会主动攻击队友。</p>
-      <span class="read">阅读这条记录</span>
-    </a>
-  </li>
-  <li class="log-node" data-edit-block>
-    <a class="log-card" href="log-05.html" data-edit-href>
-      <span class="date" data-edit>2026.10</span>
-      <h3 data-edit>根据试玩反馈调整</h3>
-      <p data-edit>组员试玩 POC 后，调整了子弹攻击速度、辅助瞄准手感和部分视觉表现。</p>
       <span class="read">阅读这条记录</span>
     </a>
   </li>
