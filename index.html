@@ -93,6 +93,7 @@
   .skills li.core{background:var(--tide);color:var(--foam)}
   .case-link{align-self:flex-start;justify-self:start;display:inline-block;margin-top:18px;padding:7px 22px;border:1px solid var(--tide);border-radius:999px;font-size:15px;font-weight:500;text-decoration:none;color:var(--foam);background:var(--tide);transition:background .2s}
   .case-link::after{content:" →"}
+  .case-link.ext-link::after{content:" ↗"}
   .case-link:hover{background:var(--ink);border-color:var(--ink)}
   /* 图片悬停提示：只在「查看项目」公开的卡片上生效 */
   .media-link{position:relative;cursor:pointer}
@@ -288,7 +289,7 @@
     <p class="meta">游戏策划、程序｜4 人课程项目</p>
     <p class="tagline">在接送乘客的路上，认识一座海上城市。</p>
     <ul class="skills" aria-label="体现的能力"><li class="core">根据反馈迭代</li><li>玩法设计</li><li>程序实现</li></ul>
-    <a class="case-link" href="projects/sea-u/index.html" data-hidden>查看项目</a>
+    <a class="case-link" href="projects/sea-u/index.html">查看项目</a>
     <details><summary>展开要点</summary><div class="more"><ul>
       <li>主题「转变」：通过叙事和城市游览，引导玩家关注海平面上升。</li>
       <li>根据反馈，把体量过大的城市建造概念收缩为叙事和游览方案。</li>
@@ -305,7 +306,7 @@
     <p class="meta">主策划、叙事设计、程序｜3 人叙事课程项目</p>
     <p class="tagline">孤岛将沉，王后要在爱与牺牲之间做出选择。</p>
     <ul class="skills" aria-label="体现的能力"><li class="core">叙事设计</li><li>项目规划</li><li>程序实现</li></ul>
-    <a class="case-link" href="projects/tidebound/index.html" data-hidden>查看项目</a>
+    <a class="case-link" href="projects/tidebound/index.html">查看项目</a>
     <details><summary>展开要点</summary><div class="more"><ul>
       <li>撰写项目提案并分工，搭建世界观，撰写主线剧情。</li>
       <li>参考《凯瑟琳》设计方块世界解谜玩法方案。</li>
@@ -335,7 +336,7 @@
           <p class="meta">游戏程序｜机核 BOOOMx 开拓芯游戏创作挑战，最受欢迎 Top7</p>
           <p class="mini-line">协助策划设计技能释放规则和敌人 AI 行为逻辑，用状态机实现战斗循环；在 Unity 中实现敌人、兵种和防御塔。</p>
           <ul class="skills" aria-label="体现的能力"><li class="core">程序实现</li><li>战斗逻辑</li><li>敌人 AI</li></ul>
-          <a class="case-link" href="projects/niumiemie/index.html" data-hidden>查看项目</a>
+          <a class="case-link ext-link" href="https://www.gcores.com/games/126256" target="_blank" rel="noopener">前往机核下载</a>
         </div>
       </article>
       <article class="mini">
@@ -402,7 +403,7 @@
     document.querySelectorAll('video[autoplay]').forEach(function(v){ v.removeAttribute('autoplay'); v.pause(); v.controls = true; });
   }
   document.querySelectorAll('.case-link').forEach(function(a){
-    if (a.hasAttribute('data-hidden')) return;
+    if (a.hasAttribute('data-hidden') || a.classList.contains('ext-link')) return;
     var card = a.closest('.project, .mini');
     var fig = card && card.querySelector('.card-media');
     if (!fig) return;

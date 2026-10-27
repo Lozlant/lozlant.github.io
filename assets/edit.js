@@ -121,6 +121,21 @@
     document.body.classList.add('editing');
     makeEditable(document);
     qsa('[data-edit-block]').forEach(setupBlock);
+    function hideToggle(el, what, place){
+      var b = btn('', '', function(){
+        if (el.hasAttribute('data-hidden')) el.removeAttribute('data-hidden'); else el.setAttribute('data-hidden', '');
+        lab(); dirty = true;
+      });
+      function lab(){ var h = el.hasAttribute('data-hidden'); b.textContent = h ? what + '：已隐藏（点击公开）' : what + '：公开中（点击隐藏）'; b.classList.toggle('danger', h); }
+      lab(); b.style.margin = '0 0 12px'; place(b);
+    }
+    qsa('section.block').forEach(function(sec){
+      var t = sec.querySelector('.section-title');
+      hideToggle(sec, '本节', function(b){ if (t) t.after(b); else sec.prepend(b); });
+    });
+    qsa('[data-hide-toggle]').forEach(function(el){
+      hideToggle(el, '这一块', function(b){ b.style.margin = '8px 0 0'; el.after(b); });
+    });
 
     document.addEventListener('click', function(e){
       var a = e.target.closest('a');

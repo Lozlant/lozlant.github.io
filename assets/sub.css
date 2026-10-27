@@ -110,6 +110,10 @@ a.log-card:hover{border-color:var(--tide)}
 }
 
 /* 「不公开」的页面：线上访客只看到一句提示 */
+/* 页面中的某一块隐藏（data-hidden）：访客看不到，本地显示为半透明红框 */
+body:not(.local) [data-hidden]{display:none !important}
+body.local [data-hidden]{opacity:.5;outline:1px dashed #A4473B;outline-offset:6px}
+.demo img{display:block;width:100%;height:auto}
 body[data-page-hidden]:not(.local) > *{display:none !important}
 body[data-page-hidden]:not(.local)::before{content:"这个页面还在整理中，请先回到首页查看其他内容。";display:block;max-width:820px;margin:120px auto;padding:0 24px;font-family:var(--serif);font-size:22px;line-height:1.7;color:var(--ink)}
 body.local[data-page-hidden]::before{content:"本页未公开：线上访客看不到这里的内容。";display:block;padding:8px 16px;background:#A4473B;color:#fff;font-size:14px;text-align:center}
