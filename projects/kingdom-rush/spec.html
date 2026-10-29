@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>功能规格文档 · 王国保卫战5 进程重设计｜陈韵好</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/sub.css">
+</head>
+<body>
+<div class="wrap">
+<nav class="crumbs" aria-label="位置"><a href="../../index.html">首页</a><span>/</span><a href="index.html">王国保卫战5 进程重设计</a><span>/</span>功能规格文档</nav>
+<header class="page-head">
+  <p class="kicker" data-edit>王国保卫战5 进程重设计 · 设计文档</p>
+  <h1 data-edit>功能规格文档</h1>
+  <dl class="facts">
+    <div><dt>团队成员</dt><dd data-edit>Yunhao Chen、Hizo Chen、Fan Yin、Elizabeth</dd></div>
+    <div><dt>时间</dt><dd data-edit>2024.12</dd></div>
+    <div><dt>说明</dt><dd data-edit>译自英文原版；角色、敌人名称保留英文</dd></div>
+  </dl>
+  <nav class="doc-toc" aria-label="目录"><a href="#d1">1. 背景</a><a href="#d2">2. 设计目标</a><a href="#d3">3. 系统与机制</a><a href="#dx">附录：关卡配置表</a></nav>
+</header>
+
+<section class="block doc" aria-labelledby="d1">
+<h2 class="section-title" id="d1" data-edit>1. 《王国保卫战5》背景</h2>
+<div class="table-scroll"><table class="data-table"><tr><th data-edit>项目</th><th data-edit>内容</th></tr><tr><td data-edit="multi">游戏名称</td><td data-edit="multi">Kingdom Rush 5: Alliance（王国保卫战5：联盟）</td></tr><tr><td data-edit="multi">游戏类型</td><td data-edit="multi">塔防</td></tr><tr><td data-edit="multi">发售日期</td><td data-edit="multi">2024 年 7 月 15 日</td></tr><tr><td data-edit="multi">开发商</td><td data-edit="multi">Ironhide Game Studio</td></tr></table></div>
+<h3 data-edit>1.1 介绍</h3>
+<p data-edit="multi">《王国保卫战5》是一款经典塔防游戏。玩家在道路沿线的指定位置放置防御塔，消灭按预定间隔出现的一波波敌人。目标是在敌人到达道路终点（核心）之前击败所有敌人。所有波次结束后，如果到达核心的敌人少于一定数量，玩家获胜。</p>
+<div class="doc-figs"><figure class=""><div class="fig-imgs"><img width="364" height="261" src="../../assets/media/kr-spec/f01.jpg" alt="放置防御塔" loading="lazy"></div><figcaption data-edit>放置防御塔</figcaption></figure><figure class=""><div class="fig-imgs"><img width="622" height="303" src="../../assets/media/kr-spec/f02.jpg" alt="击败敌人" loading="lazy"></div><figcaption data-edit>击败敌人</figcaption></figure><figure class=""><div class="fig-imgs"><img width="466" height="350" src="../../assets/media/kr-spec/f03.jpg" alt="敌人到达核心" loading="lazy"></div><figcaption data-edit>敌人到达核心</figcaption></figure><figure class=""><div class="fig-imgs"><img width="422" height="345" src="../../assets/media/kr-spec/f04.jpg" alt="敌人通过核心，扣除生命值" loading="lazy"></div><figcaption data-edit>敌人通过核心，扣除生命值</figcaption></figure><figure class=""><div class="fig-imgs"><img width="592" height="333" src="../../assets/media/kr-spec/f05.jpg" alt="生命值耗尽，游戏失败" loading="lazy"></div><figcaption data-edit>生命值耗尽，游戏失败</figcaption></figure><figure class=""><div class="fig-imgs"><img width="656" height="369" src="../../assets/media/kr-spec/f06.jpg" alt="击败所有敌人后获胜" loading="lazy"></div><figcaption data-edit>击败所有敌人后获胜</figcaption></figure></div>
+<p data-edit="multi">通关后，根据核心的剩余生命值为玩家评分。</p>
+<h3 data-edit>1.2 英雄系统</h3>
+<p data-edit="multi">《王国保卫战5》中有在道路上与敌人交战的单位，它们由防御塔或技能生成。</p>
+<div class="doc-figs"><figure class=""><div class="fig-imgs"><img width="680" height="495" src="../../assets/media/kr-spec/f07.jpg" alt="兵营单位（与敌人交战）" loading="lazy"></div><figcaption data-edit>兵营单位（与敌人交战）</figcaption></figure><figure class=""><div class="fig-imgs"><img width="696" height="498" src="../../assets/media/kr-spec/f08.jpg" alt="援军单位（与敌人交战）" loading="lazy"></div><figcaption data-edit>援军单位（与敌人交战）</figcaption></figure></div>
+<p data-edit="multi">英雄是独特的、可操控的单位，战斗能力更强。</p>
+<div class="doc-figs"><figure class=""><div class="fig-imgs"><img width="681" height="397" src="../../assets/media/kr-spec/f09.jpg" alt="英雄单位（与敌人交战）" loading="lazy"></div><figcaption data-edit>英雄单位（与敌人交战）</figcaption></figure><figure class="multi"><div class="fig-imgs"><img width="325" height="254" src="../../assets/media/kr-spec/f10a.jpg" alt="使用英雄技能" loading="lazy"><img width="118" height="127" src="../../assets/media/kr-spec/f10b.jpg" alt="使用英雄技能" loading="lazy"><img width="120" height="127" src="../../assets/media/kr-spec/f10c.jpg" alt="使用英雄技能" loading="lazy"></div><figcaption data-edit>使用英雄技能</figcaption></figure></div>
+<p data-edit="multi">随着关卡推进，会解锁新的防御塔和英雄。英雄通过击败敌人获得经验，当前等级的经验满后升级，变得更强。英雄最高可升到 10 级。</p>
+<p data-edit="multi">在英雄界面中，玩家选择英雄头像即可查看该英雄的详细信息。</p>
+<div class="doc-figs"><figure class=""><div class="fig-imgs"><img width="681" height="303" src="../../assets/media/kr-spec/f11.jpg" alt="英雄信息界面" loading="lazy"></div><figcaption data-edit>英雄信息界面</figcaption></figure><figure class="multi"><div class="fig-imgs"><img width="183" height="261" src="../../assets/media/kr-spec/f12a.jpg" alt="不同英雄的等级信息" loading="lazy"><img width="186" height="253" src="../../assets/media/kr-spec/f12b.jpg" alt="不同英雄的等级信息" loading="lazy"></div><figcaption data-edit>不同英雄的等级信息</figcaption></figure></div>
+<p data-edit="multi">英雄升级时获得技能点，可用于升级技能。技能升级可以撤回，玩家可以重置并重新分配技能点。</p>
+<div class="doc-figs"><figure class=""><div class="fig-imgs"><img width="474" height="348" src="../../assets/media/kr-spec/f13.jpg" alt="使用技能点升级技能" loading="lazy"></div><figcaption data-edit>使用技能点升级技能</figcaption></figure><figure class=""><div class="fig-imgs"><img width="680" height="144" src="../../assets/media/kr-spec/f14.jpg" alt="技能点" loading="lazy"></div><figcaption data-edit>技能点</figcaption></figure></div>
+<h3 data-edit>1.3 关卡系统</h3>
+<p data-edit="multi">玩家可以在主菜单中选择主线关卡，并进入英雄、防御塔和升级的信息界面。通关一个关卡后解锁下一个关卡。</p>
+<div class="doc-figs"><figure class=""><div class="fig-imgs"><img width="680" height="383" src="../../assets/media/kr-spec/f15.jpg" alt="主菜单" loading="lazy"></div><figcaption data-edit>主菜单</figcaption></figure><figure class=""><div class="fig-imgs"><img width="475" height="294" src="../../assets/media/kr-spec/f16.jpg" alt="关卡解锁" loading="lazy"></div><figcaption data-edit>关卡解锁</figcaption></figure></div>
+<h3 data-edit>1.4 装备</h3>
+<h4 data-edit>1.4.1 英雄装备</h4>
+<p data-edit="multi">英雄界面中有 2 个英雄装备栏，装备的英雄会在战斗中出场。</p>
+<p data-edit="multi">更换出战英雄时，玩家点击想要的英雄头像，按下装备按钮，再选择要替换的栏位。</p>
+<h4 data-edit>1.4.2 防御塔装备</h4>
+<p data-edit="multi">防御塔界面中有防御塔装备栏，装备的防御塔会在战斗中使用（最多 5 座）。</p>
+<p data-edit="multi">更换防御塔的流程与英雄相同。</p>
+<div class="doc-figs"><figure class=""><div class="fig-imgs"><img width="618" height="170" src="../../assets/media/kr-spec/f17.jpg" alt="英雄装备栏" loading="lazy"></div><figcaption data-edit>英雄装备栏</figcaption></figure><figure class=""><div class="fig-imgs"><img width="618" height="485" src="../../assets/media/kr-spec/f18.jpg" alt="防御塔装备栏" loading="lazy"></div><figcaption data-edit>防御塔装备栏</figcaption></figure></div>
+<h3 data-edit>1.5 游戏故事</h3>
+<p data-edit="multi">在关卡开始或结束时，游戏以漫画形式讲述故事。</p>
+<p data-edit="multi">主线剧情：《王国保卫战：复仇》之后，Linirea 落入 Vez’nan 的统治，南方森林中的叛乱正在酝酿。王国面临来自异次元生物「军阀（Warlords）」的威胁。为对抗这一威胁，Vez’nan 的黑暗军队与 Linirea 的叛军结成了不稳固的联盟。Linirea 的英雄们，包括精灵、兽人和黑暗骑士，联合起来保卫他们的世界。</p>
+<div class="doc-figs"><figure class=""><div class="fig-imgs"><img width="554" height="308" src="../../assets/media/kr-spec/f19.jpg" alt="漫画形式的游戏故事" loading="lazy"></div><figcaption data-edit>漫画形式的游戏故事</figcaption></figure></div>
+</section>
+<section class="block doc" aria-labelledby="d2">
+<h2 class="section-title" id="d2" data-edit>2. 设计目标</h2>
+<p data-edit="multi">每个英雄都会有对应的专属支线关卡，满足不同类型的玩家画像：</p>
+<div class="table-scroll"><table class="data-table"><tr><th data-edit>「指挥官」</th><th data-edit>「英雄」</th></tr><tr><td data-edit="multi">喜欢策略规划和精确执行。</td><td data-edit="multi">对角色升级和成长感兴趣。</td></tr><tr><td data-edit="multi">《王国保卫战》及同类策略游戏的典型玩家。</td><td data-edit="multi">重视角色故事和背景设定。</td></tr><tr><td data-edit="multi">反馈中经常提到需要更多关卡来提升体验深度。</td><td data-edit="multi">策略能力可能有限。</td></tr></table></div>
+<p data-edit="multi">目标：</p>
+<ol class="points" data-edit-list><li data-edit>让玩家与游戏单位有更深入的互动。</li><li data-edit>为不擅长策略的玩家提供更容易上手的引导和奖励机制。</li><li data-edit>增加多样的挑战，给「指挥官」型玩家更多玩法选择。</li><li data-edit>在故事中强化英雄的个性，加强「英雄」型玩家的情感连接。</li></ol>
+</section>
+<section class="block doc" aria-labelledby="d3">
+<h2 class="section-title" id="d3" data-edit>3. 系统与机制</h2>
+<h3 data-edit>3.1 支线关卡的选择</h3>
+<h4 data-edit>3.1.1 如何选择支线关卡</h4>
+<p data-edit="multi">打开角色界面即可进入支线关卡。</p>
+<div class="doc-figs"><figure class=""><div class="fig-imgs"><img width="798" height="452" src="../../assets/media/kr-spec/f20.jpg" alt="加入支线关卡后的英雄信息界面" loading="lazy"></div><figcaption data-edit>加入支线关卡后的英雄信息界面</figcaption></figure></div>
+<p data-edit="multi">每个角色有 1–3 个支线关卡，显示在界面侧边。</p>
+<div class="doc-figs small"><figure class=""><div class="fig-imgs"><img width="177" height="365" src="../../assets/media/kr-spec/f21.jpg" alt="有 3 个支线关卡的英雄的关卡图标" loading="lazy"></div><figcaption data-edit>有 3 个支线关卡的英雄的关卡图标</figcaption></figure><figure class=""><div class="fig-imgs"><img width="152" height="362" src="../../assets/media/kr-spec/f22.jpg" alt="有 2 个支线关卡的英雄的关卡图标" loading="lazy"></div><figcaption data-edit>有 2 个支线关卡的英雄的关卡图标</figcaption></figure><figure class=""><div class="fig-imgs"><img width="140" height="240" src="../../assets/media/kr-spec/f23.jpg" alt="有 1 个支线关卡的英雄的关卡图标" loading="lazy"></div><figcaption data-edit>有 1 个支线关卡的英雄的关卡图标</figcaption></figure></div>
+<p data-edit="multi">如果关卡奖励技能点，关卡图标右上角会显示技能点图标。如果两个英雄共享一个支线关卡，关卡图标上会显示另一位英雄的头像。</p>
+<div class="doc-figs small"><figure class=""><div class="fig-imgs"><img width="178" height="183" src="../../assets/media/kr-spec/f24.jpg" alt="技能点图标" loading="lazy"></div><figcaption data-edit>技能点图标</figcaption></figure><figure class=""><div class="fig-imgs"><img width="203" height="152" src="../../assets/media/kr-spec/f25.jpg" alt="关联英雄头像" loading="lazy"></div><figcaption data-edit>关联英雄头像</figcaption></figure></div>
+<p data-edit="multi">玩家点击支线关卡后，会进入该支线关卡的基本信息界面。</p>
+<h4 data-edit>3.1.2 关卡解锁</h4>
+<p data-edit="multi">已解锁和未解锁的关卡以不同形式显示。</p>
+<div class="doc-figs small"><figure class=""><div class="fig-imgs"><img width="178" height="183" src="../../assets/media/kr-spec/f26.jpg" alt="已解锁的关卡" loading="lazy"></div><figcaption data-edit>已解锁的关卡</figcaption></figure><figure class=""><div class="fig-imgs"><img width="176" height="170" src="../../assets/media/kr-spec/f27.jpg" alt="未解锁的关卡" loading="lazy"></div><figcaption data-edit>未解锁的关卡</figcaption></figure></div>
+<p data-edit="multi">鼠标悬停在关卡上时，会显示解锁条件。</p>
+<div class="doc-figs"><figure class=""><div class="fig-imgs"><img width="401" height="179" src="../../assets/media/kr-spec/f28.jpg" alt="支线关卡的解锁条件" loading="lazy"></div><figcaption data-edit>支线关卡的解锁条件</figcaption></figure></div>
+<h4 data-edit>3.1.3 新手引导</h4>
+<p data-edit="multi">通关主线第 2 关后，主菜单中的英雄图标会高亮，提示玩家打开角色界面。</p>
+<p data-edit="multi">游戏会告知玩家可以解锁 Vesper（第一个解锁的英雄）的第一个支线关卡，并强制玩家打开这个关卡的信息界面。之后玩家可以自由操作。</p>
+<div class="doc-figs"><figure class=""><div class="fig-imgs"><img width="442" height="250" src="../../assets/media/kr-spec/f29.jpg" alt="高亮英雄界面按钮" loading="lazy"></div><figcaption data-edit>高亮英雄界面按钮</figcaption></figure><figure class=""><div class="fig-imgs"><img width="402" height="274" src="../../assets/media/kr-spec/f30.jpg" alt="强制打开 Vesper 的第一个支线关卡" loading="lazy"></div><figcaption data-edit>强制打开 Vesper 的第一个支线关卡</figcaption></figure><figure class=""><div class="fig-imgs"><img width="402" height="264" src="../../assets/media/kr-spec/f31.jpg" alt="强制玩家查看信息界面" loading="lazy"></div><figcaption data-edit>强制玩家查看信息界面</figcaption></figure></div>
+<h3 data-edit>3.2 支线关卡流程</h3>
+<p data-edit="multi">每个支线关卡都有一个教学主题，详见附件 Excel《Branch Levels》的 Sheet 2「Level Content」（<a href="#t2">附录表 2</a>）。下面以 Raelyn 的第一个支线关卡为例，说明支线关卡的设计和玩法。</p>
+<ul class="points" data-edit-list><li data-edit>其他支线关卡的更多细节见 Excel《Branch Levels》的 Sheet 1「Level Unlock」（<a href="#t1">附录表 1</a>）。</li></ul>
+<h4 data-edit>3.2.1 信息界面</h4>
+<p data-edit="multi">选择支线关卡后，玩家进入信息界面，界面中显示故事梗概和教学主题。</p>
+<div class="doc-figs"><figure class=""><div class="fig-imgs"><img width="568" height="360" src="../../assets/media/kr-spec/f32.jpg" alt="Raelyn 第一个支线关卡的信息界面" loading="lazy"></div><figcaption data-edit>Raelyn 第一个支线关卡的信息界面</figcaption></figure></div>
+<p data-edit="multi">点击「Battle!」按钮进入英雄装备检查界面（注意这与主线关卡不同，主线关卡会直接进入游戏）。点击「Next」箭头按钮进入防御塔装备界面。</p>
+<div class="doc-figs"><figure class=""><div class="fig-imgs"><img width="575" height="421" src="../../assets/media/kr-spec/f33.jpg" alt="英雄装备检查界面" loading="lazy"></div><figcaption data-edit>英雄装备检查界面</figcaption></figure><figure class=""><div class="fig-imgs"><img width="555" height="420" src="../../assets/media/kr-spec/f34.jpg" alt="防御塔装备检查界面" loading="lazy"></div><figcaption data-edit>防御塔装备检查界面</figcaption></figure></div>
+<p data-edit="multi">每个支线关卡都有特定的装备要求，要求玩家携带某些英雄或防御塔。如果玩家的装备不满足关卡要求，所需的英雄或防御塔会自动装备到玩家的第一个装备栏。玩家可以自由更换装备，但只有装备满足支线关卡要求时才能开始战斗。装备满足要求时，「Battle!」按钮会亮起，玩家才可以点击。</p>
+<div class="doc-figs"><figure class=""><div class="fig-imgs"><img width="404" height="260" src="../../assets/media/kr-spec/f35.jpg" alt="装备不满足要求" loading="lazy"></div><figcaption data-edit>装备不满足要求</figcaption></figure></div>
+<h4 data-edit>3.2.2 故事片段 1</h4>
+<p data-edit="multi">如果支线关卡的故事需要铺垫剧情或塑造角色，关卡开始时会播放一段漫画。</p>
+<div class="doc-figs"><figure class=""><div class="fig-imgs"><img width="797" height="450" src="../../assets/media/kr-spec/f37.jpg" alt="Raelyn 第一个支线关卡的故事" loading="lazy"></div><figcaption data-edit>Raelyn 第一个支线关卡的故事</figcaption></figure></div>
+<h4 data-edit>3.2.3 准备阶段</h4>
+<p data-edit="multi">在支线关卡中，场上可能已经建好了一些防御塔，关卡中不能出售。</p>
+<p data-edit="multi">Raelyn 第一个支线关卡的初始防御塔配置为：1 座弓箭塔（锁定）。</p>
+<p data-edit="multi">进入关卡后，角色上方会出现对话框，包含关于本关的提示。文字以打字机效果逐字出现。全部文字显示完后，玩家点击鼠标进入下一句对话。如果玩家在打字过程中点击鼠标，当前这句对话会立即显示完整。</p>
+<p data-edit="multi">玩家准备好后，点击波次出怪按钮，放出第一波敌人。</p>
+<div class="doc-figs"><figure class=""><div class="fig-imgs"><img width="261" height="298" src="../../assets/media/kr-spec/f38.jpg" alt="禁止出售的弓箭塔" loading="lazy"></div><figcaption data-edit>禁止出售的弓箭塔</figcaption></figure><figure class=""><div class="fig-imgs"><img width="482" height="374" src="../../assets/media/kr-spec/f39.jpg" alt="角色对话气泡" loading="lazy"></div><figcaption data-edit>角色对话气泡</figcaption></figure></div>
+<h4 data-edit>3.2.4 阶段 1（第 1–2 波）</h4>
+<p data-edit="multi">阶段目标：让玩家在压力不大的情况下熟悉英雄技能。</p>
+<ul class="points" data-edit-list><li data-edit>第 1 波和第 2 波：Hog Invader 和 Tusked Brawler。</li></ul>
+<h4 data-edit>3.2.5 阶段 2（第 3–4 波）</h4>
+<p data-edit="multi">阶段目标：引导玩家理解英雄的强项和弱项。</p>
+<ul class="points" data-edit-list><li data-edit>第 3 波：Bear Vanguard（单体精英敌人，适合 Raelyn）</li><li data-edit>第 4 波：Cutthroat Rat（速度快、成群出现，适合远程英雄，而不是 Raelyn）</li></ul>
+<h4 data-edit>3.2.6 阶段 3（第 5–6 波）</h4>
+<p data-edit="multi">阶段目标：提供策略引导，包括特定的策略组合，或熟悉防御塔的用法。</p>
+<ul class="points" data-edit-list><li data-edit>第 5 波和第 6 波：Hog Invader（血量低、成群出现，适合远程英雄，而不是 Raelyn）</li><li data-edit>引导：引导玩家使用三管加农炮（Triple-Barrel Cannon），利用防御塔的范围伤害（AOE）快速清理成群的敌人。</li></ul>
+<h4 data-edit>3.2.7 阶段 4（第 7 波）</h4>
+<p data-edit="multi">阶段目标：混合之前出现过的敌人，帮助玩家综合运用目前学到的所有技巧。</p>
+<ul class="points" data-edit-list><li data-edit>第 7 波：Hog Invader、Tusked Brawler、Cutthroat Rat、Bear Vanguard。</li><li data-edit>波次配置的更多细节见 Excel《Branch Levels》的 Sheet 3「Wave Instantiation」（<a href="#t3">附录表 3</a>）。</li></ul>
+<h4 data-edit>3.2.8 胜利与星级判定</h4>
+<p data-edit="multi">根据剩余生命值判定胜负，星级数量也根据剩余生命值决定。</p>
+<h4 data-edit>3.2.9 故事片段 2</h4>
+<p data-edit="multi">如果关卡中安排了剧情发展或结局，关卡结束时会播放一段漫画。</p>
+<h3 data-edit>3.3 支线关卡奖励</h3>
+<h4 data-edit>3.3.1 等级解锁</h4>
+<p data-edit="multi">玩家通关英雄的支线关卡后，会获得等级解锁奖励。</p>
+<p data-edit="multi">原作中，英雄可以不受限制地升到 10 级。修改后的系统中，9 级和 10 级被锁定，英雄在获得等级解锁奖励之前只能升到 8 级。即使英雄在 8 级时经验已满，也不能升到 9 级。不过英雄可以继续积累经验，等级解锁后即可升级。</p>
+<p data-edit="multi">9 级或 10 级被锁定时，处于 8 级或 9 级的英雄的经验条上会显示一个等级限制图标。鼠标悬停在图标上会显示说明。</p>
+<div class="doc-figs"><figure class=""><div class="fig-imgs"><img width="440" height="391" src="../../assets/media/kr-spec/f40.jpg" alt="锁定的等级" loading="lazy"></div><figcaption data-edit>锁定的等级</figcaption></figure><figure class=""><div class="fig-imgs"><img width="504" height="288" src="../../assets/media/kr-spec/f41.jpg" alt="等级解锁条件说明" loading="lazy"></div><figcaption data-edit>等级解锁条件说明</figcaption></figure></div>
+<p data-edit="multi">根据英雄拥有的支线关卡数量，等级解锁奖励有所不同：</p>
+<div class="table-scroll"><table class="data-table"><tr><th data-edit>英雄拥有的支线关卡数量</th><th data-edit>等级解锁奖励</th></tr><tr><td data-edit="multi">1</td><td data-edit="multi">在支线关卡 2 解锁 9 级<br>在支线关卡 3 解锁 10 级</td></tr><tr><td data-edit="multi">2</td><td data-edit="multi">在支线关卡 1 解锁 9 级<br>在支线关卡 2 解锁 10 级</td></tr><tr><td data-edit="multi">3</td><td data-edit="multi">在支线关卡 1 同时解锁 9 级和 10 级</td></tr></table></div>
+<h4 data-edit>3.3.2 技能点奖励</h4>
+<p data-edit="multi">原系统中，角色每升一级获得 4 个技能点。新系统中，从 8 级升到 9 级、从 9 级升到 10 级获得的技能点各减为 2 个。</p>
+<p data-edit="multi">升到 9 级或 10 级时减少的 2 个技能点，会在对应等级解锁时发放（见 3.3.1 节）。</p>
+<p data-edit="multi">例子：</p>
+<ul class="points" data-edit-list><li data-edit>玩家在 Raelyn 4 级时通关她的支线关卡 2（Raelyn 共有 3 个支线关卡），解锁 Raelyn 的 9 级，并获得 2 个技能点。</li><li data-edit>同样，玩家在 Nero 8 级（且经验已满）时通关他的支线关卡 2，解锁 Nero 的 9 级并获得 2 个技能点。由于玩家此时已经是 8 级满经验，Nero 立即升到 9 级，再获得 2 个技能点。</li></ul>
+<h3 data-edit>3.4 故事系统</h3>
+<p data-edit="multi">每个角色的支线关卡都承担叙事作用。根据英雄拥有的支线关卡数量（见 3.1 节），叙事结构有所不同：</p>
+<div class="table-scroll"><table class="data-table"><caption data-edit>不同支线关卡的叙事结构</caption><tr><th data-edit>英雄拥有的支线关卡数量</th><th data-edit>第一个支线关卡</th><th data-edit>第二个支线关卡</th><th data-edit>第三个支线关卡</th></tr><tr><td data-edit="multi">1</td><td data-edit="multi">铺垫</td><td data-edit="multi">冲突</td><td data-edit="multi">解决</td></tr><tr><td data-edit="multi">2</td><td data-edit="multi">铺垫 + 一半冲突 + 解决</td><td data-edit="multi">一半冲突 + 解决</td><td data-edit="multi">/</td></tr><tr><td data-edit="multi">3</td><td data-edit="multi">铺垫 + 冲突 + 解决*</td><td data-edit="multi">/</td><td data-edit="multi">/</td></tr></table></div>
+<p class="doc-note" data-edit="multi">*提示：故事片段 1 中为「铺垫 + 一半冲突 + 解决」，故事片段 2 中为「一半冲突 + 解决」。</p>
+</section>
+<section class="block doc" aria-labelledby="dx">
+<h2 class="section-title" id="dx" data-edit>附录：关卡配置表</h2>
+<div class="download">
+  <p class="download-info"><b>Excel 原件</b><span data-edit>Branch Levels.xlsx，英文，含以下三张表</span></p>
+  <a class="download-btn" href="../../assets/media/kr-spec/Branch_Levels.xlsx" download="Branch Levels.xlsx">下载 Excel</a>
+</div>
+<h3 id="t1" data-edit>表 1：支线关卡解锁（Level Unlock）</h3><div class="table-scroll"><table class="data-table"><tr><th data-edit>英雄</th><th data-edit>解锁英雄的主线关卡</th><th data-edit>支线关卡数量</th><th data-edit>支线关卡 1 解锁</th><th data-edit>支线关卡 2 解锁</th><th data-edit>支线关卡 3 解锁</th></tr><tr><td data-edit>Vesper</td><td data-edit>主线 1</td><td data-edit>2</td><td data-edit>主线 1</td><td data-edit>主线 3</td><td data-edit>/</td></tr><tr><td data-edit>Raelyn</td><td data-edit>主线 2</td><td data-edit>3</td><td data-edit>主线 2</td><td data-edit>主线 3</td><td data-edit>主线 4</td></tr><tr><td data-edit>Nyru</td><td data-edit>主线 3</td><td data-edit>2</td><td data-edit>主线 3</td><td data-edit>主线 5</td><td data-edit>/</td></tr><tr><td data-edit>Torres</td><td data-edit>主线 5</td><td data-edit>2</td><td data-edit>主线 5</td><td data-edit>主线 6</td><td data-edit>/</td></tr><tr><td data-edit>Anya</td><td data-edit>主线 7</td><td data-edit>3</td><td data-edit>主线 7</td><td data-edit>主线 8</td><td data-edit>主线 9</td></tr><tr><td data-edit>Grimson</td><td data-edit>主线 8</td><td data-edit>3</td><td data-edit>主线 8</td><td data-edit>主线 9</td><td data-edit>主线 10</td></tr><tr><td data-edit>Broden</td><td data-edit>主线 9</td><td data-edit>3</td><td data-edit>主线 9</td><td data-edit>主线 10</td><td data-edit>主线 11</td></tr><tr><td data-edit>Therien</td><td data-edit>主线 11</td><td data-edit>3</td><td data-edit>主线 11</td><td data-edit>主线 12</td><td data-edit>主线 13</td></tr><tr><td data-edit>Onagro</td><td data-edit>主线 13</td><td data-edit>3</td><td data-edit>主线 13</td><td data-edit>主线 14</td><td data-edit>/</td></tr><tr><td data-edit>Warhead</td><td data-edit>主线 14</td><td data-edit>2</td><td data-edit>主线 14</td><td data-edit>主线 15</td><td data-edit>/</td></tr><tr><td data-edit>Lumenir</td><td data-edit>主线 16</td><td data-edit>1</td><td data-edit>主线 16</td><td data-edit>/</td><td data-edit>/</td></tr><tr><td data-edit>Kosmyr</td><td data-edit>主线 16</td><td data-edit>1</td><td data-edit>主线 16</td><td data-edit>/</td><td data-edit>/</td></tr></table></div><h3 id="t2" data-edit>表 2：关卡内容（Level Content）</h3><div class="table-scroll"><table class="data-table"><tr><th data-edit>支线关卡编号</th><th data-edit>通关后解锁</th><th data-edit>对应关卡</th><th data-edit>支线关卡主题</th><th data-edit>要求角色</th><th data-edit>要求防御塔</th></tr><tr><td data-edit>01</td><td data-edit>主线 1</td><td data-edit>Vesper 1（表示这是 Vesper 的支线关卡 1）</td><td data-edit>基础防御塔协同与升级</td><td data-edit>Vesper</td><td data-edit></td></tr><tr><td data-edit>02</td><td data-edit>主线 2</td><td data-edit>Raelyn 1</td><td data-edit>Tricannon</td><td data-edit>Raelyn</td><td data-edit>Archer Tower（锁定）</td></tr><tr><td data-edit>03</td><td data-edit>主线 3</td><td data-edit>Vesper 2</td><td data-edit>近战、远程与防空</td><td data-edit>Vesper</td><td data-edit></td></tr><tr><td data-edit>04</td><td data-edit>主线 3</td><td data-edit>Raelyn 2、Nyru 1（表示 Raelyn 的支线关卡 2 和 Nyru 的支线关卡 1 是同一关）</td><td data-edit>抗性</td><td data-edit>Raelyn &amp; Nyru</td><td data-edit></td></tr><tr><td data-edit>05</td><td data-edit>主线 4</td><td data-edit>Raelyn 3</td><td data-edit>单体与范围伤害（AoE）&amp; Ballista Outpost</td><td data-edit>Raelyn</td><td data-edit></td></tr><tr><td data-edit>06</td><td data-edit>主线 5</td><td data-edit>Nyru 2</td><td data-edit>切换路线</td><td data-edit>Nyru</td><td data-edit></td></tr><tr><td data-edit>07</td><td data-edit>主线 5</td><td data-edit>Torres 1</td><td data-edit>Arborean Emissary &amp; 防御塔与英雄/防御塔之间的协同</td><td data-edit>Torres</td><td data-edit></td></tr><tr><td data-edit>08</td><td data-edit>主线 6</td><td data-edit>Torres 2</td><td data-edit>Battle Brewmasters &amp; Demon Pit</td><td data-edit>Torres</td><td data-edit></td></tr><tr><td data-edit>09</td><td data-edit>主线 7</td><td data-edit>Anya 1</td><td data-edit>技能点分配</td><td data-edit>Anya</td><td data-edit></td></tr><tr><td data-edit>10</td><td data-edit>主线 8</td><td data-edit>Anya 2</td><td data-edit>Necromancer Tower &amp; Elven Stargazer</td><td data-edit>Anya</td><td data-edit></td></tr><tr><td data-edit>11</td><td data-edit>主线 8</td><td data-edit>Grimson 1</td><td data-edit>新敌人</td><td data-edit>Grimson</td><td data-edit></td></tr><tr><td data-edit>12</td><td data-edit>主线 9</td><td data-edit>Anya 3</td><td data-edit>技能点分配 2 &amp; 真实伤害</td><td data-edit>Anya</td><td data-edit></td></tr><tr><td data-edit>13</td><td data-edit>主线 9</td><td data-edit>Broden 1、Grimson 2</td><td data-edit>Dwarven Flamespitter</td><td data-edit>Broden &amp; Grimson</td><td data-edit></td></tr><tr><td data-edit>14</td><td data-edit>主线 10</td><td data-edit>Broden 2、Grimson 3</td><td data-edit>特殊英雄 &amp; Dune Sentinels</td><td data-edit>Broden &amp; Grimson</td><td data-edit></td></tr><tr><td data-edit>15</td><td data-edit>主线 11</td><td data-edit>Broden 3、Therien 1</td><td data-edit>Rocket Gunners</td><td data-edit>Broden &amp; Grimson</td><td data-edit></td></tr><tr><td data-edit>16</td><td data-edit>主线 12</td><td data-edit>Therien 2</td><td data-edit>特殊敌人 &amp; Rocket Gunners 2</td><td data-edit>Therien</td><td data-edit></td></tr><tr><td data-edit>17</td><td data-edit>主线 13</td><td data-edit>Therien 3、Onagro 1</td><td data-edit>Eldritch Channeler</td><td data-edit>Therien &amp; Onagro</td><td data-edit></td></tr><tr><td data-edit>18</td><td data-edit>主线 14</td><td data-edit>Onagro 2、Warhead 1</td><td data-edit>特殊敌方单位 2</td><td data-edit>Onagro &amp; Warhead</td><td data-edit></td></tr><tr><td data-edit>19</td><td data-edit>主线 15</td><td data-edit>Warhead 2</td><td data-edit>Grim Wraiths &amp; 防御塔与英雄/防御塔之间的协同 2</td><td data-edit>Warhead</td><td data-edit></td></tr><tr><td data-edit>20</td><td data-edit>主线 16</td><td data-edit>Lumenir 1、Kosmyr 1</td><td data-edit>最终挑战</td><td data-edit>Lumenir &amp; Kosmyr</td><td data-edit></td></tr></table></div><h3 id="t3" data-edit>表 3：波次配置（Wave Instantiation）</h3><div class="table-scroll"><table class="data-table"><tr><th data-edit>波次</th><th data-edit>持续时间</th><th data-edit>出怪时间</th><th data-edit>敌人</th><th data-edit>数量</th></tr><tr><td data-edit>1</td><td data-edit></td><td data-edit>5s</td><td data-edit>Hog Invader</td><td data-edit>3</td></tr><tr><td data-edit></td><td data-edit>25s</td><td data-edit>10s</td><td data-edit>Tusked Brawler</td><td data-edit>2</td></tr><tr><td data-edit>2</td><td data-edit></td><td data-edit>0s</td><td data-edit>Tusked Brawler</td><td data-edit>2</td></tr><tr><td data-edit></td><td data-edit>25s</td><td data-edit>5s</td><td data-edit>Hog Invader</td><td data-edit>4</td></tr><tr><td data-edit>3</td><td data-edit></td><td data-edit>0s</td><td data-edit>Bear Vanguard</td><td data-edit>1</td></tr><tr><td data-edit></td><td data-edit>25s</td><td data-edit>5s</td><td data-edit>Hog Invader</td><td data-edit>4</td></tr><tr><td data-edit>4</td><td data-edit></td><td data-edit>0s</td><td data-edit>Tusked Brawler</td><td data-edit>2</td></tr><tr><td data-edit></td><td data-edit>25s</td><td data-edit>5s</td><td data-edit>Cutthroat Rat</td><td data-edit>3</td></tr><tr><td data-edit>5</td><td data-edit></td><td data-edit>5s</td><td data-edit>Hog Invader</td><td data-edit>4</td></tr><tr><td data-edit></td><td data-edit>25s</td><td data-edit>10s</td><td data-edit>Hog Invader</td><td data-edit>4</td></tr><tr><td data-edit>6</td><td data-edit></td><td data-edit>0s</td><td data-edit>Bear Vanguard</td><td data-edit>1</td></tr><tr><td data-edit></td><td data-edit></td><td data-edit>5s</td><td data-edit>Tusked Brawler</td><td data-edit>4</td></tr><tr><td data-edit></td><td data-edit></td><td data-edit>10s</td><td data-edit>Cutthroat Rat</td><td data-edit>3</td></tr><tr><td data-edit></td><td data-edit>25s</td><td data-edit>15s</td><td data-edit>Hog Invader</td><td data-edit>4</td></tr><tr><td data-edit>7</td><td data-edit></td><td data-edit>5s</td><td data-edit>Cutthroat Rat</td><td data-edit>3</td></tr><tr><td data-edit></td><td data-edit></td><td data-edit>10s</td><td data-edit>Hog Invader</td><td data-edit>4</td></tr><tr><td data-edit></td><td data-edit></td><td data-edit>13s</td><td data-edit>Bear Vanguard</td><td data-edit>3</td></tr><tr><td data-edit></td><td data-edit></td><td data-edit>19s</td><td data-edit>Tusked Brawler</td><td data-edit>2</td></tr><tr><td data-edit></td><td data-edit>N/A</td><td data-edit>25s</td><td data-edit>Hog Invader</td><td data-edit>4</td></tr></table></div>
+</section>
+
+
+<nav class="pager" aria-label="返回"><a href="index.html"><small>返回</small>王国保卫战5 进程重设计</a></nav>
+</div>
+<footer class="page-foot">© 2026 陈韵好</footer>
+<script src="../../assets/edit.js"></script>
+<script src="../../assets/toc.js"></script>
+</body>
+</html>

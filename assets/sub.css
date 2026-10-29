@@ -110,6 +110,30 @@ a.log-card:hover{border-color:var(--tide)}
 }
 
 /* 「不公开」的页面：线上访客只看到一句提示 */
+/* 设计文档页 */
+.doc h3{font-family:var(--serif);font-weight:600;font-size:20px;margin:36px 0 10px}
+.doc h4{font-weight:500;font-size:17px;color:var(--tide);margin:26px 0 8px}
+.doc p,.doc .points{max-width:40em}
+.doc p{margin:0 0 .9em}
+.doc-figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin:16px 0 22px}
+.doc-figs.small{grid-template-columns:repeat(auto-fit,minmax(120px,180px))}
+.doc-figs figure{margin:0}
+.fig-imgs{display:flex;gap:6px;align-items:flex-start}
+.fig-imgs img{display:block;min-width:0;flex:1 1 0;width:100%;height:auto;border:1px solid var(--chart);background:var(--foam)}
+.doc-figs figcaption{margin-top:6px;font-size:13px;line-height:1.6;color:var(--muted)}
+.data-table caption{caption-side:top;text-align:left;font-size:14px;color:var(--muted);padding-bottom:6px}
+.doc-note{font-size:14px;color:var(--muted)}
+.doc-toc{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:26px;font-size:15px}
+.doc-entry{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 20px;padding:16px 20px;background:var(--foam);border:1px solid var(--chart);border-left:3px solid var(--tide)}
+.doc-entry p{margin:0;font-size:15px;line-height:1.7;max-width:32em}
+.doc-entry b{display:block;font-family:var(--serif);font-weight:600;font-size:18px}
+.doc-entry + .doc-entry{margin-top:12px}
+
+.atoms img{border:1px solid var(--chart);background:#fff}
+.more-table{margin-top:16px}
+.more-table summary{cursor:pointer;color:var(--tide);font-size:15px;font-weight:500;margin-bottom:10px}
+.more-table .points{margin-top:4px;font-size:15px}
+
 /* 页面中的某一块隐藏（data-hidden）：访客看不到，本地显示为半透明红框 */
 body:not(.local) [data-hidden]{display:none !important}
 body.local [data-hidden]{opacity:.5;outline:1px dashed #A4473B;outline-offset:6px}
