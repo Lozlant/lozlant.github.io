@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>被砍掉的方案：城市建造系统设计｜Sea U at Seacab｜陈韵好</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/sub.css">
+</head>
+<body data-log-page>
+<div class="wrap">
+<nav class="crumbs" aria-label="位置"><a href="../../index.html">首页</a><span>/</span><a href="index.html">Sea U at Seacab</a><span>/</span>设计日志</nav>
+<header class="page-head">
+  <p class="kicker" data-edit>记录　2025 秋</p>
+  <h1 data-edit>被砍掉的方案：城市建造系统设计</h1>
+  <p class="tagline" data-edit>海平面上升主题的城市建造方案：经济循环、政策与民意、灾害与结局，并用 Machinations 建模。</p>
+</header>
+<article class="entry block">
+<p data-edit="multi">Sea U 最初是一款关于海平面上升的城市建造游戏。这一页整理了这个方案的系统设计：从设计目标和玩家的障碍出发，搭建经济和政治两套循环，并用 Machinations 建模。之后项目方向调整为水上出租车，原因见页面末尾。</p>
+<h2 data-edit>设计目标</h2>
+<ul class="points" data-edit-list><li data-edit><b>主题：</b>气候变化 —— 海平面上升。</li><li data-edit><b>High-Level Purpose：</b>「Mobilize Urban Action on Rising Seas」—— 玩家能思考城市如何应对海平面上升，并关注与参与社会应对。</li><li data-edit><b>构思时的要素：</b>资源管理、城市建设、人口、灾难、模拟。参考游戏：Spellcaster University、《冰汽时代》、《部落幸存者》、《纪元 1800》、《城市：天际线》。</li></ul>
+<p data-edit="multi">希望玩家发生的转变：</p>
+<ul class="points" data-edit-list><li data-edit>相信气候变化对城市是现实且紧迫的威胁。</li><li data-edit>知道不同城市采取的防洪和适应措施（如海堤、浮动社区），能辨认哪些城市与群体最脆弱，理解风险差异。</li><li data-edit>学会基础的城市规划方法，例如如何分配防洪设施、迁移人口或设计浮动建筑。</li><li data-edit>对受灾市民产生共情。</li><li data-edit>开始把自己看作「环境问题的关注者」和「能提出解决方案的人」，而非旁观者。</li><li data-edit>愿意在现实生活中参加环保或城市治理相关的活动。</li></ul>
+<h2 data-edit>障碍与设计对策</h2>
+<p data-edit="multi">按转变框架，先列出玩家「为什么还没有转变」，再为每个障碍选择策略：消除（Eliminate）、限制（Constrain）、绕开（Scaffold Around）或搁置（Set Aside）。</p>
+<div class="table-scroll"><table class="data-table"><tr><th data-edit>障碍</th><th data-edit>策略</th><th data-edit>想法</th></tr><tr><td data-edit>认为海平面上升是一件遥远的事情</td><td data-edit>消除</td><td data-edit>没想好怎么解决，但应该是可以解决的</td></tr><tr><td data-edit>认为这是专家的事情</td><td data-edit>消除</td><td data-edit></td></tr><tr><td data-edit>不是沿海地区的居民，认为海平面上升与自己无关</td><td data-edit>限制</td><td data-edit>我们计划不主要面向这类群体</td></tr><tr><td data-edit>认为谈论环保是无趣的、「政治正确的」、不酷的；更看重短期的经济发展，不在乎长远规划</td><td data-edit>绕开</td><td data-edit>避免直接提到环保：这是一个很酷的、灾难背景的建设游戏</td></tr><tr><td data-edit>没有机会接触真正的社区行动和环保项目；某些国家不会清晰地公开政策，接触相关政策很复杂</td><td data-edit>（未定）</td><td data-edit></td></tr><tr><td data-edit>某些玩家可能缺乏系统性思考的能力</td><td data-edit>搁置</td><td data-edit>尝试给这类玩家其他有趣的事情做？</td></tr><tr><td data-edit>海平面上升的影响牵涉社会的很多方面，时间上的影响也非常漫长</td><td data-edit>消除</td><td data-edit></td></tr><tr><td data-edit>不了解城市设施与政策是如何运作的</td><td data-edit>消除</td><td data-edit></td></tr><tr><td data-edit>认为更高的海堤就能解决问题；认为这是一件无需担忧或无可挽回的事</td><td data-edit>消除</td><td data-edit></td></tr><tr><td data-edit>主题太沉重，情绪上不愿意面对</td><td data-edit>绕开</td><td data-edit>增添一些愉快的内容，不要像《冰汽时代》那样阴沉</td></tr></table></div>
+<h2 data-edit>系统结构</h2>
+<p data-edit="multi">按 MDA 框架，先列出机制层面的系统，再考虑它们会产生的动态：</p>
+<div class="table-scroll"><table class="data-table"><tr><th data-edit>层面</th><th data-edit>内容</th></tr><tr><td data-edit>系统</td><td data-edit>城市建设系统、迁移系统、经济系统、灾害系统、民意系统、修复系统、政策系统</td></tr><tr><td data-edit>城市模块</td><td data-edit>居住模块、生产模块、生态模块、能源模块、基础设施</td></tr><tr><td data-edit>政策影响的维度</td><td data-edit>经济、环境、社会、居民意识；分为短期效果和长期效果</td></tr><tr><td data-edit>核心动态</td><td data-edit>灾害与恢复（不确定的海平面上升、次生灾难）；资源与经济平衡；政策执行与反馈</td></tr></table></div>
+<p data-edit="multi">资源分为金钱、总人口、服务型人口、生产型人口、商业区覆盖率、商业区、居民区、工业区，以及影响力（居民区经验）。</p>
+<h2 data-edit>经济：人口、区域与税收</h2>
+<h3 class="sub-h" data-edit>动态 1：商业区建设与居民区</h3>
+<div class="doc-figs"><figure><a href="../../assets/media/city-dyn1-residential.png" data-lightbox><div class="fig-imgs"><img src="../../assets/media/city-dyn1-residential.png" width="1240" height="730" alt="动态 1：商业区建设与居民区" loading="lazy" style="max-width:1240px"></div></a><figcaption data-edit>动态 1：商业区建设与居民区</figcaption></figure></div>
+<ul class="points" data-edit-list><li data-edit>资金用于建设居民区和商业区。居民区的等级和数量决定人口数，人口再带来资金。</li><li data-edit>商业区的等级、数量和覆盖率决定商业服务；商业服务和其他因素一起积累居民区经验，经验提升居民区等级。</li><li data-edit>简单模式下移动建筑不花钱。</li></ul>
+<h3 class="sub-h" data-edit>动态 2：人口与区域、劳动力、生产力、税收</h3>
+<div class="doc-figs"><figure><a href="../../assets/media/city-dyn2-population-tax.png" data-lightbox><div class="fig-imgs"><img src="../../assets/media/city-dyn2-population-tax.png" width="1240" height="724" alt="动态 2：人口与区域、劳动力、生产力、税收" loading="lazy" style="max-width:1240px"></div></a><figcaption data-edit>动态 2：人口与区域、劳动力、生产力、税收</figcaption></figure></div>
+<ul class="points" data-edit-list><li data-edit>把劳动人口分为生产人口（工业区，第一、第二产业）和服务人口（第三产业）。商业区需要一定的人口成为服务人口，并且要消耗生产人口提供的生产力；工业区的作用是把人口转化为生产人口，从而提供生产力。</li><li data-edit>税收由服务人口税收和生产人口税收构成，税收再变成资金，用于增加居民区、商业区和工业区。</li><li data-edit>商业区主动转化人口：当人口不足以转化为商业区人口时，会转化所有剩余人口并显示短缺。转化优先流向工业区。</li></ul>
+<h3 class="sub-h" data-edit>动态 3：新区建设</h3>
+<p data-edit="multi">生产力和资金共同用于新区建设（当时标注为「之后再说」）。</p>
+<h3 class="sub-h" data-edit>Machinations 模型</h3>
+<p data-edit="multi">我把动态 2 搭成了 Machinations 模型，包含工业区和商业区的转化、劳动力、生产力、税收和资金。</p>
+<div class="doc-figs"><figure><a href="../../assets/media/city-machinations.png" data-lightbox><div class="fig-imgs"><img src="../../assets/media/city-machinations.png" width="1012" height="1030" alt="Machinations 经济模型" loading="lazy" style="max-width:760px"></div></a><figcaption data-edit>Machinations 经济模型</figcaption></figure></div>
+<p data-edit="multi">当时列出的待设计内容（需要做一张数据配置表）：</p>
+<ol class="points" data-edit-list><li data-edit>工业区和商业区转化劳动力的公式（变量：区域等级、区域数量）</li><li data-edit>商业服务的计算方法</li><li data-edit>居民区人口 = f（居民区等级）</li><li data-edit>税收 = f（服务人口，生产人口，税率）</li><li data-edit>居民区经验公式（还欠缺变量）</li></ol>
+<p data-edit="multi">为了简洁，暂时省略的机制：人口按一定速度增长（目前是等级到了就瞬间变化）。另一个想法是加一项「待就业人口补助金」政策，用来提升幸福度和声望。</p>
+<h2 data-edit>政治：政策与民意</h2>
+<h3 class="sub-h" data-edit>政策支持度的构成</h3>
+<div class="doc-figs"><figure><a href="../../assets/media/city-policy-support.png" data-lightbox><div class="fig-imgs"><img src="../../assets/media/city-policy-support.png" width="1001" height="382" alt="政策支持度的构成" loading="lazy" style="max-width:1001px"></div></a><figcaption data-edit>政策支持度的构成</figcaption></figure></div>
+<p data-edit="multi">政策类型决定政策的基础支持度；灾害和其他国民事件影响公众意识；社会幸福度影响声望；政策推行活动带来活动加成。这几项共同决定政策支持度，支持度再推动政策进度。</p>
+<h3 class="sub-h" data-edit>动态 1：政策推进</h3>
+<div class="doc-figs"><figure><a href="../../assets/media/city-pol1-progress.png" data-lightbox><div class="fig-imgs"><img src="../../assets/media/city-pol1-progress.png" width="1196" height="596" alt="动态 1：政策推进" loading="lazy" style="max-width:1196px"></div></a><figcaption data-edit>动态 1：政策推进</figcaption></figure></div>
+<p data-edit="multi">政策支持度决定进度的增长速率。政策每个单位时间（每日或每小时）结算一次增长：</p>
+<pre class="code"><code>政策增长     = 基准时间单位增长 × 增长速率加成
+基准时间单位增长 = 100% ÷ 基准时间（以单位时间计）</code></pre>
+<ul class="points" data-edit-list><li data-edit>政策支持度低于 50% 时，会按概率产生政策反对活动。</li><li data-edit>反对活动每个单位时间消耗 1 点支持度。</li><li data-edit>反对活动有固定概率引发暴动，降低一定的社会幸福度（这是一个短期的下降）。</li><li data-edit>反对活动持续一定时长，每个城市最多同时存在一个。之后可以考虑给反对活动加上「烈度」属性。</li></ul>
+<h3 class="sub-h" data-edit>动态 2：社会幸福度与声望</h3>
+<div class="doc-figs"><figure><a href="../../assets/media/city-pol2-happiness.png" data-lightbox><div class="fig-imgs"><img src="../../assets/media/city-pol2-happiness.png" width="1196" height="596" alt="动态 2：社会幸福度与声望" loading="lazy" style="max-width:1196px"></div></a><figcaption data-edit>动态 2：社会幸福度与声望</figcaption></figure></div>
+<ul class="points" data-edit-list><li data-edit>基础社会幸福度加上加成，得到实际社会幸福度；实际社会幸福度影响声望和声望加成，声望又影响政策推行。</li><li data-edit>推行高支持度的政策，会获得额外的声望和幸福度加成。</li></ul>
+<div class="table-scroll"><table class="data-table"><tr><th data-edit>声望</th><th data-edit>等级</th></tr><tr><td data-edit>0–20</td><td data-edit>Unknown（无名）</td></tr><tr><td data-edit>21–40</td><td data-edit>Noticed（受关注）</td></tr><tr><td data-edit>41–60</td><td data-edit>Respected（受尊敬）</td></tr><tr><td data-edit>61–80</td><td data-edit>Renowned（有名望）</td></tr><tr><td data-edit>80–100</td><td data-edit>Legend（传奇）</td></tr></table></div>
+<h3 class="sub-h" data-edit>动态 3：活动判断</h3>
+<div class="doc-figs"><figure><a href="../../assets/media/city-pol3-activity.png" data-lightbox><div class="fig-imgs"><img src="../../assets/media/city-pol3-activity.png" width="1196" height="598" alt="动态 3：活动判断" loading="lazy" style="max-width:1196px"></div></a><figcaption data-edit>动态 3：活动判断</figcaption></figure></div>
+<p data-edit="multi">公众意识和声望决定活动的成功率，资金同时作用于成功率和活动本身。活动会提升支持度和公众意识，公众意识再影响下一次活动的成功率。</p>
+<h3 class="sub-h" data-edit>动态 4：公众意识</h3>
+<div class="doc-figs"><figure><a href="../../assets/media/city-pol4-awareness.png" data-lightbox><div class="fig-imgs"><img src="../../assets/media/city-pol4-awareness.png" width="1196" height="598" alt="动态 4：公众意识" loading="lazy" style="max-width:1196px"></div></a><figcaption data-edit>动态 4：公众意识</figcaption></figure></div>
+<p data-edit="multi">公众意识由灾害发生的严重程度、活动宣传和政策共同影响，并且会持续衰减；公众意识又反过来作用于活动宣传和政策。提升公众意识的活动包括演讲和防洪演习。</p>
+<h2 data-edit>灾害、事件与结局</h2>
+<ul class="points" data-edit-list><li data-edit><b>灾害：</b>海平面上升、海啸、海水入侵、潮流。每种灾害分「即将发生」和「正在发生」两个状态，给玩家留出反应时间；被淹的地块不能再建造。</li><li data-edit><b>修复：</b>受灾的设施进入「需要修复 → 修复中 → 修复完成」的状态。</li><li data-edit><b>政策事件：</b>政策推行中、停止推行、推行成功或失败（附失败原因和代价）。</li><li data-edit><b>招标：</b>玩家可以发起招标，选择项目和成本。</li></ul>
+<div class="table-scroll"><table class="data-table"><tr><th data-edit>坏结局</th><th data-edit>触发条件</th></tr><tr><td data-edit>破产</td><td data-edit>资金归零</td></tr><tr><td data-edit>叛乱</td><td data-edit>声望（或社会幸福度等）过低</td></tr><tr><td data-edit>淹没</td><td data-edit>灾害使所有土地被淹</td></tr><tr><td data-edit>疾病</td><td data-edit>生态 / 卫生过低</td></tr></table></div>
+<h2 data-edit>界面草图</h2>
+<ul class="points" data-edit-list><li data-edit><b>主界面：</b>日期、海平面高度、人口、生产力、时间控制（暂停 / 播放 / 快进），以及通知、事件、科技树、百科入口。</li><li data-edit><b>其他界面：</b>开始界面、存档（3 个存档位）、难度选择（简单 / 普通 / 困难）、声望、新闻、百科目录（游戏目标、建造、政策、经济、人口与劳动力、城区、游戏背景）。</li></ul>
+<h2 data-edit>项目拆解</h2>
+<p data-edit="multi">为了推进开发，我们把整个方案拆成按职能划分的任务树：2D 美术、UI、数据与系统、程序、音效、制作、叙事。数据与系统部分列出了每个需要定数值的问题，例如「每座房子的合适人口」「游戏时间与现实时间的比例」「各种方式对声望的增减速度」「触发破产结局的最低资金」；程序部分则为每项功能写了验收标准，例如「人口按数据增长」「支持度与政策推进匹配」「资金低于阈值时能触发结局」。</p>
+<h2 data-edit>为什么被砍掉</h2>
+<p data-edit="multi">这套方案系统很多、内容很重，而「转变」理论只停留在表面，没有成为串起一切的核心结构。学期初的复盘之后，我们保留了「海上城市」的灵感，把范围缩小到工作和交通，改成了水上出租车司机（见<a href="log-02.html">从城市建造到出租车</a>）。</p>
+<p class="doc-note" data-edit="multi">内容整理自团队的 Miro 设计板。</p>
+</article>
+<nav class="pager" aria-label="上一条和下一条"><a href="index.html#s-log" class="back-link"><small>返回</small>Sea U at Seacab</a><a class="next" href="log-02.html" data-edit-href><small>下一条</small>从城市建造到出租车</a></nav>
+</div>
+<footer class="page-foot">© 2026 陈韵好</footer>
+<script src="../../assets/edit.js"></script>
+<script src="../../assets/toc.js"></script>
+</body>
+</html>

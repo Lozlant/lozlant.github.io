@@ -4,36 +4,51 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>接客、驾驶与城市｜Sea U at Seacab｜陈韵好</title>
+<title>从 MVP 到 Alpha｜Sea U at Seacab｜陈韵好</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/sub.css">
 </head>
-<body data-log-page data-page-hidden>
+<body data-log-page>
 <div class="wrap">
 <nav class="crumbs" aria-label="位置"><a href="../../index.html">首页</a><span>/</span><a href="index.html">Sea U at Seacab</a><span>/</span>设计日志</nav>
 <header class="page-head">
-  <p class="kicker" data-edit>记录 03　（待补充）</p>
-  <h1 data-edit>接客、驾驶与城市</h1>
-  <p class="tagline" data-edit>设计乘客接待流程、驾驶方式和城市样貌，并确定角色叙事的核心。</p>
+  <p class="kicker" data-edit>记录 03　2026.02</p>
+  <h1 data-edit>从 MVP 到 Alpha</h1>
+  <p class="tagline" data-edit>六边形世界生成、对话数据管线，以及更紧密的团队协作。</p>
 </header>
 <article class="entry block">
-<h2 data-edit>问题</h2>
-<p class="todo" data-edit="multi">（待补充：这一阶段要解决的问题。）</p>
-<h2 data-edit>思考</h2>
-<p class="todo" data-edit="multi">（待补充：设计时的考虑。）</p>
-<h2 data-edit>决定</h2>
-<ul class="points" data-edit-list>
-<li data-edit>设计乘客接待流程。</li>
-<li data-edit>设计驾驶方式。</li>
-<li data-edit>设计城市样貌。</li>
-<li data-edit>确定角色叙事的核心（具体剧情由其他组员撰写）。</li>
-</ul>
-<h2 data-edit>结果</h2>
-<p class="todo" data-edit="multi">（待补充：可以补设计图或截图。）</p>
+<h2 data-edit>概述</h2>
+<p data-edit="multi">从 MVP 到 Alpha 阶段，我调整了很多功能。</p>
+<h2 data-edit>驾驶舱 UI 与视角</h2>
+<p data-edit="multi">我和美术一起重新设计了 UI。我们反复测试驾驶视角，检查它是否合理、布局是否足够宽敞舒适。</p>
+<h2 data-edit>世界生成：六边形网格</h2>
+<ul class="points" data-edit-list><li data-edit>我为世界创建了六边形网格，并把建筑放在每个格子的中心。这样做主要是为了之后的自动驾驶和寻路，也让世界更容易编辑和扩展。</li><li data-edit>六边形网格参考了 CodeMonkey 的做法：只处理六边形的中心点和行列偏移，不真正绘制六边形。</li><li data-edit>设置行列间距时，我没有用数学计算，而是用了很基础的方法：直接在屏幕上量，再调整数值。希望我的曲面屏没有带来太大误差。</li></ul>
+<div class="doc-figs"><figure><a href="../../assets/media/seau-hexgrid-measure.jpg" data-lightbox><div class="fig-imgs"><img src="../../assets/media/seau-hexgrid-measure.jpg" width="620" height="847" alt="直接在屏幕上量六边形的行列间距" loading="lazy" style="max-width:420px"></div></a><figcaption data-edit>直接在屏幕上量六边形的行列间距</figcaption></figure></div>
+<p data-edit="multi">建筑类型和布局存放在专门的 ScriptableObject 中。</p>
+<div class="doc-figs"><figure><a href="../../assets/media/seau-so-building-type.png" data-lightbox><div class="fig-imgs"><img src="../../assets/media/seau-so-building-type.png" width="242" height="249" alt="建筑类型（Placed Object Type SO）" loading="lazy" style="max-width:242px"></div></a><figcaption data-edit>建筑类型（Placed Object Type SO）</figcaption></figure><figure><a href="../../assets/media/seau-so-level-layout.png" data-lightbox><div class="fig-imgs"><img src="../../assets/media/seau-so-level-layout.png" width="244" height="252" alt="关卡布局（Level Layout SO）" loading="lazy" style="max-width:244px"></div></a><figcaption data-edit>关卡布局（Level Layout SO）</figcaption></figure></div>
+<p data-edit="multi">在 ChatGPT 的帮助下，我还做了一个更直观的关卡布局工具，现在可以直接「画」建筑并保存数据。</p>
+<div class="doc-figs"><figure><a href="../../assets/media/seau-layout-editor.png" data-lightbox><div class="fig-imgs"><img src="../../assets/media/seau-layout-editor.png" width="554" height="316" alt="六边形关卡布局工具（Layout Editor）" loading="lazy" style="max-width:554px"></div></a><figcaption data-edit>六边形关卡布局工具（Layout Editor）</figcaption></figure></div>
+<p data-edit="multi">目前建筑系统还不会自动生成码头和连接桥，我计划在下一阶段加入。</p>
+<h2 data-edit>对话数据管线</h2>
+<ul class="points" data-edit-list><li data-edit>我建了一张叙事内容的数据表，由叙事策划填写。</li><li data-edit>用 <a href="https://github.com/neil3d/excel2json" target="_blank" rel="noopener">excel2json</a> 把表格导出成 JSON，再让 ChatGPT 把数据整理成我需要的格式。</li></ul>
+<div class="doc-figs"><figure><a href="../../assets/media/seau-dialogue-table.png" data-lightbox><div class="fig-imgs"><img src="../../assets/media/seau-dialogue-table.png" width="554" height="92" alt="叙事数据表" loading="lazy" style="max-width:554px"></div></a><figcaption data-edit>叙事数据表</figcaption></figure><figure><a href="../../assets/media/seau-json-raw.png" data-lightbox><div class="fig-imgs"><img src="../../assets/media/seau-json-raw.png" width="316" height="334" alt="excel2json 导出的 JSON" loading="lazy" style="max-width:316px"></div></a><figcaption data-edit>excel2json 导出的 JSON</figcaption></figure><figure><a href="../../assets/media/seau-json-formatted.png" data-lightbox><div class="fig-imgs"><img src="../../assets/media/seau-json-formatted.png" width="554" height="298" alt="整理成所需格式后的 JSON" loading="lazy" style="max-width:554px"></div></a><figcaption data-edit>整理成所需格式后的 JSON</figcaption></figure></div>
+<p data-edit="multi">我知道也可以把所有角色数据直接存在 articy:draft 的模板里，或者自己写一个 Excel 转 JSON 的脚本，但两种都要额外的学习时间。我们的数据量还小，所以目前这套流程可以接受。</p>
+<p data-edit="multi">在 ChatGPT 的帮助下，我还做了一个导入工具，把 JSON 转成乘客（Customer）的 ScriptableObject。</p>
+<div class="doc-figs"><figure><a href="../../assets/media/seau-json-importer.png" data-lightbox><div class="fig-imgs"><img src="../../assets/media/seau-json-importer.png" width="199" height="110" alt="JSON 导入工具（Customer JSON Importer）" loading="lazy" style="max-width:199px"></div></a><figcaption data-edit>JSON 导入工具（Customer JSON Importer）</figcaption></figure><figure><a href="../../assets/media/seau-customer-db.png" data-lightbox><div class="fig-imgs"><img src="../../assets/media/seau-customer-db.png" width="317" height="327" alt="导入后的乘客数据库（Customer Database SO）" loading="lazy" style="max-width:317px"></div></a><figcaption data-edit>导入后的乘客数据库（Customer Database SO）</figcaption></figure></div>
+<p data-edit="multi">之后在代码中读取这些数据，加入按时间触发的事件：在不同时间生成不同的订单，并根据乘客的进度切换对话。</p>
+<h2 data-edit>拍照功能</h2>
+<p data-edit="multi">我在对话之后加入了拍照功能。如果任务要求拍照，玩家完成当前目标后会被引导进入拍照模式，拍完再回到对话。目前对话还不能逐句推进，之后会加上。</p>
+<h2 data-edit>其他改动</h2>
+<ul class="points" data-edit-list><li data-edit>加入游戏内菜单，玩家可以方便地暂停和打开设置。</li><li data-edit>加入更多快捷键和点击交互，让手机界面的操作更顺畅。</li><li data-edit>为驾船加入冲刺功能。</li></ul>
+<h2 data-edit>团队协作</h2>
+<p data-edit="multi">这段时间，我和队友建立了更紧密的协作：我会给出更清晰的分步说明，主动征求反馈，检查有没有遗漏的部分，也告诉他们随时可以找我帮忙或确认需求。这减少了返工，也改善了团队关系。</p>
+<h2 data-edit>关于 Story Points 的思考</h2>
+<ul class="points" data-edit-list><li data-edit>有些任务一开始实现，花的时间就比预期长很多。而且只有我完全了解自己的技术任务，所以也只有我能给自己分配这部分工作。</li><li data-edit>即使我尝试把任务拆小并计时，有些工作需要先做准备，准备完之前无法估算。因此，对这类任务来说，固定且锁定的 Sprint 很难准确规划。</li><li data-edit>按老师的标准完成一个「5 点」的任务，比完成五个「1 点」的任务难得多。我认为 Story Points 应该更接近按小时估算，而不是「一天」「两天」这样的粗略猜测。</li></ul>
+<p class="doc-note" data-edit="multi">原文（英文）：<a href="https://charcolatte.itch.io/housing-on-ocean/devlog/1371575/devlog-yunhao-feb11" target="_blank" rel="noopener">Devlog-Yunhao-Feb11</a>，itch.io，2026.02.11。</p>
 </article>
-<nav class="pager" aria-label="上一条和下一条"><a href="log-02.html" data-edit-href><small>上一条</small>从城市建造到出租车</a><a class="next" href="log-04.html" data-edit-href><small>下一条</small>垂直切片</a></nav>
+<nav class="pager" aria-label="上一条和下一条"><a href="log-02.html" data-edit-href><small>上一条</small>从城市建造到出租车</a><a href="index.html#s-log" class="back-link"><small>返回</small>Sea U at Seacab</a><a class="next" href="log-05.html" data-edit-href><small>下一条</small>音频与事件管理</a></nav>
 </div>
 <footer class="page-foot">© 2026 陈韵好</footer>
 <script src="../../assets/edit.js"></script>

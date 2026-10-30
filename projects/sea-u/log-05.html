@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>音频与事件管理｜Sea U at Seacab｜陈韵好</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/sub.css">
+</head>
+<body data-log-page>
+<div class="wrap">
+<nav class="crumbs" aria-label="位置"><a href="../../index.html">首页</a><span>/</span><a href="index.html">Sea U at Seacab</a><span>/</span>设计日志</nav>
+<header class="page-head">
+  <p class="kicker" data-edit>记录 04　2026.03</p>
+  <h1 data-edit>音频与事件管理</h1>
+  <p class="tagline" data-edit>把命名规范写进逻辑：音频数据库、语音自动分组与事件解耦。</p>
+</header>
+<article class="entry block">
+<h2 data-edit>问题：音频文件的命名</h2>
+<p data-edit="multi">进入 Beta 阶段时，我们开始做音频的导入和绑定。在这之前，队友交给我一批让我有点震惊的文件。</p>
+<ul class="points" data-edit-list><li data-edit>所有音频文件都以数字命名：1、2、3，完全靠文件夹结构区分类别。</li><li data-edit>语音文件按角色组织，而不是按台词组织。</li><li data-edit>这两点合在一起造成了一个具体的问题：即使我能通过文件夹路径读到正确的文件，也没法在引擎里确认它是否加载正确，因为我看到的文件名永远只是 1、2、3。语音文件越来越多的话，这种结构会非常难维护。</li></ul>
+<h2 data-edit>思考：问题出在沟通</h2>
+<p data-edit="multi">我其实从来没有告诉队友命名结构应该是什么样。在早期的叙事设计阶段，我要求对话文件按「[角色名]_[对话类别]_[序号]」的格式命名，并解释了原因。我以为同样的思路会自然延续到音频导出阶段，但我从没明确说过「音频文件也请按这个规则命名」。这个规范只存在于我自己的假设里，而不是任何人都能读到、能照着做的文档里。</p>
+<p data-edit="multi">这不是队友的错，是我沟通上的失误。指望别人自己把点连起来是不合理的，尤其是跨职能协作时，对方看不到引擎实际需要什么。如果我想要某种特定格式，就应该在工作开始之前把它写清楚，放进项目的共享文档，并明确说明这是一项要求。</p>
+<h2 data-edit>音频系统</h2>
+<ul class="points" data-edit-list><li data-edit>我把所有音频资源放进一个 ScriptableObject（AudioDataBase）集中管理。其他代码只需传入一个枚举值或字符串 ID，查找和播放都由 AudioManager 处理。想快速替换某个音效，只需要在这个 SO 里改。</li><li data-edit>从文件夹读取某类音频时，同时为它分配一个类别枚举值，对应四个独立的 AudioSource。因为在这个项目里，它们的行为差别很大：BGM 需要循环；SFX 可以用 PlayOneShot 叠加播放；语音需要知道当前这句什么时候播完，并在播完时触发回调来推进对话。把它们物理上分开，也让 AudioMixer 可以独立控制每个通道的音量，互不干扰。</li></ul>
+<h2 data-edit>VoiceSplitUtility：用命名规范代替手动分类</h2>
+<p data-edit="multi">这是我做的一个比较满意的小工具。</p>
+<ul class="points" data-edit-list><li data-edit><b>需求：</b>游戏里乘客的语音分两个阶段：一组在乘客上车时播放，另一组在下车后播放。</li><li data-edit><b>直接做法的问题：</b>最直接的做法是在数据里手动维护两个列表。但这样策划每次增删台词，都要同时更新两个列表，很容易对不上或漏掉。</li><li data-edit><b>我的方案：</b>为语音文件建立命名规范「[前缀]_[序号]」，并在数据里只存一个分界序号。初始化时，VoiceSplitUtility 读取这个序号，自动把语音列表拆成「车内」和「车外」两组，分别写入对应的数据对象。</li><li data-edit><b>好处：</b>策划只需要按命名规范、按顺序填写语音条目，分组由工具自动完成；增删台词时只需调整分界序号，不用手动搬数据。</li></ul>
+<p data-edit="multi">用一条命名规范和一个序号取代手动分类，是我在这整个系统里做的最小、但最实用的决定。它也让我意识到，数据命名规范不只是为了看起来整齐，它可以直接成为逻辑的一部分。这正是我在开头提到文件命名问题时真正想说的。</p>
+<h2 data-edit>音量控制</h2>
+<ul class="points" data-edit-list><li data-edit>我用 Audio Mixer 做音量控制。游戏里用的是 0–100% 的滑条，我很自然地把这个值线性映射到 Mixer 的 dB 参数上。结果不理想：数值越低，听感上音量的变化越小，到底部附近几乎听不出变化。我以为是上下限设置的问题，试了几组数值后发现可能不是。</li><li data-edit>解决方法是先做对数换算再赋值：<code>Mathf.Log10(volume) * 20</code>，把 0–1 的线性范围映射成 dB，让耳朵听起来是均匀的变化。</li><li data-edit>不过我在想，对数计算是否真的必要。玩家其实不需要无限精细的音量控制，通常想要的是几个明确的档位。与其用连续的对数曲线，不如直接写死几个固定档位和对应的 dB 值，实现更简单，行为也更可预测。这次我没有改，但以后的项目如果重做音量系统，我大概会先试这种做法。</li><li data-edit>附注：如果你不熟悉音量控制，又不想让耳朵受罪，请仔细检查数值，并加上 Clamp。</li><li data-edit>上周我还在音频课上初步接触了 FMOD。虽然只是浅尝，但我觉得它对以后项目的音频管理可能有用。</li></ul>
+<h2 data-edit>事件管理架构</h2>
+<p data-edit="multi">最后想聊的是我在代码里做的一些解耦工作：搭建了一套事件管理架构。</p>
+<ul class="points" data-edit-list><li data-edit><b>问题：</b>项目早期，事件直接定义在各自的 Manager 里。这会随着项目变大而越来越严重：每个需要响应事件的系统，都必须直接持有拥有该事件的 Manager 的引用。UI 要知道 TimeManager，Quest 要知道 PauseManager，Tutorial 要知道 CustomerManager，最后整个项目变成一张「人人都认识人人」的网。加一个新系统，就要同时改好几个不相关的地方。</li><li data-edit><b>重构思路：</b>把事件的归属从各个 Manager 中剥离，统一放进一个单例 GameEventsManager。事件按领域分组，每组是一个独立的类：</li></ul>
+<pre class="code"><code>GameEventsManager (singleton)
+├── customerStateEvents  // order selection, order complete, pick up, drop off
+├── gameTimeEvents       // minute passed, hour updated, day ended
+├── sceneEvents          // scene transitions, cutscene events
+├── pauseEvents          // pause / resume
+├── questEvents          // quest started, advanced, completed
+└── tutorialEvents       // tutorial steps</code></pre>
+<p data-edit="multi">各组之间没有依赖，一切都经过 GameEventsManager。任何系统只需要知道 GameEventsManager.instance，就能订阅或触发任何事件，发送方和接收方之间没有直接引用：</p>
+<pre class="code"><code>// Subscribe
+void OnEnable() {
+    GameEventsManager.instance.pauseEvents.onGamePaused += ShowPauseMenu;
+}
+// Unsubscribe
+void OnDisable() {
+    GameEventsManager.instance.pauseEvents.onGamePaused -= ShowPauseMenu;
+}
+// Fire
+GameEventsManager.instance.pauseEvents.GamePaused();</code></pre>
+<p data-edit="multi">这个系统是我计划在学期结束前好好整理、解耦的模块之一。事件框架本身不依赖任何游戏逻辑，所以应该可以搬到以后的项目里，只需要替换分组的定义。</p>
+<p class="doc-note" data-edit="multi">原文（英文）：<a href="https://charcolatte.itch.io/housing-on-ocean/devlog/1468755/devlog-audio-and-event-manage" target="_blank" rel="noopener">Devlog - Audio and Event Manage</a>，itch.io，2026.03.25。</p>
+</article>
+<nav class="pager" aria-label="上一条和下一条"><a href="log-03.html" data-edit-href><small>上一条</small>从 MVP 到 Alpha</a><a href="index.html#s-log" class="back-link"><small>返回</small>Sea U at Seacab</a><a class="next" href="log-04.html" data-edit-href data-hidden><small>下一条</small>垂直切片</a></nav>
+</div>
+<footer class="page-foot">© 2026 陈韵好</footer>
+<script src="../../assets/edit.js"></script>
+<script src="../../assets/toc.js"></script>
+</body>
+</html>

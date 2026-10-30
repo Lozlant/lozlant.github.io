@@ -10,25 +10,71 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/sub.css">
 </head>
-<body data-log-page data-page-hidden>
+<body data-log-page>
 <div class="wrap">
 <nav class="crumbs" aria-label="位置"><a href="../../index.html">首页</a><span>/</span><a href="index.html">Sea U at Seacab</a><span>/</span>设计日志</nav>
 <header class="page-head">
-  <p class="kicker" data-edit>记录 02　（待补充）</p>
+  <p class="kicker" data-edit>记录 02　2026.01</p>
   <h1 data-edit>从城市建造到出租车</h1>
-  <p class="tagline" data-edit>城市建造的设计体量过大，也没有聚焦「转变」；改为以叙事和城市游览为核心的方案。</p>
+  <p class="tagline" data-edit>主题浮于表面、范围失控；复盘原因后，把方向收缩为「水上出租车司机」。</p>
 </header>
 <article class="entry block">
 <h2 data-edit>问题</h2>
-<p data-edit="multi">项目最初是城市建造游戏，但设计过于庞大，也没有明确聚焦「转变」本身。</p>
+<p data-edit="multi">学期初，项目遇到了严重的问题：「转变」这个目标不清晰，项目范围太大，内容过多。</p>
+
 <h2 data-edit>思考</h2>
-<p data-edit="multi">老师更希望我们从微小、能打动玩家的设计出发，实现一些小小的转变。我们考虑过简化城市建造的设计，但比较困难。</p>
-<h2 data-edit>决定</h2>
-<p data-edit="multi">改为更贴近生活的方案：玩家作为海上城市的出租车司机接送客人。核心体验通过叙事和城市游览来实现，经营设计作为辅助。</p>
-<h2 data-edit>结果</h2>
-<p data-edit="multi">缩小了项目规模。经营玩法作为辅助设计，没有进入最终的垂直切片。</p>
+<ul class="points" data-edit-list>
+<li data-edit><b>先有蓝图，后有主题。</b>项目蓝图在我们认真研究「转变」之前就已经成形。我没有保持开放的设计心态，而是一直把转变理论往成型的项目上「贴」，理论只停留在表面，像贴在上面的便利贴，没有成为串起一切的核心结构。</li>
+<li data-edit><b>范围控制不好。</b>一开始的野心不切实际；在多个任务之间切换时容易失去焦点；也没有及时反思、缩减范围，项目变得混乱时还以为自己能全部搞定。</li>
+<li data-edit><b>团队沟通不足。</b>我在多个项目里都是唯一的设计和唯一的程序。唯一的程序无法避免，但唯一的设计是我作为主策划的责任：我应该根据团队的设计能力调整范围，更早拆分设计任务，预判可能的问题并给出明确的方案。</li>
+<li data-edit><b>时间管理。</b>我不擅长排期，这部分本应交给其他成员；但我没有把项目全貌讲清楚，没参与规划的成员不了解细节，更像是外包。我应该支持他们，让他们更多地参与规划。</li>
+</ul>
+
+<h2 data-edit>决定：新方向</h2>
+<ul class="points" data-edit-list>
+<li data-edit>修改项目时陷入僵局后，我预约了 Douglas 教授的 office hour。教授讲清了项目要求和工作方法，给了具体有效的建议。</li>
+<li data-edit>当天团队紧急讨论出新方向：保留「海上城市」的灵感，但把焦点转向具体的人，以及我们能实际解决的问题。我分享了收集的全部海上城市资料，讨论后把范围缩小到工作和交通，形成「水上出租车司机」的初步概念，每位成员都贡献了想法。</li>
+<li data-edit>新概念：玩家驾驶水上出租车，往返海上城市的不同模块，通过和乘客对话了解城市生活的不同方面。核心系统是驾船和乘客对话。</li>
+</ul>
+<div class="doc-figs">
+<figure><a href="../../assets/media/seau-ideation-1.jpg" data-lightbox><div class="fig-imgs"><img src="../../assets/media/seau-ideation-1.jpg" width="1050" height="1400" alt="构思白板：以「生活方式」为中心的脑图" loading="lazy"></div></a><figcaption data-edit>构思白板 1：以「生活方式」为中心的脑图，右下列出了几个玩法方向，「出租船模拟器」打了星</figcaption></figure>
+<figure><a href="../../assets/media/seau-ideation-2.jpg" data-lightbox><div class="fig-imgs"><img src="../../assets/media/seau-ideation-2.jpg" width="1400" height="1050" alt="构思白板：出租船模拟器的游戏循环" loading="lazy"></div></a><figcaption data-edit>构思白板 2：「出租船模拟器」的游戏循环草稿</figcaption></figure>
+</div>
+
+<h2 data-edit>决定：团队与流程</h2>
+<ul class="points" data-edit-list>
+<li data-edit>开始用 Jira 的 Scrum 框架指导开发：把系统整理成 Epic，再写用户故事、分配任务、设定每个系统的负责人。重新使用上学期学过的这些方法，对我帮助很大。</li>
+</ul>
+
+<h2 data-edit>原型实现</h2>
+<p data-edit="multi">作为程序，我为核心玩法搭了一个简单的原型。船舱内部作为 UI，透过窗户可以看到 3D 海面和港口建筑。</p>
+<ul class="points" data-edit-list>
+<li data-edit><b>海面：</b>担心直接用 Asset Store 资源会让项目臃肿，我跟着 DitzelGames 的教程，通过移动表面顶点、叠加波函数生成任意大小的动态海面，并学习制作海面材质。3D 美术提供了参数调整建议，帮忙找合适的颜色，并提议不同时段使用不同的海面材质；我认为比起直接切换材质，更平滑的做法是把时间作为过渡函数的变量。</li>
+<li data-edit><b>复用系统：</b>复用了以前叙事项目中的场景切换系统和对话管理系统。对话系统以 articy:draft X 作为数据库，原来的实现不完整，还需要按这个项目的需求修改。</li>
+</ul>
+
+<h2 data-edit>驾驶设计</h2>
+<ul class="points" data-edit-list>
+<li data-edit><b>驾驶舱视角：</b>和美术讨论后发现，原来的驾驶舱视角太高，让玩家感觉像坐在地上往上看。我们参考真实的摩托艇和《欧洲卡车模拟》的视角，重新设计了更宽、更舒适的驾驶舱布局。</li>
+</ul>
+<div class="doc-figs">
+<figure><div class="fig-imgs"><img src="../../assets/media/seau-proto-cockpit.png" width="415" height="254" alt="早期原型的驾驶舱画面" loading="lazy"></div><figcaption data-edit>早期原型的驾驶舱画面</figcaption></figure>
+<figure><div class="fig-imgs"><img src="../../assets/media/seau-cockpit-redesign.png" width="442" height="271" alt="重新设计的驾驶舱布局" loading="lazy"></div><figcaption data-edit>重新设计的驾驶舱布局</figcaption></figure>
+</div>
+<ul class="points" data-edit-list>
+<li data-edit><b>操控方式：</b>探索了不同的驾船方式，决定以摩托艇式的操控为主。我没有真实的驾船经验，计划从多方面收集设计原则：看驾驶视频理解手感，看教程了解基本原理和物理，请教有驾船经验的人确认细节。</li>
+<li data-edit><b>设计原则：</b>这不是一款「驾船模拟器」，模拟深度不追求《欧洲卡车模拟》那样。目标是用尽量少的规则做出可信的操控感，支撑沉浸感；同时驾驶不能盖过核心体验，在船舱里，玩家的注意力应该放在与乘客的对话上。</li>
+</ul>
+
+<h2 data-edit>下一步</h2>
+<ul class="points" data-edit-list>
+<li data-edit>根据上面两个目标提出多种操控方案，保留表现最好的一种。</li>
+<li data-edit>以团队完成的「转变」痛点调研为基础，敲定系统设计，并制作核心系统的灰盒版本。</li>
+</ul>
+
+<p class="doc-note" data-edit="multi">原文（英文）：<a href="https://charcolatte.itch.io/housing-on-ocean/devlog/1324095/devlog-yunhao-jan21" target="_blank" rel="noopener">Devlog-Yunhao-Jan21</a>，itch.io，2026.01.21。参考教程：<a href="https://www.youtube.com/watch?v=_Ij24zRI9J0" target="_blank" rel="noopener">DitzelGames 海面教程</a>、<a href="https://www.youtube.com/watch?v=oejg12YyYyI&amp;t=901s" target="_blank" rel="noopener">The Code Otter 场景切换教程</a>。</p>
 </article>
-<nav class="pager" aria-label="上一条和下一条"><a href="log-01.html" data-edit-href><small>上一条</small>主题调研</a><a class="next" href="log-03.html" data-edit-href><small>下一条</small>接客、驾驶与城市</a></nav>
+<nav class="pager" aria-label="上一条和下一条"><a href="log-06.html" data-edit-href><small>上一条</small>被砍掉的方案：城市建造系统设计</a><a href="index.html#s-log" class="back-link"><small>返回</small>Sea U at Seacab</a><a class="next" href="log-03.html" data-edit-href><small>下一条</small>从 MVP 到 Alpha</a></nav>
 </div>
 <footer class="page-foot">© 2026 陈韵好</footer>
 <script src="../../assets/edit.js"></script>

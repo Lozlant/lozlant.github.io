@@ -16,7 +16,8 @@
     '.lb-close{position:fixed;top:12px;right:16px;width:40px;height:40px;border-radius:50%;border:1px solid #fff;background:rgba(21,48,58,.6);color:#fff;font-size:24px;line-height:1;cursor:pointer}',
     '.lb-close:hover{background:#fff;color:var(--ink)}',
     '.lb-close:focus-visible{outline:2px solid var(--sun);outline-offset:3px}',
-    'body.lb-lock{overflow:hidden}'
+    'body.lb-lock{overflow:hidden}',
+    'a[data-lightbox]{cursor:zoom-in}'
   ].join('\n');
   document.head.appendChild(css);
   var box = document.createElement('div'); box.className = 'lb ed-ui'; box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'true'); box.setAttribute('aria-label', '查看大图');
