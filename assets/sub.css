@@ -141,6 +141,20 @@ pre.code code{font-family:Consolas,"SFMono-Regular",Menlo,monospace;white-space:
 .entry h3.sub-h{font-size:17px;font-weight:500;color:var(--tide);margin:24px 0 8px}
 .entry .flow-box{margin:12px 0 18px}
 
+/* 标签与灵魂条示意 */
+.tag{display:inline-block;margin-left:6px;padding:0 7px;border-radius:999px;font-size:12px;line-height:1.7;font-weight:500;vertical-align:1px;white-space:nowrap}
+.tag.tbd{background:rgba(195,154,47,.18);color:#7a5c12}
+.tag.tmp{background:rgba(29,94,110,.12);color:var(--tide)}
+.tag.hold{background:rgba(78,106,114,.14);color:var(--muted)}
+.soul-bar{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:12px 0 20px;padding:14px 16px;background:var(--foam);border:1px solid var(--chart)}
+.soul{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#dfe7e5;color:var(--muted);font-size:15px;font-weight:600;line-height:1.1}
+.soul small{font-size:10px;font-weight:400}
+.soul.s-water{background:#4a90c2;color:#fff}
+.soul.s-grass{background:#5a9a4e;color:#fff}
+.soul-note{flex-basis:100%;font-size:13px;color:var(--muted);margin-top:4px}
+.doc .data-table td:first-child{white-space:nowrap}
+@media (max-width:640px){.doc .data-table td:first-child{white-space:normal}}
+
 /* 页面中的某一块隐藏（data-hidden）：访客看不到，本地显示为半透明红框 */
 body:not(.local) [data-hidden]{display:none !important}
 body.local [data-hidden]{opacity:.5;outline:1px dashed #A4473B;outline-offset:6px}

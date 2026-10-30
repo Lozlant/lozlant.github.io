@@ -70,7 +70,6 @@
   .card-media figcaption{font-size:13px;color:var(--muted);background:var(--foam);padding:8px 28px 0}
   .project.featured{grid-column:1 / -1}
   @media (min-width:900px){
-    .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
     .grid > .project:not(.featured){padding:24px 22px 20px}
     .grid > .project:not(.featured) .card-media{margin:-24px -22px 18px}
     .grid > .project:not(.featured) .card-media figcaption{padding:8px 22px 0}
@@ -120,6 +119,11 @@
   .route b{display:block;color:var(--ink);font-weight:500}
 
   .minor{margin-top:72px}
+  .analysis{margin-top:72px}
+  .ana-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+  .ana .mini-card{height:100%;display:flex;flex-direction:column}
+  .ana .mini-card .case-link{margin-top:auto;padding-top:7px}
+  .ana .skills{margin-bottom:16px}
   .minor-head{display:flex;align-items:center;gap:20px}
   .minor-head .section-title{flex:1;margin-bottom:20px}
   .arrows[hidden]{display:none}
@@ -265,23 +269,6 @@
 
   <article class="project">
     <figure class="card-media">
-      <img src="assets/media/kr-branch.jpg" width="798" height="452" loading="lazy" alt="《王国保卫战5》英雄界面的设计示意：在英雄信息面板右侧加入支线关卡入口">
-      <figcaption>设计示意：在英雄界面加入支线关卡入口（底图来自《王国保卫战5》）</figcaption>
-    </figure>
-    <div class="project-head"><h3>王国保卫战5 进程重设计</h3><span class="when">2024.11 – 2024.12</span></div>
-    <p class="meta">系统策划｜4 人课程作业，主导设计和文档</p>
-    <p class="tagline">用专属支线关卡，让玩家真正认识每一位英雄。</p>
-    <ul class="skills" aria-label="体现的能力"><li class="core">系统设计</li><li>玩家研究</li><li>养成数值</li></ul>
-    <a class="case-link" href="projects/kingdom-rush/index.html">查看项目</a>
-    <details><summary>展开要点</summary><div class="more"><ul>
-      <li>基于「指挥官」「英雄」两类玩家画像确定系统目标。</li>
-      <li>为每个英雄设计 1–3 个支线关卡，含出战限制和分阶段的教学波次。</li>
-      <li>技能点总量不变，把 9、10 级上限和部分技能点改为支线奖励；撰写功能规格文档，用 Excel 配置关卡和波次。</li>
-    </ul></div></details>
-  </article>
-
-  <article class="project">
-    <figure class="card-media">
       <img src="assets/media/seau-drive.jpg" width="1280" height="719" loading="lazy" alt="Sea U at Seacab 游戏画面：第一人称驾驶水上出租车，远处是海上城市，右上角是乘客头像，右下角是乘客的对话">
       <figcaption>实机画面：驾驶水上出租车，接送乘客</figcaption>
     </figure>
@@ -296,7 +283,6 @@
       <li>在 Unity 中实现驾驶、接客、城市生成、对话和 UI，完成垂直切片。</li>
     </ul></div></details>
   </article>
-
   <article class="project">
     <figure class="card-media">
       <img src="assets/media/tidebound-dialogue.jpg" width="1280" height="718" loading="lazy" alt="The Tidebound 游戏画面：夕阳下的海边露台，两名角色立绘，下方是羊皮纸风格的对话框">
@@ -316,6 +302,43 @@
 
   </div>
 
+  <section class="analysis" id="analysis" aria-labelledby="analysis-title">
+    <h2 class="section-title" id="analysis-title">系统重设计</h2>
+    <div class="grid">
+  <article class="project">
+    <figure class="card-media">
+      <img src="assets/media/kr-branch.jpg" width="798" height="452" loading="lazy" alt="《王国保卫战5》英雄界面的设计示意：在英雄信息面板右侧加入支线关卡入口">
+      <figcaption>设计示意：在英雄界面加入支线关卡入口（底图来自《王国保卫战5》）</figcaption>
+    </figure>
+    <div class="project-head"><h3>王国保卫战5 进程重设计</h3><span class="when">2024.11 – 2024.12</span></div>
+    <p class="meta">系统策划｜4 人课程作业，主导设计和文档</p>
+    <p class="tagline">用专属支线关卡，让玩家真正认识每一位英雄。</p>
+    <ul class="skills" aria-label="体现的能力"><li class="core">系统设计</li><li>玩家研究</li><li>养成数值</li></ul>
+    <a class="case-link" href="projects/kingdom-rush/index.html">查看项目</a>
+    <details><summary>展开要点</summary><div class="more"><ul>
+      <li>基于「指挥官」「英雄」两类玩家画像确定系统目标。</li>
+      <li>为每个英雄设计 1–3 个支线关卡，含出战限制和分阶段的教学波次。</li>
+      <li>技能点总量不变，把 9、10 级上限和部分技能点改为支线奖励；撰写功能规格文档，用 Excel 配置关卡和波次。</li>
+    </ul></div></details>
+  </article>
+  <article class="project" id="sennaar">
+    <figure class="card-media">
+      <img src="assets/media/sennaar-cover.jpg" width="1400" height="787" loading="lazy" alt="《巴别塔圣歌》的游戏画面：高塔与沙漠">
+      <figcaption>图片来自《巴别塔圣歌》</figcaption>
+    </figure>
+    <div class="project-head"><h3>《巴别塔圣歌》语言系统重设计</h3><span class="when">2026.03</span></div>
+    <p class="meta">系统拆解与重设计｜个人课程作业</p>
+    <p class="tagline">玩家不只是语言的旁听者和观察者，也是说话的人。</p>
+    <ul class="skills" aria-label="体现的能力"><li class="core">系统拆解</li><li>系统重设计</li><li>主题表达</li></ul>
+    <a class="case-link" href="projects/sennaar/index.html">查看分析</a>
+    <details><summary>展开要点</summary><div class="more"><ul>
+      <li>拆解「阅读、猜测、验证、理解」的核心循环，以及笔记本系统和关卡、NPC、叙事、角色扮演的联系。</li>
+      <li>重设计为以交流为核心：记录句子、组合句子回复 NPC、按使用次数推进每个符号的破译进度。</li>
+      <li>从难度控制、开发成本和「分隔」主题三个角度，分析原设计者为什么这样设计。</li>
+    </ul></div></details>
+  </article>
+    </div>
+  </section>
   <section class="minor" aria-labelledby="minor-title">
     <div class="minor-head">
       <h2 class="section-title" id="minor-title">其他项目</h2>
@@ -404,7 +427,7 @@
   }
   document.querySelectorAll('.case-link').forEach(function(a){
     if (a.hasAttribute('data-hidden') || a.classList.contains('ext-link')) return;
-    var card = a.closest('.project, .mini');
+    var card = a.closest('.project, .mini, .ana');
     var fig = card && card.querySelector('.card-media');
     if (!fig) return;
     var m = fig.querySelector('img, video');
@@ -471,7 +494,7 @@
   if (!isLocal && !wantEdit) return;
   if (isLocal) document.body.classList.add('local');
 
-  var TEXT = '.name,.role,.facts,.intro,.section-title,.project h3,.mini h3,.when,.meta,.tagline,.skills li,.more p,.more li,.mini-line,.card-media figcaption,.now-item h3,.now-item p,.status,footer h2,footer a,.sign';
+  var TEXT = '.name,.role,.facts,.intro,.section-title,.project h3,.mini h3,.ana h3,.when,.meta,.tagline,.skills li,.more p,.more li,.mini-line,.card-media figcaption,.now-item h3,.now-item p,.status,footer h2,footer a,.sign';
   var dirty = false;
   function qsa(sel, root){ return Array.prototype.slice.call((root||document).querySelectorAll(sel)); }
   function btn(label, cls, onClick){
@@ -517,7 +540,7 @@
     });
     // 卡片工具
     var tools = document.createElement('div'); tools.className = 'ed-ui ed-card-tools';
-    var kind = card.classList.contains('mini') ? '.mini' : (card.classList.contains('now-item') ? '.now-item' : '.project');
+    var kind = card.classList.contains('mini') ? '.mini' : (card.classList.contains('ana') ? '.ana' : (card.classList.contains('now-item') ? '.now-item' : '.project'));
     tools.appendChild(btn('前移', '', function(){
       var prev = card.previousElementSibling;
       if (prev && prev.matches(kind)) { prev.before(card); dirty = true; card.scrollIntoView({block:'nearest'}); }
@@ -568,7 +591,7 @@
     makeEditable(document);
     qsa('details').forEach(function(d){ d.open = true; });
     qsa('.case-link, .now-link').forEach(function(a){ a.after(visToggle(a)); });
-    qsa('.project, .mini, .now-item').forEach(function(c){ c.querySelectorAll('[contenteditable]').forEach(function(n){ n.removeAttribute('contenteditable'); }); setupCard(c); });
+    qsa('.project, .mini, .ana, .now-item').forEach(function(c){ c.querySelectorAll('[contenteditable]').forEach(function(n){ n.removeAttribute('contenteditable'); }); setupCard(c); });
 
     // 编辑时链接不跳转
     document.addEventListener('click', function(e){

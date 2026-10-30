@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>《巴别塔圣歌》语言系统重设计 · 设计分析｜陈韵好</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/sub.css">
+</head>
+<body>
+<div class="wrap">
+<nav class="crumbs" aria-label="位置"><a href="../../index.html">首页</a><span>/</span>设计分析</nav>
+<header class="page-head">
+  <p class="kicker" data-edit>设计分析 · 个人课程作业</p>
+  <h1 data-edit>《巴别塔圣歌》：语言猜测与验证系统重设计</h1>
+  <p class="tagline" data-edit>玩家不只是语言的旁听者和观察者，也是说话的人。</p>
+  <dl class="facts">
+    <div><dt>类型</dt><dd data-edit>系统拆解与重设计</dd></div>
+    <div><dt>时间</dt><dd data-edit>2026.03</dd></div>
+    <div><dt>对象</dt><dd data-edit>《巴别塔圣歌》（Chants of Sennaar）</dd></div>
+  </dl>
+</header>
+
+<section class="block doc" aria-labelledby="d1">
+<h2 class="section-title" id="d1" data-edit>游戏简介</h2>
+<p data-edit="multi">《巴别塔圣歌》（Chants of Sennaar）是一款以破译虚构文字为核心的解谜冒险游戏：探索、观察、聆听，破译 5 种独特的虚构文字，让巴别塔里被分隔的各个民族重新团结。</p>
+<p data-edit="multi">玩家穿过巴别塔，观察、聆听并学习塔中各个民族的语言，寻找向上的道路。最终，玩家掌握所有语言，弥合各个文明之间的隔阂，重建不同文化之间的信任，让巴别塔重新成为一个整体。</p>
+<div class="doc-figs"><figure><a href="../../assets/media/sennaar-tower.jpg" data-lightbox><div class="fig-imgs"><img src="../../assets/media/sennaar-tower.jpg" width="1400" height="934" alt="游戏画面" loading="lazy" style="max-width:1400px"></div></a><figcaption data-edit>游戏画面</figcaption></figure></div>
+</section>
+<section class="block doc" aria-labelledby="d2">
+<h2 class="section-title" id="d2" data-edit>核心系统：语言猜测与验证</h2>
+<div class="flow-box"><h3 data-edit>核心循环</h3><ol class="flow flow-steps"><li data-edit><b>1. 阅读</b>沉浸在场景和对话中</li><li data-edit><b>2. 猜测</b>猜测词义和句子结构</li><li data-edit><b>3. 验证</b>同一个符号出现在不同语境中，含义得到确认</li><li data-edit><b>4. 理解</b>句子变得有意义</li></ol></div>
+<p data-edit="multi">游戏的核心机制是一套语言猜测与验证系统。玩家在语境丰富的环境中阅读，对词义和句子结构形成假设；通过在不同对话中交叉比对同一个符号，逐步确认自己的解读，直到每个字符、每句话的含义都变得清楚。</p>
+</section>
+<section class="block doc" aria-labelledby="d3">
+<h2 class="section-title" id="d3" data-edit>笔记本系统</h2>
+<p data-edit="multi">为了支撑这个过程，游戏为玩家提供了专门的笔记本系统。</p>
+<ol class="points" data-edit-list><li data-edit><b>阅读：</b>读到角色的对话或环境里的文字时，发现新的字符。</li><li data-edit><b>猜测：</b>在笔记本里为任意符号写下猜测的含义。一旦记录，之后这个符号在对话中出现时，翻译框里都会显示这个猜测。</li><li data-edit><b>验证：</b>收集到某种语言的一组符号后，游戏会出现一个验证页。页面上有一组图片，每张代表一个概念或含义，玩家把自己认为对应的符号分配给每张图。分配正确，游戏会揭示这个符号的官方翻译。</li><li data-edit><b>理解：</b>一组符号全部匹配正确后，相关文本的完整官方翻译就会解锁。</li></ol>
+<div class="doc-figs"><figure><a href="../../assets/media/sennaar-read.png" data-lightbox><div class="fig-imgs"><img src="../../assets/media/sennaar-read.png" width="260" height="146" alt="阅读：发现新字符" loading="lazy" style="max-width:260px"></div></a><figcaption data-edit>阅读：发现新字符</figcaption></figure><figure><a href="../../assets/media/sennaar-guess.png" data-lightbox><div class="fig-imgs"><img src="../../assets/media/sennaar-guess.png" width="847" height="390" alt="猜测：在笔记本里写下猜测" loading="lazy" style="max-width:847px"></div></a><figcaption data-edit>猜测：在笔记本里写下猜测</figcaption></figure><figure><a href="../../assets/media/sennaar-translate.png" data-lightbox><div class="fig-imgs"><img src="../../assets/media/sennaar-translate.png" width="234" height="129" alt="翻译框里显示自己的猜测" loading="lazy" style="max-width:234px"></div></a><figcaption data-edit>翻译框里显示自己的猜测</figcaption></figure></div>
+<div class="doc-figs"><figure><a href="../../assets/media/sennaar-verify.jpg" data-lightbox><div class="fig-imgs"><img src="../../assets/media/sennaar-verify.jpg" width="1400" height="787" alt="验证页：把符号分配给对应的图片" loading="lazy" style="max-width:1400px"></div></a><figcaption data-edit>验证页：把符号分配给对应的图片</figcaption></figure></div>
+<div class="doc-figs small"><figure><a href="../../assets/media/sennaar-understand-1.png" data-lightbox><div class="fig-imgs"><img src="../../assets/media/sennaar-understand-1.png" width="142" height="201" alt="理解：看到官方翻译" loading="lazy" style="max-width:142px"></div></a><figcaption data-edit>理解：看到官方翻译</figcaption></figure><figure><a href="../../assets/media/sennaar-understand-2.png" data-lightbox><div class="fig-imgs"><img src="../../assets/media/sennaar-understand-2.png" width="265" height="359" alt="理解：看到官方翻译" loading="lazy" style="max-width:265px"></div></a><figcaption data-edit>理解：看到官方翻译</figcaption></figure></div>
+</section>
+<section class="block doc" aria-labelledby="d4">
+<h2 class="section-title" id="d4" data-edit>这个系统和游戏其他部分的联系</h2>
+<ul class="points" data-edit-list><li data-edit><b>关卡设计：</b>语言验证系统以玩家的破译进度作为关卡和区域之间的主要门槛：玩家必须理解足够多的符号，才能读懂进入新区域所需的线索。这让每个关卡都有清晰具体的设计目标：如何引导玩家接触关键词汇，为下一阶段的推理做好准备。</li><li data-edit><b>NPC 设计：</b>这个系统把 NPC 的主要功能定义为提供语言证据。为此，NPC 的动作必须在所处的环境里一看就懂，让玩家能把动作、伴随的对话和周围的文字联系起来，形成一条证据链，从中推断出符号的含义。</li><li data-edit><b>叙事：</b>验证成功后揭示的官方翻译，让叙事体验更完整。它把虚构文字转换成玩家能完全理解的语言，消除歧义，让玩家以一个真正掌握了这门语言的人的视角去体验故事。</li><li data-edit><b>角色扮演：</b>笔记本系统自然地把玩家放在语言学家的位置上，做笔记本来就是语言学家会做的事。游戏为破译提供了低门槛的框架：玩家不需要在脑中记住某个符号出现过的每一个语境，笔记本就是中心参照点。玩家在上面记下多种可能的含义，再以此为锚点，回想记得的语境，推出合理的结论。</li></ul>
+</section>
+<section class="block doc" aria-labelledby="d5">
+<h2 class="section-title" id="d5" data-edit>重设计：以交流为核心的猜测与验证</h2>
+<p data-edit="multi"><b>玩家不只是语言的旁听者和观察者，也是说话的人。</b></p>
+<p data-edit="multi">在重设计的系统里，玩家不只观察和聆听语言，也主动使用语言。玩家可以和 NPC 直接交流：回应问候、尝试回答问题、提出自己的问题，在使用中建立对词语和句子结构的理解。</p>
+<h3 data-edit>记录句子</h3>
+<p data-edit="multi">笔记本不再只能记录单个符号的猜测。玩家也可以记录自定义的短语和句式，例如常见的问候语、对话里反复出现的「我在找向上的路」，或者用来提问的句子结构。每条记录旁边可以写下当前的理解，并随着理解加深而更新。</p>
+<div class="doc-figs"><figure><a href="../../assets/media/sennaar-sentence-log.png" data-lightbox><div class="fig-imgs"><img src="../../assets/media/sennaar-sentence-log.png" width="1088" height="419" alt="重设计示意：在笔记本里记录句子" loading="lazy" style="max-width:1088px"></div></a><figcaption data-edit>重设计示意：在笔记本里记录句子</figcaption></figure></div>
+<h3 data-edit>和 NPC 对话</h3>
+<ol class="points" data-edit-list><li data-edit>组合句子来回复 NPC，让对话继续下去；可以用笔记本里记录的句子快速回复。</li><li data-edit>NPC 会拒绝无意义的输入，但会对不同的合理回答做出不同回应，也能回答合理的问题。</li><li data-edit>只要 NPC 的状态没有改变，就可以重新开始对话，探索不同的对话路径。</li></ol>
+<div class="doc-figs"><figure><a href="../../assets/media/sennaar-talk.png" data-lightbox><div class="fig-imgs"><img src="../../assets/media/sennaar-talk.png" width="454" height="491" alt="重设计示意：组合句子回复 NPC" loading="lazy" style="max-width:420px"></div></a><figcaption data-edit>重设计示意：组合句子回复 NPC</figcaption></figure></div>
+<p data-edit="multi">原作里，NPC 基本上只是对着玩家说话，并不期待回应；重设计后，玩家可以主动回复。</p>
+<ul class="points" data-edit-list><li data-edit>有些 NPC 的对话需要特定的回答才能继续。NPC 说「你好」，玩家需要回「你好」；NPC 问「你喜欢音乐吗？」，玩家需要回答「是」「不」或「我喜欢音乐」之类的话，否则 NPC 会困惑，拒绝继续。玩家可以重新开始对话再试一次。</li><li data-edit>玩家不会被锁定在唯一的正确答案上。任何合理组成的短语或完整句子都能得到回应，而且《巴别塔圣歌》里语法正确的句子总数有限，所以这完全可控。以音乐为例：回答「不」，NPC 可能说「你不想要音乐」；回答「是」，NPC 可能说「我制作乐器。我们都爱音乐」，并给玩家一件乐器，作为推进剧情的关键道具。</li><li data-edit>玩家也可以自己组织问题来问 NPC。例如在第二层，玩家可以说「我在找敲钟人」，知情的 NPC 会给玩家指路，省得玩家在场景里来回寻找任务道具。</li><li data-edit>系统也支持持续的交流。如果 NPC 告诉玩家「战士们关上了大门」，玩家之后得知了相关信息，可以回来告诉他「战士们在找音乐」。NPC 就会去找战士，战士打开大门，对话还能继续发展下去。</li></ul>
+<h3 data-edit>符号破译进度</h3>
+<p data-edit="multi">有了基于对话的验证系统，原来的笔记本验证机制就不再必要，但翻译系统本身仍然有价值，可以保留。为了鼓励玩家更积极地对话，每个符号都有自己的破译进度：玩家在对话中成功使用一个符号达到一定次数后，这个符号就被正式记录为已破译。</p>
+<div class="doc-figs"><figure><a href="../../assets/media/sennaar-progress.png" data-lightbox><div class="fig-imgs"><img src="../../assets/media/sennaar-progress.png" width="306" height="399" alt="重设计示意：每个符号的破译进度" loading="lazy" style="max-width:306px"></div></a><figcaption data-edit>重设计示意：每个符号的破译进度</figcaption></figure></div>
+</section>
+<section class="block doc" aria-labelledby="d6">
+<h2 class="section-title" id="d6" data-edit>重设计如何改变整个游戏</h2>
+<div class="table-scroll"><table class="data-table"><tr><th data-edit></th><th data-edit>原作</th><th data-edit>重设计</th></tr><tr><td data-edit>推进方式</td><td data-edit>观察、寻找、破译，通过阅读环境推进</td><td data-edit>对话驱动推进，NPC 等玩家先开口</td></tr><tr><td data-edit>玩家角色</td><td data-edit>沉默的破译者：玩家解读语言，但没有人对玩家说话</td><td data-edit>主动的参与者：发起对话、赢得信任、了解别人如何看待自己</td></tr><tr><td data-edit>主题感受</td><td data-edit>孤独。玩家目睹连接，却不是其中的一部分</td><td data-edit>参与。连接是亲身完成的，而不是旁观的</td></tr></table></div>
+<p data-edit="multi">这个改变让社交互动成为主要的玩法，因此需要更大范围地调整整体设计。原作里，玩家主要通过阅读环境信息、找到道具、用道具解锁更多线索来推进；重设计后，推进的主要动力是对话。有些信息不再直接写出来，而是藏在对话里；NPC 会等玩家先开口；关键 NPC 不会直接放玩家进入下一个区域，玩家必须恰当地和他们交流，他们才会带路。</p>
+<p data-edit="multi">这个改变也带来了不同的主题分量。原作有一种孤独感：玩家读遍世界里的每一段文字，替各个民族破译语言，却从来没有真正觉得自己是他们中的一员。几乎没有人把玩家当作一个人来说话。玩家是一个局外人，被一个关于连接的故事打动，自己却不在这个故事里。</p>
+<p data-edit="multi">重设计的系统更直接地表达了「人与人的连接」这个主题。玩家角色以陌生人的身份进入这个世界，逐渐赢得信任，和每个人交谈，得到回应，并了解别人如何看待自己。连接不再是玩家观察的东西，而是玩家参与其中的东西。</p>
+</section>
+<section class="block doc" aria-labelledby="d7">
+<h2 class="section-title" id="d7" data-edit>原设计者为什么这样设计</h2>
+<p data-edit="multi">反过来看，原作的设计者为什么选择了现在的系统？</p>
+<h3 data-edit>1. 控制解谜难度</h3>
+<p data-edit="multi">验证系统给了玩家一条退路：即使对某个符号不完全确定，也可以先猜，游戏会告诉玩家对不对。它是一张安全网，也让游戏保持推进。猜错不会演变成对整个故事的错误理解；如果玩家完全卡住，也总能在验证页上把所有选项试一遍。这样做足够乏味，没人想这么做，但这条路是存在的。</p>
+<h3 data-edit>2. 降低设计复杂度</h3>
+<p data-edit="multi">基于对话的系统意味着每个 NPC 都需要有话问玩家，并且要为玩家可能说出的每一句话准备好回应，这是很大的工作量。原系统绕开了这一切：验证在一个独立的界面里进行，NPC 只需要提供线索，不需要和玩家交谈。这是一个务实的选择。</p>
+<h3 data-edit>3. 孤独感是「分隔」主题的表达</h3>
+<p data-edit="multi">游戏的核心是让玩家感受到塔中各个民族之间的隔阂，而这种感受本来就应该让人不舒服。为什么他们不学习彼此的语言？为什么他们这么冷漠、这么封闭？因为他们已经不再试着理解彼此，每个群体都只顾推进自己的目标。玩家角色的存在是为了重新连接他们，却走在一个早已放弃连接的世界里。这种孤立不是设计缺陷，而正是游戏想要创造的体验。</p>
+</section>
+<p class="doc-note" data-edit="multi">游戏截图来自《巴别塔圣歌》，仅用于设计分析。</p>
+
+<nav class="pager" aria-label="返回"><a href="../../index.html#analysis"><small>返回</small>首页</a></nav>
+</div>
+<footer class="page-foot">© 2026 陈韵好</footer>
+<script src="../../assets/edit.js"></script>
+<script src="../../assets/toc.js"></script>
+</body>
+</html>
