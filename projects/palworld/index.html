@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>《幻兽帕鲁》的信息设计 · 系统分析｜陈韵好</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/sub.css">
+</head>
+<body>
+<div class="wrap">
+<nav class="crumbs" aria-label="位置"><a href="../../index.html">首页</a><span>/</span>系统分析</nav>
+<header class="page-head">
+  <p class="kicker" data-edit>系统分析 · 个人课程作业</p>
+  <h1 data-edit>《幻兽帕鲁》：游戏内信息与社区资源</h1>
+  <p class="tagline" data-edit>当玩家从探索转向规划，游戏的信息设计没有跟着转变。</p>
+  <dl class="facts"><div><dt>类型</dt><dd data-edit>信息设计分析</dd></div><div><dt>时间</dt><dd data-edit>2026.03</dd></div><div><dt>对象</dt><dd data-edit>《幻兽帕鲁》与社区数据库 PalDB</dd></div></dl>
+</header>
+
+<section class="block doc" aria-labelledby="a1">
+<h2 class="section-title" id="a1" data-edit>背景</h2>
+<p data-edit="multi">《幻兽帕鲁》（Palworld）是一款生存建造游戏，玩家捕捉并管理名为「帕鲁」的生物伙伴。PalDB（paldb.cc）是玩家自制的数据库，几乎收录了游戏里的所有数据，例如属性、掉落率、配种结果和刷新地图。</p>
+<p data-edit="multi">这篇日志通过掉落物和配种两个系统，比较游戏内提供的信息和社区数据库提供的信息。</p>
+</section>
+<section class="block doc" aria-labelledby="a2">
+<h2 class="section-title" id="a2" data-edit>掉落物</h2>
+<h3 data-edit>游戏内</h3>
+<p data-edit="multi">打开背包、把鼠标停在一件物品上，会显示物品名称、分类标签、一句话描述和当前数量，但没有任何关于来源或掉落率的信息。</p>
+<div class="doc-figs"><figure><a href="../../assets/media/pal-inventory.jpg" data-lightbox><div class="fig-imgs"><img src="../../assets/media/pal-inventory.jpg" width="501" height="428" alt="游戏内：背包里的物品信息" loading="lazy" style="max-width:501px"></div></a><figcaption data-edit>游戏内：背包里的物品信息</figcaption></figure></div>
+<p data-edit="multi">帕鲁图鉴提供的信息稍多一些。棉悠悠的条目右侧有「可能掉落」一栏，列出羊毛和棉悠悠的肉，但没有概率、没有条件，也不区分战斗掉落和牧场产出。玩家无法判断掉落率是 0.1% 还是 90%。而且查询只能单向进行，玩家没办法按掉落物筛选帕鲁。信息是存在的，但被刻意模糊了。</p>
+<div class="doc-figs"><figure><a href="../../assets/media/pal-paldeck.jpg" data-lightbox><div class="fig-imgs"><img src="../../assets/media/pal-paldeck.jpg" width="910" height="519" alt="游戏内：帕鲁图鉴里棉悠悠的条目" loading="lazy" style="max-width:910px"></div></a><figcaption data-edit>游戏内：帕鲁图鉴里棉悠悠的条目</figcaption></figure></div>
+<h3 data-edit>PalDB</h3>
+<p data-edit="multi">在帕鲁的页面上，PalDB 把棉悠悠的掉落数据分成两部分：「伙伴技能」一栏是牧场产出，棉悠悠被分配到牧场时一定会产出羊毛，数量随等级线性增加，概率始终是 100%；「可能掉落」一栏是战斗掉落：羊毛 ×1–3 和棉悠悠的肉 ×1，概率都是 100%。</p>
+<div class="doc-figs"><figure><a href="../../assets/media/paldb-lamball-1.jpg" data-lightbox><div class="fig-imgs"><img src="../../assets/media/paldb-lamball-1.jpg" width="852" height="553" alt="PalDB：棉悠悠的伙伴技能（牧场产出）" loading="lazy" style="max-width:852px"></div></a><figcaption data-edit>PalDB：棉悠悠的伙伴技能（牧场产出）</figcaption></figure><figure><a href="../../assets/media/paldb-lamball-2.jpg" data-lightbox><div class="fig-imgs"><img src="../../assets/media/paldb-lamball-2.jpg" width="857" height="172" alt="PalDB：棉悠悠的可能掉落（战斗掉落）" loading="lazy" style="max-width:857px"></div></a><figcaption data-edit>PalDB：棉悠悠的可能掉落（战斗掉落）</figcaption></figure></div>
+<p data-edit="multi">在物品的页面上，PalDB 提供反向查询。羊毛的页面按类型列出所有来源：「掉落自」列出会掉落羊毛的 7 种野生帕鲁，每一行都有数量范围和概率；「流浪商人」列出三个商人来源；「宝箱」同时列出了宝箱的掉落率和牧场的产出率。不过这两种来源在实际中差别很大：宝箱掉落是随机、不可靠的，牧场产出则稳定、可预测。把它们放在一起，让这一部分更难读。</p>
+<div class="doc-figs"><figure><a href="../../assets/media/paldb-wool-1.jpg" data-lightbox><div class="fig-imgs"><img src="../../assets/media/paldb-wool-1.jpg" width="845" height="420" alt="PalDB：会掉落羊毛的野生帕鲁" loading="lazy" style="max-width:845px"></div></a><figcaption data-edit>PalDB：会掉落羊毛的野生帕鲁</figcaption></figure><figure><a href="../../assets/media/paldb-wool-2.jpg" data-lightbox><div class="fig-imgs"><img src="../../assets/media/paldb-wool-2.jpg" width="874" height="674" alt="PalDB：羊毛的商人来源与宝箱来源" loading="lazy" style="max-width:874px"></div></a><figcaption data-edit>PalDB：羊毛的商人来源与宝箱来源</figcaption></figure></div>
+<h3 data-edit>分析</h3>
+<p data-edit="multi">单就掉落物来说，游戏内的信息对我来说在实际中基本没用。我从来不读物品描述，图标已经足够清楚；我也很少看图鉴的「可能掉落」一栏，因为当我需要掉落信息时，我已经知道自己缺的是什么物品。我需要的是来源，而不是确认。在图鉴里逐个查帕鲁很慢，如果还没解锁某只帕鲁的条目，就根本查不到。</p>
+<p data-edit="multi">这时我会直接去 PalDB。它告诉我获取某种材料最快的方式，并提供足够的数据让我做规划，包括想要稳定供应时，有针对性地去配种。</p>
+<p data-edit="multi">关于隐藏掉落率：大多数游戏都这样做，我认为在前期效果很好。不知道什么东西会掉落什么，让前期充满探索感：玩家去尝试、去捕捉帕鲁、去实验。但《幻兽帕鲁》是一款资源管理游戏，到了中后期，大多数玩家迟早需要这些数据来减少摩擦。到那时还继续隐藏，只会把玩家推向第三方网站。我认为在某个阶段把这些信息放进游戏里会更好，让玩家留在游戏中，而不是切出去查资料。</p>
+</section>
+<section class="block doc" aria-labelledby="a3">
+<h2 class="section-title" id="a3" data-edit>配种系统</h2>
+<h3 data-edit>游戏内</h3>
+<p data-edit="multi">《幻兽帕鲁》的配种系统很复杂，但游戏内的说明很少。玩家在科技等级 19 解锁配种牧场，建好后放进两只帕鲁和一个蛋糕，然后等待。游戏从不告诉玩家一对帕鲁会生出什么，也没有任何游戏内工具帮助规划配种路线。玩家通过游玩能自己弄明白的，只有「同一对帕鲁总是生出同样的后代」和「两只相同的帕鲁会生出同种帕鲁」。</p>
+<div class="doc-figs"><figure><a href="../../assets/media/pal-breeding-farm.jpg" data-lightbox><div class="fig-imgs"><img src="../../assets/media/pal-breeding-farm.jpg" width="745" height="413" alt="游戏内：配种牧场" loading="lazy" style="max-width:745px"></div></a><figcaption data-edit>游戏内：配种牧场</figcaption></figure></div>
+<p data-edit="multi">个体值和被动技能的遗传规则也是隐藏的。玩家自己唯一能观察到的，是被动技能可以遗传给后代，并且带有一定的随机性。</p>
+<h3 data-edit>PalDB</h3>
+<p data-edit="multi">配种计算器大概是各个帕鲁数据库网站上最常用的功能。在 PalDB 里，玩家从下拉菜单选两只帕鲁，计算器立刻给出确定的后代。它也支持反向查询：想要朱雀的玩家可以把朱雀设为目标，得到所有可行的父母组合。第三种模式让玩家选一只父母和一个目标后代，返回两者之间最短的配种路线。PalDB 还有一个其他网站没有的功能：输入自己现有的帕鲁，它会算出用这些帕鲁能配出的所有新物种，对补全图鉴很有用。</p>
+<div class="doc-figs"><figure><a href="../../assets/media/paldb-breeding-1.jpg" data-lightbox><div class="fig-imgs"><img src="../../assets/media/paldb-breeding-1.jpg" width="782" height="437" alt="PalDB：最短配种路线" loading="lazy" style="max-width:782px"></div></a><figcaption data-edit>PalDB：最短配种路线</figcaption></figure><figure><a href="../../assets/media/paldb-breeding-2.jpg" data-lightbox><div class="fig-imgs"><img src="../../assets/media/paldb-breeding-2.jpg" width="805" height="682" alt="PalDB：配种计算器" loading="lazy" style="max-width:805px"></div></a><figcaption data-edit>PalDB：配种计算器</figcaption></figure></div>
+<p data-edit="multi">值得注意的一个缺口是：这个网站没有解释个体值和被动技能的遗传规则。</p>
+<h3 data-edit>分析</h3>
+<p data-edit="multi">配种系统没有给玩家任何理解背后数值的途径。PalDB 的计算器把它变成了玩家真正能做规划的东西。帕鲁配种被许多玩家认为是游戏里最独特、最有趣的部分之一，而它之所以能作为一个真正的系统被玩家使用，全靠这个社区工具：社区提供了规则和路线。没有它，玩家面对的就是一个黑箱。这意味着开发者做出了一个有趣的系统，却把让它变得可玩的那部分交给了社区。</p>
+<p data-edit="multi">这种交接有实际的风险。大版本更新后，配种数据可能过时，在网站跟上之前，整个系统都会变得更难用。这个缺口也让玩家群体分化：能找到外部资源的玩家可以完整地参与配种，找不到的玩家只能等蛋孵出来，完全不知道会得到什么。同一个系统，取决于玩家知不知道 PalDB 的存在，会带来完全不同的体验。</p>
+</section>
+<section class="block doc" aria-labelledby="a4">
+<h2 class="section-title" id="a4" data-edit>结论与改进方向</h2>
+<p data-edit="multi">两个案例指向同一个问题：《幻兽帕鲁》的信息设计是围绕「探索」搭建的，但它同时也是一款重度资源管理游戏。当玩家从探索转向规划时，游戏没有跟着转变。两个案例提示了三个改进方向：</p>
+<ol class="points" data-edit-list><li data-edit><b>分阶段开放信息。</b>前期隐藏掉落率是合理的，但当玩家进入资源管理阶段，游戏可以通过图鉴进度、科技解锁或游玩时长，逐步公开这些数据。这样既保留了前期的探索感，也不会把中后期的玩家推向第三方网站。</li><li data-edit><b>补上规划界面。</b>一个只能靠外部工具才能玩的系统，缺少的是规划界面。一个简单的配种预览，不需要公开底层公式，只要显示「这两只帕鲁会生出这个后代」，就能让所有玩家都能使用配种系统，而不只是那些知道去游戏外面找资料的人。</li><li data-edit><b>官方配套网站。</b>如果开发者不想把这些放进游戏，官方的配套网站也是合理的替代方案。PalDB 证明了需求是真实存在的。官方版本的优势不在于功能更多，而在于数据可靠、更新及时、视觉风格统一，也不依赖某一位社区志愿者来维持运营。</li></ol>
+</section>
+<p class="doc-note" data-edit="multi">截图来自《幻兽帕鲁》和 PalDB（paldb.cc），仅用于设计分析。</p>
+
+<nav class="pager" aria-label="返回"><a href="../../index.html#notes"><small>返回</small>首页</a></nav>
+</div>
+<footer class="page-foot">© 2026 陈韵好</footer>
+<script src="../../assets/edit.js"></script>
+<script src="../../assets/toc.js"></script>
+</body>
+</html>

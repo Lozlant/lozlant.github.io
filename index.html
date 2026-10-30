@@ -119,6 +119,18 @@
   .route b{display:block;color:var(--ink);font-weight:500}
 
   .minor{margin-top:72px}
+  .notes{margin-top:72px}
+  .note-list{list-style:none;margin:0;padding:0 28px;background:var(--foam);border:1px solid var(--chart);border-top:3px solid var(--tide)}
+  .note-row{display:flex;align-items:center;gap:14px 32px;padding:22px 0}
+  .note-row + .note-row{border-top:1px solid var(--chart)}
+  .note-body{flex:1;min-width:0}
+  .note-row h3{font-family:var(--serif);font-weight:900;font-size:20px;line-height:1.35;margin:0}
+  .note-row .meta{font-size:13.5px}
+  .note-row p.note-line{margin:8px 0 0;font-size:15px;line-height:1.7}
+  .note-link{flex:none;display:inline-block;padding:5px 16px;border:1px solid var(--tide);border-radius:999px;font-size:14px;font-weight:500;color:var(--tide);text-decoration:none;white-space:nowrap;transition:background .2s,color .2s}
+  .note-link::after{content:" →"}
+  .note-link:hover{background:var(--tide);color:var(--foam)}
+  @media (max-width:640px){.note-list{padding:0 20px}.note-row{flex-direction:column;align-items:flex-start;padding:20px 0}}
   .analysis{margin-top:72px}
   .ana-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
   .ana .mini-card{height:100%;display:flex;flex-direction:column}
@@ -339,6 +351,36 @@
   </article>
     </div>
   </section>
+  <section class="notes" id="notes" aria-labelledby="notes-title">
+    <h2 class="section-title" id="notes-title">其他设计分析</h2>
+    <ul class="note-list">
+      <li class="note-row">
+        <div class="note-body">
+          <div class="project-head"><h3>《幻兽帕鲁》：游戏内信息与社区资源</h3><span class="when">2026.03</span></div>
+          <p class="meta">信息设计分析</p>
+          <p class="note-line">对比游戏内信息与社区数据库 PalDB，提出分阶段开放信息、补上规划界面等改进方向。</p>
+        </div>
+        <a class="note-link" href="projects/palworld/index.html">阅读</a>
+      </li>
+      <li class="note-row">
+        <div class="note-body">
+          <div class="project-head"><h3>用设计模式定义「工厂游戏」</h3><span class="when">2026.01</span></div>
+          <p class="meta">类型分析</p>
+          <p class="note-line">用四个设计模式定义工厂游戏，以《异星工厂》《戴森球计划》《Shapez》验证，再用《纪元 1800》划清边界。</p>
+        </div>
+        <a class="note-link" href="projects/factory-games/index.html">阅读</a>
+      </li>
+      <li class="note-row">
+        <div class="note-body">
+          <div class="project-head"><h3>为听障玩家设计：声音的替代通道</h3><span class="when">2026.04</span></div>
+          <p class="meta">无障碍设计</p>
+          <p class="note-line">按作用把游戏里的声音分成三类，分别提出视觉和触觉的替代方案。</p>
+        </div>
+        <a class="note-link" href="projects/accessibility/index.html">阅读</a>
+      </li>
+    </ul>
+  </section>
+
   <section class="minor" aria-labelledby="minor-title">
     <div class="minor-head">
       <h2 class="section-title" id="minor-title">其他项目</h2>
@@ -494,7 +536,7 @@
   if (!isLocal && !wantEdit) return;
   if (isLocal) document.body.classList.add('local');
 
-  var TEXT = '.name,.role,.facts,.intro,.section-title,.project h3,.mini h3,.ana h3,.when,.meta,.tagline,.skills li,.more p,.more li,.mini-line,.card-media figcaption,.now-item h3,.now-item p,.status,footer h2,footer a,.sign';
+  var TEXT = '.name,.role,.facts,.intro,.section-title,.project h3,.mini h3,.ana h3,.note-row h3,.note-kicker,.note-line,.when,.meta,.tagline,.skills li,.more p,.more li,.mini-line,.card-media figcaption,.now-item h3,.now-item p,.status,footer h2,footer a,.sign';
   var dirty = false;
   function qsa(sel, root){ return Array.prototype.slice.call((root||document).querySelectorAll(sel)); }
   function btn(label, cls, onClick){

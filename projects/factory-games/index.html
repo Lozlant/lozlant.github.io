@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>用设计模式定义工厂游戏 · 系统分析｜陈韵好</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/sub.css">
+</head>
+<body>
+<div class="wrap">
+<nav class="crumbs" aria-label="位置"><a href="../../index.html">首页</a><span>/</span>系统分析</nav>
+<header class="page-head">
+  <p class="kicker" data-edit>系统分析 · 个人课程作业</p>
+  <h1 data-edit>用设计模式定义「工厂游戏」</h1>
+  <p class="tagline" data-edit>工厂游戏不由题材定义，而由四个反复出现的设计模式定义。</p>
+  <dl class="facts"><div><dt>类型</dt><dd data-edit>类型分析</dd></div><div><dt>时间</dt><dd data-edit>2026.01</dd></div><div><dt>对象</dt><dd data-edit>《异星工厂》《戴森球计划》《Shapez》《纪元 1800》</dd></div></dl>
+</header>
+
+<section class="block doc" aria-labelledby="b1">
+<h2 class="section-title" id="b1" data-edit>什么是工厂游戏</h2>
+<p data-edit="multi">这篇日志尝试定义的类型是「工厂游戏」。在玩家社区里，「工厂游戏」这个词通常用来形容《异星工厂》（Factorio）这类游戏。</p>
+<p data-edit="multi">在现实中，工厂是一个生产系统，它通过自动化、空间组织和分工，把重复的劳动变成可扩展的、系统化的流程。工厂游戏用互动的形式表达了同样的核心理念：它们不只是模拟「制造物品」这个动作，而是把玩家放在设计者和管理者的位置上。玩家搭建自动化的生产流程，组织资源在空间中如何流动，而不是亲手生产每一件物品。</p>
+<p data-edit="multi">基于这个理解，工厂游戏不应该由题材或表现形式来定义，而应该由一组反复出现的设计模式来定义。我用四个核心模式来定义工厂游戏：自动化生产、可量化的生产、可复制扩展与模块化、空间化的物流。</p>
+</section>
+<section class="block doc" aria-labelledby="b2">
+<h2 class="section-title" id="b2" data-edit>四个核心设计模式</h2>
+<h3 data-edit>模式一：自动化生产</h3>
+<p data-edit="multi">在具有这个模式的游戏里，玩家设计、建造并调整生产结构，让资源的转化、运输、加工和消耗能够自动进行，而不需要玩家反复执行生产动作。</p>
+<p data-edit="multi">这个模式是工厂游戏的核心，因为它把生产的责任从玩家的手动操作转移到了系统本身。如果生产仍然依赖玩家不断输入，提高产量就只能靠投入更多时间和精力，体验很快会变成重复劳动。相反，自动化生产让「扩张」变成一个规划和设计的问题，而不是考验耐心或操作。</p>
+<h3 data-edit>模式二：可量化的生产</h3>
+<p data-edit="multi">这个模式指的是：生产系统的输入、输出和加工速率之间，有清晰、稳定、可计算的关系。资源配方、机器速度和整体吞吐量都遵循一致的数值规则，玩家可以理解系统如何运作，而不是靠直觉或反复试错。</p>
+<p data-edit="multi">这个模式的关键在于生产结果是确定的、可预测的。给定固定的输入和结构，产出不会随机变化。玩家可以提前算出一套生产布局能否满足需求、会不会浪费资源、会不会产生瓶颈。统计面板和速率显示不是这个模式本身，而是把系统内部逻辑展示给玩家的界面，用来支持有依据的、深思熟虑的规划。</p>
+<p data-edit="multi">这种可量化的逻辑，把工厂游戏和那些由模糊概率或隐藏规则驱动的经营游戏区分开来。当输入和输出的关系不清楚时，玩家的决策会集中在短期调整和维持平衡上；而可量化的生产则把挑战转向：在空间、规模和资源的限制下，设计一套逻辑自洽的生产结构。</p>
+<h3 data-edit>模式三：可复制扩展与模块化</h3>
+<p data-edit="multi">在工厂游戏里，生产系统必须支持可扩展的复制。可复制扩展与模块化指的是：生产结构可以拆分成独立的、定义清楚的单元，这些单元可以反复部署和组合，而不会明显增加认知或操作上的复杂度。</p>
+<p data-edit="multi">这个模式之所以重要，是因为「成长」本身就是工厂游戏体验的核心部分。如果每次扩张都要从头重新设计系统，或者做大量无法复用的手动调整，复杂度很快就会压垮玩家。模块化把复杂的系统压缩成可复用的单元，扩张时不需要再解决同样的结构问题。玩家可以复用已经验证过的方案，把精力放在规模扩大带来的新挑战上。</p>
+<h3 data-edit>模式四：空间化的物流</h3>
+<p data-edit="multi">空间化的物流指的是：资源的运输、分配和缓冲，必须通过有明确空间限制的结构来完成。资源不会在系统里瞬间或抽象地移动，而是沿着看得见的路径行进，并受到距离、路径容量、交叉口和布局决策的影响。因此，物流本身就成了一个需要设计的系统，而不只是后台的过程。</p>
+<p data-edit="multi">更重要的是，空间化的物流让系统的问题变得可见。供给不足时，资源会堆在上游；布局低效时，生产线会闲置；运输能力太低时，资源会明显地卡在路上。这些不是抽象的警告，而是持续可观察的状态。因为问题直接表现在资源的流动上，玩家可以判断结构在哪里出了问题，并据此重新设计布局或流程。</p>
+</section>
+<section class="block doc" aria-labelledby="b3">
+<h2 class="section-title" id="b3" data-edit>用例子验证</h2>
+<div class="table-scroll"><table class="data-table"><tr><th data-edit></th><th data-edit>自动化生产</th><th data-edit>可量化的生产</th><th data-edit>可复制扩展与模块化</th><th data-edit>空间化的物流</th></tr><tr><td data-edit>《异星工厂》</td><td data-edit>手动采集和燃料补给只是前期的过渡机制。随着游戏推进，资源开采、加工和发电很快由自动化系统接管；一旦建好，生产结构就能持续运转，不需要玩家再介入。</td><td data-edit>所有生产逻辑都基于固定可靠的输入输出关系。配方、机器速度和运输速率一致，玩家可以在建造之前就算出一个生产模块的产量。</td><td data-edit>生产布局可以抽象成可复用的模块。一个结构被证明有效后，可以复制并成片部署，支撑更大的规模，玩家不需要重新理解它的内部逻辑。</td><td data-edit>所有资源都和物理空间紧密绑定，沿着明确的路径移动，受带宽、交叉口和距离限制。拥堵、积压和闲置的机器一目了然，引导玩家通过重新规划空间来解决瓶颈。</td></tr><tr><td data-edit>《戴森球计划》</td><td data-edit>手动操作主要限于从单个星球走向太空的前期过渡。随着系统扩张，资源开采、加工和运输几乎全部自动化。</td><td data-edit>保持确定的输入输出逻辑。配方比例、建筑速度和运输能力始终一致，即使是行星级和星际级的系统，也可以当作速率和吞吐量的问题来分析。</td><td data-edit>可以用蓝图把生产结构复制到其他星球和星系。后期每个星球都可以成为更大网络中的一个高层级生产模块，规模巨大，认知负担却不会呈指数增长。</td><td data-edit>资源流动从局部布局延伸到行星表面、轨道空间和星际运输网络。距离、容量和路线组织都直接影响系统效率。</td></tr><tr><td data-edit>《Shapez》</td><td data-edit>所有生产动作从一开始就由系统执行，玩家的角色是设计能持续自行运转的结构。</td><td data-edit>比许多传统工厂游戏更纯粹。所有切割、组合和加工步骤都遵循固定的输入输出规则，生产速率在系统层面完全一致。</td><td data-edit>关卡目标鼓励玩家复用和重组已经验证过的结构。方案很少是一次性的，而是被复制、镜像、放大，以满足更高的产量需求。</td><td data-edit>图形元素沿着清晰的路径移动，受带宽、交叉口和布局限制。尽管画面简单，资源流动仍然受空间约束，并且可以观察。</td></tr></table></div>
+<p data-edit="multi">《Shapez》没有叙事、角色或写实的题材，却以高度抽象的形式保留了工厂游戏的核心结构；《戴森球计划》和《异星工厂》在表现形式和规模上差别很大，却同样完全符合这四个模式。</p>
+</section>
+<section class="block doc" aria-labelledby="b4">
+<h2 class="section-title" id="b4" data-edit>反例：《纪元 1800》</h2>
+<p data-edit="multi">《纪元 1800》常被称为自动化游戏或工厂游戏，也经常出现在关于这个类型的讨论里。这种归类在表面上有一定道理，但它并不完全符合上面建立的定义。它更适合被理解为一款把生产链当作工具的城市建造经营模拟游戏。</p>
+<ul class="points" data-edit-list><li data-edit><b>自动化生产：</b>《纪元 1800》确实有持续运转的建筑，但生产和人口需求、政策以及外部供应条件紧密耦合。生产从来不会完全交给系统，玩家必须不断介入来维持稳定。</li><li data-edit><b>可量化的生产：</b>虽然有配方和生产时间，但效率受到幸福度、贸易条件、供应波动等许多情境变量的影响。生产速度以「每件物品所需时间」而不是稳定的吞吐量来表示，让基于速率的规划变得困难，也降低了可预测性。</li><li data-edit><b>空间化的物流：</b>资源大多被抽象成航线层面的交换。岛屿的库存是共享的，而不是储存在可观察的物流节点里；资源流动主要表现为库存数字的变化，而不是持续的移动。</li></ul>
+<p data-edit="multi">总的来说，《纪元 1800》关注的是管理一个复杂的经济和人口生态。生产链服务于城市管理的目标，而不是被当作工程设计的对象。因此，尽管表面相似，《纪元 1800》更准确的分类是城市建造经营游戏，而不是工厂游戏。</p>
+</section>
+
+
+<nav class="pager" aria-label="返回"><a href="../../index.html#notes"><small>返回</small>首页</a></nav>
+</div>
+<footer class="page-foot">© 2026 陈韵好</footer>
+<script src="../../assets/edit.js"></script>
+<script src="../../assets/toc.js"></script>
+</body>
+</html>
