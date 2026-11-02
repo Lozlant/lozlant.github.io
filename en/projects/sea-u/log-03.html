@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>From MVP to Alpha | Sea U at Seacab | Yunhao Chen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,900;1,400&family=Noto+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Serif+SC:wght@400;600;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/sub.css">
+</head>
+<body data-log-page>
+<div class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="index.html">Sea U at Seacab</a><span>/</span>Design Log</nav>
+<header class="page-head">
+  <p class="kicker" data-edit>Entry 03　2026.02</p>
+  <h1 data-edit>From MVP to Alpha</h1>
+  <p class="tagline" data-edit>Hex world generation, a dialogue data pipeline, and closer teamwork.</p>
+</header>
+<article class="entry block">
+<h2 data-edit>Summary</h2>
+<p data-edit="multi">From MVP to Alpha, I adjusted many features.</p>
+<h2 data-edit>Cockpit UI and Camera</h2>
+<p data-edit="multi">I worked with the artist to redesign the UI. We repeatedly tested the driving camera view to check whether it felt reasonable, and whether the layout was wide and comfortable enough.</p>
+<h2 data-edit>World Generation: Hex Grid</h2>
+<ul class="points" data-edit-list><li data-edit>I created a hex grid for the world and placed buildings at the center of each cell. This setup is mainly for future auto-driving and pathfinding, and it also makes the world easier to edit and expand.</li><li data-edit>I followed CodeMonkey's approach for the hex grid: only handling the hex centers and row/column offsets, without actually drawing hex shapes.</li><li data-edit>When setting the spacing between rows and columns, I didn't calculate it mathematically. I used a very basic method and adjusted values directly by measuring on screen. Hopefully my curved monitor didn't introduce too much error.</li></ul>
+<div class="doc-figs"><figure><a href="../../../assets/media/seau-hexgrid-measure.jpg" data-lightbox><div class="fig-imgs"><img src="../../../assets/media/seau-hexgrid-measure.jpg" width="620" height="847" alt="Measuring the hex row and column spacing directly on screen" loading="lazy" style="max-width:420px"></div></a><figcaption data-edit>Measuring the hex row and column spacing directly on screen</figcaption></figure></div>
+<p data-edit="multi">Building types and layouts are stored in specific ScriptableObjects.</p>
+<div class="doc-figs"><figure><a href="../../../assets/media/seau-so-building-type.png" data-lightbox><div class="fig-imgs"><img src="../../../assets/media/seau-so-building-type.png" width="242" height="249" alt="Building types (Placed Object Type SO)" loading="lazy" style="max-width:242px"></div></a><figcaption data-edit>Building types (Placed Object Type SO)</figcaption></figure><figure><a href="../../../assets/media/seau-so-level-layout.png" data-lightbox><div class="fig-imgs"><img src="../../../assets/media/seau-so-level-layout.png" width="244" height="252" alt="Level layout (Level Layout SO)" loading="lazy" style="max-width:244px"></div></a><figcaption data-edit>Level layout (Level Layout SO)</figcaption></figure></div>
+<p data-edit="multi">With ChatGPT's help, I also built a more visual level layout tool. I can now paint buildings directly and save the data.</p>
+<div class="doc-figs"><figure><a href="../../../assets/media/seau-layout-editor.png" data-lightbox><div class="fig-imgs"><img src="../../../assets/media/seau-layout-editor.png" width="554" height="316" alt="Hex level layout tool (Layout Editor)" loading="lazy" style="max-width:554px"></div></a><figcaption data-edit>Hex level layout tool (Layout Editor)</figcaption></figure></div>
+<p data-edit="multi">Right now, the building system does not automatically create docks or connecting bridges. I plan to add this in the next phase.</p>
+<h2 data-edit>Dialogue Data Pipeline</h2>
+<ul class="points" data-edit-list><li data-edit>I created a data table for narrative content, which the narrative designer fills in.</li><li data-edit>We export it to JSON with <a href="https://github.com/neil3d/excel2json" target="_blank" rel="noopener">excel2json</a>, then I ask ChatGPT to reorganize the data into the format I need.</li></ul>
+<div class="doc-figs"><figure><a href="../../../assets/media/seau-dialogue-table.png" data-lightbox><div class="fig-imgs"><img src="../../../assets/media/seau-dialogue-table.png" width="554" height="92" alt="Narrative data table" loading="lazy" style="max-width:554px"></div></a><figcaption data-edit>Narrative data table</figcaption></figure><figure><a href="../../../assets/media/seau-json-raw.png" data-lightbox><div class="fig-imgs"><img src="../../../assets/media/seau-json-raw.png" width="316" height="334" alt="JSON exported by excel2json" loading="lazy" style="max-width:316px"></div></a><figcaption data-edit>JSON exported by excel2json</figcaption></figure><figure><a href="../../../assets/media/seau-json-formatted.png" data-lightbox><div class="fig-imgs"><img src="../../../assets/media/seau-json-formatted.png" width="554" height="298" alt="JSON reorganized into the required format" loading="lazy" style="max-width:554px"></div></a><figcaption data-edit>JSON reorganized into the required format</figcaption></figure></div>
+<p data-edit="multi">I know we could store all character data directly in articy:draft templates or write a custom Excel-to-JSON script, but both require extra learning time. Since our data size is still small, this workflow is acceptable for now.</p>
+<p data-edit="multi">With ChatGPT's help, I also created an import tool that converts JSON into Customer ScriptableObjects.</p>
+<div class="doc-figs"><figure><a href="../../../assets/media/seau-json-importer.png" data-lightbox><div class="fig-imgs"><img src="../../../assets/media/seau-json-importer.png" width="199" height="110" alt="JSON import tool (Customer JSON Importer)" loading="lazy" style="max-width:199px"></div></a><figcaption data-edit>JSON import tool (Customer JSON Importer)</figcaption></figure><figure><a href="../../../assets/media/seau-customer-db.png" data-lightbox><div class="fig-imgs"><img src="../../../assets/media/seau-customer-db.png" width="317" height="327" alt="Imported passenger database (Customer Database SO)" loading="lazy" style="max-width:317px"></div></a><figcaption data-edit>Imported passenger database (Customer Database SO)</figcaption></figure></div>
+<p data-edit="multi">After that, I read the data in code and added time-based events to spawn different orders at different times and switch dialogue based on passenger progress.</p>
+<h2 data-edit>Photo Feature</h2>
+<p data-edit="multi">I added a photo feature after dialogue. If a task requires taking photos, the player is guided into photo mode after completing the current objective, then returned to dialogue. Right now, dialogue does not advance line by line. I will add that later.</p>
+<h2 data-edit>Other Changes</h2>
+<ul class="points" data-edit-list><li data-edit>Added an in-game menu so players can easily pause and access settings.</li><li data-edit>Added more shortcuts and click interactions to make phone controls feel smoother.</li><li data-edit>Added a sprint function to boat movement.</li></ul>
+<h2 data-edit>Teamwork</h2>
+<p data-edit="multi">During this period, I built stronger collaboration with my teammates. I provide clearer step-by-step instructions, actively ask for feedback, and check for missing parts. I also tell them they can always ask me for help or clarify needs. This reduced rework and improved team relationships.</p>
+<h2 data-edit>Thoughts on Story Points</h2>
+<ul class="points" data-edit-list><li data-edit>Some tasks take much longer than expected once implementation starts. Also, only I fully understand my own technical tasks, so only I can assign that work to myself.</li><li data-edit>Even when I try to break tasks into smaller parts and time them, some work requires preparation first, and I can't estimate it until the prep is done. For tasks like these, fixed and locked Sprints are hard to plan accurately.</li><li data-edit>Completing one "5-point" task to the teacher's standards is much harder than doing five "1-point" tasks. I believe Story Points should be closer to hour-based estimates, rather than broad guesses like "one day" or "two days".</li></ul>
+<p class="doc-note" data-edit="multi">Original post: <a href="https://charcolatte.itch.io/housing-on-ocean/devlog/1371575/devlog-yunhao-feb11" target="_blank" rel="noopener">Devlog-Yunhao-Feb11</a>, itch.io, 2026.02.11.</p>
+</article>
+<nav class="pager" aria-label="Previous and next entries"><a href="log-07.html" data-edit-href><small>Previous</small>Water Taxi Concept: Gameplay and Systems Design</a><a href="index.html#s-log" class="back-link"><small>Back to</small>Sea U at Seacab</a><a class="next" href="log-05.html" data-edit-href><small>Next</small>Audio and Event Management</a></nav>
+</div>
+<footer class="page-foot">© 2026 Yunhao Chen</footer>
+<script src="../../../assets/edit.js"></script>
+<script src="../../../assets/toc.js"></script>
+</body>
+</html>

@@ -169,3 +169,8 @@ a.log-card:not([href]):hover{border-color:var(--chart)}
 body:not(.local) a.log-card:not([href]) .read{display:none}
 body.local a.log-card:not([href]){outline:1px dashed #A4473B;outline-offset:3px}
 body.local a.log-card:not([href]) .read{opacity:.4;text-decoration:line-through}
+
+/* 英文页面（<html lang="en">）：西文字体优先，中文字体作后备 */
+html[lang="en"]{--serif:"Noto Serif","Noto Serif SC","Source Han Serif SC","Songti SC",serif;--sans:"Noto Sans","Noto Sans SC","Source Han Sans SC","PingFang SC","Microsoft YaHei",sans-serif}
+html[lang="en"] body[data-page-hidden]:not(.local)::before{content:"This page is still being prepared. Please go back to the home page to see other work."}
+html[lang="en"] body.local[data-page-hidden]::before{content:"Not public: online visitors can't see this page."}

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Chants of Sennaar: Language System Redesign · Design Analysis | Yunhao Chen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,900;1,400&family=Noto+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Serif+SC:wght@400;600;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/sub.css">
+</head>
+<body>
+<div class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span>Design Analysis</nav>
+<header class="page-head">
+  <p class="kicker" data-edit>Design Analysis · Individual course assignment</p>
+  <h1 data-edit><i>Chants of Sennaar</i>: Redesigning the Language Guessing and Verification System</h1>
+  <p class="tagline" data-edit>Players are not just listeners and observers of a language. They speak it too.</p>
+  <dl class="facts">
+    <div><dt>Type</dt><dd data-edit>System analysis and redesign</dd></div>
+    <div><dt>Date</dt><dd data-edit>2026.03</dd></div>
+    <div><dt>Subject</dt><dd data-edit><i>Chants of Sennaar</i></dd></div>
+  </dl>
+</header>
+
+<section class="block doc" aria-labelledby="d1">
+<h2 class="section-title" id="d1" data-edit>About the Game</h2>
+<p data-edit="multi"><i>Chants of Sennaar</i> is a puzzle adventure game centered on deciphering fictional written languages: explore, observe and listen, decipher 5 unique fictional scripts, and unite the divided peoples of the Tower of Babel.</p>
+<p data-edit="multi">Players walk through the Tower of Babel, observing, listening and learning the languages of its many peoples in search of a path upward. Ultimately, they master every language, bridge the divides between civilizations, rebuild trust across cultures, and reunite the tower as one.</p>
+<div class="doc-figs"><figure><a href="../../../assets/media/sennaar-tower.jpg" data-lightbox><div class="fig-imgs"><img src="../../../assets/media/sennaar-tower.jpg" width="1400" height="934" alt="Gameplay" loading="lazy" style="max-width:1400px"></div></a><figcaption data-edit>Gameplay</figcaption></figure></div>
+</section>
+<section class="block doc" aria-labelledby="d2">
+<h2 class="section-title" id="d2" data-edit>Core System: Language Guessing and Verification</h2>
+<div class="flow-box"><h3 data-edit>Core Loop</h3><ol class="flow flow-steps"><li data-edit><b>1. Read</b>Immersed in scenes and dialogue</li><li data-edit><b>2. Guess</b>Guess word meanings and sentence structure</li><li data-edit><b>3. Verify</b>Same symbol, different contexts: meaning confirmed</li><li data-edit><b>4. Understand</b>Sentences become meaningful</li></ol></div>
+<p data-edit="multi">The core mechanic of the game is a system of language guessing and verification. As players read within context-rich environments, they form hypotheses about the meaning of words and the structure of sentences. By cross-referencing the same symbols across different conversations, they gradually confirm their interpretations, until the meaning of every character and every sentence becomes clear.</p>
+</section>
+<section class="block doc" aria-labelledby="d3">
+<h2 class="section-title" id="d3" data-edit>Notebook System</h2>
+<p data-edit="multi">To support this process, the game provides players with a dedicated notebook system.</p>
+<ol class="points" data-edit-list><li data-edit><b>Read:</b> players find new characters while reading dialogue from characters or text in the environment.</li><li data-edit><b>Guess:</b> for any symbol, players can enter a guessed meaning in the notebook. Once a guess is logged, that translation appears inline whenever the symbol shows up in later dialogue.</li><li data-edit><b>Verify:</b> after players collect a sufficient set of symbols from a language, the game presents a verification page. It displays a series of images, each representing a concept or meaning, and players assign the symbol they believe corresponds to each image. If the assignment is correct, the game reveals the official translation for that symbol.</li><li data-edit><b>Understand:</b> once all symbols in a set have been correctly matched, the full official translation of the associated text becomes available.</li></ol>
+<div class="doc-figs"><figure><a href="../../../assets/media/sennaar-read.png" data-lightbox><div class="fig-imgs"><img src="../../../assets/media/sennaar-read.png" width="260" height="146" alt="Read: finding new characters" loading="lazy" style="max-width:260px"></div></a><figcaption data-edit>Read: finding new characters</figcaption></figure><figure><a href="../../../assets/media/sennaar-guess.png" data-lightbox><div class="fig-imgs"><img src="../../../assets/media/sennaar-guess.png" width="847" height="390" alt="Guess: writing down a guess in the notebook" loading="lazy" style="max-width:847px"></div></a><figcaption data-edit>Guess: writing down a guess in the notebook</figcaption></figure><figure><a href="../../../assets/media/sennaar-translate.png" data-lightbox><div class="fig-imgs"><img src="../../../assets/media/sennaar-translate.png" width="234" height="129" alt="The guess appears in the translation box" loading="lazy" style="max-width:234px"></div></a><figcaption data-edit>The guess appears in the translation box</figcaption></figure></div>
+<div class="doc-figs"><figure><a href="../../../assets/media/sennaar-verify.jpg" data-lightbox><div class="fig-imgs"><img src="../../../assets/media/sennaar-verify.jpg" width="1400" height="787" alt="Verification page: assigning symbols to the matching images" loading="lazy" style="max-width:1400px"></div></a><figcaption data-edit>Verification page: assigning symbols to the matching images</figcaption></figure></div>
+<div class="doc-figs small"><figure><a href="../../../assets/media/sennaar-understand-1.png" data-lightbox><div class="fig-imgs"><img src="../../../assets/media/sennaar-understand-1.png" width="142" height="201" alt="Understand: seeing the official translation" loading="lazy" style="max-width:142px"></div></a><figcaption data-edit>Understand: seeing the official translation</figcaption></figure><figure><a href="../../../assets/media/sennaar-understand-2.png" data-lightbox><div class="fig-imgs"><img src="../../../assets/media/sennaar-understand-2.png" width="265" height="359" alt="Understand: seeing the official translation" loading="lazy" style="max-width:265px"></div></a><figcaption data-edit>Understand: seeing the official translation</figcaption></figure></div>
+</section>
+<section class="block doc" aria-labelledby="d4">
+<h2 class="section-title" id="d4" data-edit>How the System Connects to the Rest of the Game</h2>
+<ul class="points" data-edit-list><li data-edit><b>Level design:</b> the language verification system uses players' progress in deciphering symbols as the primary gate between levels and areas. Players must understand enough symbols before they can read the clues needed to access new regions. This gives each level a clear and concrete design objective: how to guide players toward the key vocabulary that prepares them for the next stage of reasoning.</li><li data-edit><b>NPC design:</b> the system defines the primary function of NPCs as providing linguistic evidence. To serve this purpose, NPCs must perform actions that are visually self-explanatory within their environment, so players can connect the action, the accompanying dialogue and any surrounding text, forming a chain of evidence from which the meaning of symbols can be inferred.</li><li data-edit><b>Narrative:</b> the official translations revealed upon successful verification make the narrative experience more complete. By converting the fictional script into language the player can fully understand, they remove ambiguity and let players engage with the story from the perspective of someone who has genuinely mastered that language.</li><li data-edit><b>Role-play:</b> the notebook system naturally puts the player in the role of a linguist; taking notes is, after all, something a linguist would do. The game provides a low-barrier framework for decipherment: rather than requiring players to recall every context in which a symbol has appeared, the notebook serves as a central reference point. Players log multiple possible meanings and, from that anchor, work back through remembered contexts to a reasoned conclusion.</li></ul>
+</section>
+<section class="block doc" aria-labelledby="d5">
+<h2 class="section-title" id="d5" data-edit>Redesign: Communication-Centered Guessing and Verification</h2>
+<p data-edit="multi"><b>Not just a listener and observer of language, but also a speaker.</b></p>
+<p data-edit="multi">In my redesigned system, players are not only observers and listeners of language; they are also active users of it. Players can engage in direct exchanges with NPCs: responding to greetings, attempting to answer questions and asking their own, building their understanding of words and sentence structures through use.</p>
+<h3 data-edit>Record Sentences</h3>
+<p data-edit="multi">The notebook is no longer limited to recording guesses for individual symbols. Players can also log custom phrases and sentence patterns, such as a common greeting, a line like "I'm looking for the way up" that recurs often in dialogue, or a sentence structure used to ask questions. Alongside each entry, players can record their current interpretation and update it as their understanding develops.</p>
+<div class="doc-figs"><figure><a href="../../../assets/media/sennaar-sentence-log.png" data-lightbox><div class="fig-imgs"><img src="../../../assets/media/sennaar-sentence-log.png" width="1088" height="419" alt="Redesign mockup: recording a sentence in the notebook" loading="lazy" style="max-width:1088px"></div></a><figcaption data-edit>Redesign mockup: recording a sentence in the notebook</figcaption></figure></div>
+<h3 data-edit>Talking to NPCs</h3>
+<ol class="points" data-edit-list><li data-edit>Compose sentences to reply to NPCs and keep the conversation going; use the notebook's sentence log for quick replies.</li><li data-edit>NPCs reject nonsensical input, but respond differently to various valid replies, and can also answer reasonable questions.</li><li data-edit>As long as an NPC's state hasn't changed, you can restart the conversation to explore different dialogue paths.</li></ol>
+<div class="doc-figs"><figure><a href="../../../assets/media/sennaar-talk.png" data-lightbox><div class="fig-imgs"><img src="../../../assets/media/sennaar-talk.png" width="454" height="491" alt="Redesign mockup: composing a sentence to reply to an NPC" loading="lazy" style="max-width:420px"></div></a><figcaption data-edit>Redesign mockup: composing a sentence to reply to an NPC</figcaption></figure></div>
+<p data-edit="multi">In the original game, NPCs essentially talk at you without expecting a response. In the redesigned system, players can actively reply.</p>
+<ul class="points" data-edit-list><li data-edit>Some NPC conversations require a specific answer to continue. If an NPC says "hello", you need to say "hello" back. If they ask "do you like music?", you need to answer "yes", "no", or something like "I like music"; otherwise the NPC will be confused and refuse to continue. You can, however, restart the conversation and try again.</li><li data-edit>Players are not locked into a single correct answer. Any reasonably formed phrase or complete sentence can get a response, and because the total number of grammatically valid sentences in <i>Chants of Sennaar</i> is finite, this is entirely manageable. In the music example: if you answer "no", the NPC might say "you do not want music". If you answer "yes", they might respond "I make instruments. We both love music", and hand you an instrument as a key item to progress.</li><li data-edit>Players can also compose their own questions to ask NPCs. On the second floor, for instance, you could say "I seek the bell-ringer", and an informed NPC will point you in the right direction, potentially saving you from wandering the scene looking for a quest item.</li><li data-edit>The system also supports extended exchanges. If an NPC tells you "the warriors have closed the gate", and you later learn the relevant information, you can return and tell them "the warriors are looking for music". The NPC then goes to the warriors, the warriors open the gate, and the conversation can keep developing from there.</li></ul>
+<h3 data-edit>Symbol Decipherment Progress</h3>
+<p data-edit="multi">With the new conversation-based verification in place, the original notebook verification mechanic is no longer necessary, though the translation system itself remains valuable and can be kept. To encourage players to engage more actively in dialogue, each symbol has its own decipherment progress: once a player successfully uses a symbol in conversation a set number of times, it is officially recorded as deciphered.</p>
+<div class="doc-figs"><figure><a href="../../../assets/media/sennaar-progress.png" data-lightbox><div class="fig-imgs"><img src="../../../assets/media/sennaar-progress.png" width="306" height="399" alt="Redesign mockup: decipherment progress for each symbol" loading="lazy" style="max-width:306px"></div></a><figcaption data-edit>Redesign mockup: decipherment progress for each symbol</figcaption></figure></div>
+</section>
+<section class="block doc" aria-labelledby="d6">
+<h2 class="section-title" id="d6" data-edit>How the Redesign Changes the Game</h2>
+<div class="table-scroll"><table class="data-table"><tr><th data-edit></th><th data-edit>Original</th><th data-edit>Redesign</th></tr><tr><td data-edit>Progression</td><td data-edit>Observe, search, decipher: progress by reading the environment</td><td data-edit>Conversation drives progress; NPCs wait for the player to speak first</td></tr><tr><td data-edit>The player's role</td><td data-edit>A silent decipherer: the player decodes the language, but no one speaks to them</td><td data-edit>An active participant: starts conversations, earns trust, learns how others see them</td></tr><tr><td data-edit>Thematic feeling</td><td data-edit>Loneliness: the player witnesses connection but isn't part of it</td><td data-edit>Participation: connection is something you take part in, not something you watch</td></tr></table></div>
+<p data-edit="multi">This shift makes social interaction the primary mode of gameplay, which calls for broader changes to the overall design. In the original game, players advance mainly by reading environmental information, locating items, and using those items to unlock further clues. In the redesigned version, the primary driver of progression is conversation. Some information is no longer stated directly but embedded in dialogue; NPCs wait for you to speak first; key NPCs won't simply hand you access to the next area, and you must engage them appropriately before they lead you forward.</p>
+<p data-edit="multi">This change also carries a different thematic weight. The original game has a quality of loneliness to it. You read every piece of text in the world and decode language on behalf of its peoples, yet you never quite feel like one of them. Almost no one speaks to you as a person. You are an outsider, moved by a story of connection that you yourself are not part of.</p>
+<p data-edit="multi">The redesigned system expresses the theme of human connection more directly. The player character enters this world as a stranger, earns trust gradually, speaks with each person, receives responses, and comes to understand how they are perceived. Connection is no longer something you observe; it is something you participate in.</p>
+</section>
+<section class="block doc" aria-labelledby="d7">
+<h2 class="section-title" id="d7" data-edit>Why the Original Designers Chose Their Design</h2>
+<p data-edit="multi">Looking at it from the other side: why did the original designers go with the system they did?</p>
+<h3 data-edit>1. Controlled Puzzle Difficulty</h3>
+<p data-edit="multi">The verification system gives players a way out even when they're not fully sure about a symbol. They can make a guess, and the game tells them if they're right. It's a safety net, and it keeps the game moving. A wrong guess won't spiral into a broken understanding of the whole story, and if players are completely stuck, they can always try every option on the verification page. It's tedious enough that no one wants to, but it's there.</p>
+<h3 data-edit>2. Reduced Design Complexity</h3>
+<p data-edit="multi">A conversation-based system means every NPC needs something to ask you and a scripted response to whatever you might say back. That's a lot of work. The original system sidesteps all of that: verification happens on its own isolated screen, and NPCs just need to give you clues. They don't need to talk to you. It's a practical call.</p>
+<h3 data-edit>3. Loneliness as an Expression of the "Division" Theme</h3>
+<p data-edit="multi">The whole point is for players to feel the divide between the peoples of the Tower, and that feeling should be uncomfortable. Why won't they learn each other's languages? Why are they so cold, so closed off? Because they've stopped trying to understand one another; each group just pushes forward with its own agenda. The player character exists to reconnect them, but walks through a world that has long given up on connection. That isolation isn't a design flaw. It's the experience the game is trying to create.</p>
+</section>
+<p class="doc-note" data-edit="multi">Screenshots are from <i>Chants of Sennaar</i> and are used for design analysis only.</p>
+
+<nav class="pager" aria-label="Back"><a href="../../index.html#analysis"><small>Back to</small>Home</a></nav>
+</div>
+<footer class="page-foot">© 2026 Yunhao Chen</footer>
+<script src="../../../assets/edit.js"></script>
+<script src="../../../assets/toc.js"></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Project Lich | Yunhao Chen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,900;1,400&family=Noto+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Serif+SC:wght@400;600;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/sub.css">
+</head>
+<body>
+<div class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span>Projects</nav>
+<header class="page-head">
+  <p class="kicker" data-edit>Capstone project (in progress)</p>
+  <h1 data-edit>Project Lich</h1>
+  <p class="tagline" data-edit>Of course a lich needs friends. They are useful alive, and even more useful dead.</p>
+  <dl class="facts">
+    <div><dt>Role</dt><dd data-edit>Lead Designer, Programmer, Project Lead</dd></div>
+    <div><dt>Team</dt><dd data-edit>TeaManul, 6-person capstone project</dd></div>
+    <div><dt>Timeline</dt><dd data-edit>2026.04 – Present</dd></div>
+    <div><dt>Genre</dt><dd data-edit>3-player local co-op magic combat</dd></div>
+    <div><dt>Platform</dt><dd data-edit>PC, controller</dd></div>
+    <div><dt>Engine</dt><dd data-edit>Unity, TopDown Engine</dd></div>
+  </dl>
+</header>
+
+<section class="block" aria-labelledby="s-demo">
+  <h2 class="section-title" id="s-demo">Gameplay Demo</h2>
+  <figure class="demo">
+    <video controls preload="metadata" playsinline poster="../../../assets/media/lich-poc.jpg">
+      <source src="../../../assets/media/lich-poc.mp4" type="video/mp4">
+      Your browser cannot play this video.
+    </video>
+    <figcaption data-edit>Gameplay recording from the POC stage, about 4 minutes, 3 players, with sound.</figcaption>
+  </figure>
+  <div class="download">
+    <p class="download-info"><b>Download the demo</b><span data-edit>Windows POC build for 3 players. Requires 3 controllers (keyboard play is not recommended). A controls guide is included in the archive.</span></p>
+    <a class="download-btn" href="https://pan.baidu.com/s/1Qqn4oK6il0fIlEvgV7iALA?pwd=wuv3" target="_blank" rel="noopener" data-edit-href data-edit>Download from Baidu Netdisk (code: wuv3)</a>
+  </div>
+</section>
+
+<section class="block" aria-labelledby="s-overview">
+  <h2 class="section-title" id="s-overview">Overview</h2>
+  <div class="prose">
+    <p data-edit="multi"><b>Vision</b>: In chaotic battles, players enjoy making mischief with their friends: the smugness of a successful backstab, the mix of laughter and frustration at being backstabbed, and the mutual "accusations" once a round ends.</p>
+    <p data-edit="multi">Each player is a necromancer with a unique element. Everyone shares one goal: drive the Church out of the Dark Magic Theme Park. But harmony is not on the menu. Enemy souls are essential for casting spells, but a teammate's soul is far more powerful.</p>
+    <p data-edit="multi">At the crucial moment of a fight, stab your teammate in the back, or even blow their head clean off: stronger attacks and more souls will be yours. Or make a small sacrifice and share your souls and power with a teammate for a while. Don't worry: a great necromancer can come back to life as long as their head finds its way back to their body.</p>
+  </div>
+</section>
+
+<section class="block" aria-labelledby="s-goal">
+  <h2 class="section-title" id="s-goal">Design Challenge</h2>
+  <div class="prose">
+    <p data-edit="multi">How can we get players in a co-op battle to choose to attack each other, and enjoy the backstabbing, teamwork, strategy and chaos?</p>
+  </div>
+  <ul class="points" data-edit-list>
+<li data-edit><b>Everything ends in laughter</b>: fighting, attacking each other and dying all bring fun, not blame.</li>
+<li data-edit><b>No burden, real rewards</b>: attacking a teammate doesn't hurt the friendship, and it benefits both you and the team.</li>
+<li data-edit><b>Everyone has a part to play</b>: players of every skill level can find their own way to help the team.</li>
+</ul>
+</section>
+
+<section class="block" aria-labelledby="s-loop">
+  <h2 class="section-title" id="s-loop">Gameplay</h2>
+  <div class="prose">
+    <p data-edit="multi">Project Lich is a 3D top-down, 3-player co-op magic combat game.</p>
+  </div>
+  <ul class="points play-points" data-edit-list>
+<li data-edit><b>Advance</b>: players push forward through a level called the Dark Magic Theme Park and drive back every enemy.</li>
+<li data-edit><b>Souls</b>: casting spells costs souls, and defeating enemies earns more.</li>
+<li data-edit><b>Attacking teammates</b>: attacking or killing a teammate triggers an elemental reaction and grants a stronger attack.</li>
+<li data-edit><b>Death</b>: a player who dies drops the souls they carry and becomes a skull. As a skull, they can still grab souls, and they revive once they return to their body.</li>
+</ul>
+  <div class="flows">
+  <div class="flow-box"><h3 data-edit>Core Loop</h3><ol class="flow" data-edit-list><li data-edit>Fight</li><li data-edit>Gain souls</li><li data-edit>Cast spells</li><li data-edit>Defeat enemies</li><li data-edit>Back to the fight</li></ol></div>
+  <div class="flow-box"><h3 data-edit>Death Loop</h3><ol class="flow" data-edit-list><li data-edit>Die in battle</li><li data-edit>Skull flies off</li><li data-edit>Find the body, grabbing souls on the way</li><li data-edit>Revive</li><li data-edit>Back to the fight</li></ol></div>
+  </div>
+</section>
+
+<section class="block" aria-labelledby="s-system">
+  <h2 class="section-title" id="s-system">Systems Overview</h2>
+  <ul class="sys-grid">
+    <li data-edit-block><b data-edit>Soul Resource System</b><span data-edit>Souls are the casting resource: how they are gained, held, picked up and fought over.</span></li>
+    <li data-edit-block><b data-edit>Co-op Combat and Friendly Fire</b><span data-edit>The core gameplay: attacking a teammate is a strategy with costs and benefits.</span></li>
+    <li data-edit-block><b data-edit>Rewards for Attacking Teammates</b><span data-edit>Damaging a teammate gives both players one elemental reaction attack; killing a teammate sets off an elemental reaction explosion.</span></li>
+    <li data-edit-block><b data-edit>Death and Revival</b><span data-edit>Death doesn't take you out of the game: you become a skull, can still fight over souls, and return to battle after reviving.</span></li>
+    <li data-edit-block><b data-edit>Elements</b><span data-edit>Each player has a unique element.</span></li>
+    <li data-edit-block><b data-edit>Combat Waves</b><span data-edit>A battle consists of 2 to 3 enemy waves: spawning, timers and early clears, and the end of the battle.</span></li>
+    <li data-edit-block><b data-edit>Enemy AI</b><span data-edit>The PoC has only one enemy type, which fires magic orbs.</span></li>
+  </ul>
+</section>
+
+
+<section class="block" aria-labelledby="s-log">
+  <h2 class="section-title" id="s-log">Design Log</h2>
+  <ol class="timeline">
+  <li class="log-node" data-edit-block>
+    <a class="log-card" data-off-href="log-00.html" data-edit-href>
+      <span class="date" data-edit>2026.4</span>
+      <h3 data-edit>Project Setup and Concept Exploration</h3>
+      <p data-edit></p>
+      <span class="read">Read this entry</span>
+    </a>
+  </li>
+  <li class="log-node" data-edit-block>
+    <a class="log-card" data-off-href="log-01.html" data-edit-href>
+      <span class="date" data-edit>2026.9</span>
+      <h3 data-edit>Paper Prototype</h3>
+      <p data-edit>Testing whether players attack their teammates, and how they choose to fight.</p>
+      <span class="read">Read this entry</span>
+    </a>
+  </li>
+  <li class="log-node" data-edit-block>
+    <a class="log-card" data-off-href="log-02.html" data-edit-href>
+      <span class="date" data-edit>2026.10.05 – 10.07</span>
+      <h3 data-edit>Python Simulation of the Soul Loop</h3>
+      <p data-edit>Used a Monte Carlo simulation to check that souls circulate properly in combat, and set the minion drop rate based on the results.</p>
+      <span class="read">Read this entry</span>
+    </a>
+  </li>
+  <li class="log-node" data-edit-block>
+    <a class="log-card" data-off-href="log-03.html" data-edit-href>
+      <span class="date" data-edit>2026.10.18 – 10.20</span>
+      <h3 data-edit>Rewards for Attacking Teammates</h3>
+      <p data-edit>Rewarding attacks on teammates with elemental reactions and elemental souls, so that every attack is a trade-off.</p>
+      <span class="read">Read this entry</span>
+    </a>
+  </li>
+  <li class="log-node" data-edit-block>
+    <a class="log-card" data-off-href="log-04.html" data-edit-href>
+      <span class="date" data-edit>2026.10</span>
+      <h3 data-edit>Playable POC</h3>
+      <p data-edit>Testing how the mechanics work and feel, and whether players attack their teammates on their own.</p>
+      <span class="read">Read this entry</span>
+    </a>
+  </li>
+  </ol>
+</section>
+</div>
+<footer class="page-foot">© 2026 Yunhao Chen</footer>
+<script src="../../../assets/edit.js"></script>
+<script src="../../../assets/toc.js"></script>
+</body>
+</html>

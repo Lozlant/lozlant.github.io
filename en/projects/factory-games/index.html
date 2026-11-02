@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Defining Factory Games with Design Patterns · System Analysis | Yunhao Chen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,900;1,400&family=Noto+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Serif+SC:wght@400;600;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/sub.css">
+</head>
+<body>
+<div class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span>System Analysis</nav>
+<header class="page-head">
+  <p class="kicker" data-edit>System Analysis · Individual course assignment</p>
+  <h1 data-edit>Defining "Factory Games" with Design Patterns</h1>
+  <p class="tagline" data-edit>Factory games are defined not by theme, but by four recurring design patterns.</p>
+  <dl class="facts"><div><dt>Type</dt><dd data-edit>Genre analysis</dd></div><div><dt>Date</dt><dd data-edit>2026.01</dd></div><div><dt>Subjects</dt><dd data-edit><i>Factorio</i>, <i>Dyson Sphere Program</i>, <i>Shapez</i>, <i>Anno 1800</i></dd></div></dl>
+</header>
+
+<section class="block doc" aria-labelledby="b1">
+<h2 class="section-title" id="b1" data-edit>What Is a Factory Game</h2>
+<p data-edit="multi">The genre I attempt to define in this journal is the factory game. In player communities, the term "factory game" is commonly used to describe games like <i>Factorio</i>.</p>
+<p data-edit="multi">In a real-world context, a factory is a production system that uses automation, spatial organization and division of labor to turn repetitive work into a scalable and systematic process. Factory games express this same core idea in interactive form. Rather than simply simulating the act of making items, these games place the player in the role of a designer and manager. The player builds automated production processes and organizes how resources move through space, instead of manually producing each item.</p>
+<p data-edit="multi">Based on this understanding, factory games can be defined not by theme or presentation, but by a set of recurring design patterns. I define factory games using four core patterns: Automated Production, Quantifiable Production, Scalable Replication and Modularity, and Spatialized Logistics.</p>
+</section>
+<section class="block doc" aria-labelledby="b2">
+<h2 class="section-title" id="b2" data-edit>Four Core Design Patterns</h2>
+<h3 data-edit>Pattern 1: Automated Production</h3>
+<p data-edit="multi">In games with this pattern, players design, build and adjust production structures so that resource transformation, transportation, processing and consumption can happen automatically, without the player repeatedly performing production actions.</p>
+<p data-edit="multi">This pattern is central to factory games because it shifts the responsibility for production from the player's manual actions to the system itself. If production still relies on constant player input, increasing output can only be achieved by spending more time and effort, which quickly turns the experience into repetitive labor. In contrast, automated production makes expansion a question of planning and design, rather than a test of patience or mechanical effort.</p>
+<h3 data-edit>Pattern 2: Quantifiable Production</h3>
+<p data-edit="multi">This pattern describes production systems with clear, stable and calculable relationships between inputs, outputs and processing rates. Resource recipes, machine speeds and overall throughput follow consistent numerical rules, allowing players to understand how the system works rather than relying on intuition or trial and error.</p>
+<p data-edit="multi">The key to this pattern is that production outcomes are deterministic and predictable. Given a fixed input and structure, the output does not change randomly. Players can calculate in advance whether a production setup will meet demand, waste resources or create bottlenecks. Statistics panels and rate displays are not the pattern itself, but interfaces that expose the system's internal logic to the player, supporting deliberate and informed planning.</p>
+<p data-edit="multi">This kind of quantifiable logic separates factory games from management games driven by vague probabilities or hidden rules. When input–output relationships are unclear, player decisions focus on short-term adjustments and keeping things balanced. Quantifiable production instead shifts the challenge toward designing a logically consistent production structure under constraints of space, scale and resources.</p>
+<h3 data-edit>Pattern 3: Scalable Replication and Modularity</h3>
+<p data-edit="multi">In factory games, production systems must support scalable replication. Scalable Replication and Modularity means that production structures can be broken into independent, clearly defined units that can be repeatedly deployed and combined without significantly increasing cognitive or operational complexity.</p>
+<p data-edit="multi">This pattern is essential because growth itself is a core part of the factory game experience. If every expansion requires redesigning systems from scratch or making detailed, non-reusable manual adjustments, complexity quickly overwhelms the player. Modularity compresses complex systems into reusable units, so expansion does not require solving the same structural problems again. Players can reuse proven solutions and focus on the new challenges that come with increased scale.</p>
+<h3 data-edit>Pattern 4: Spatialized Logistics</h3>
+<p data-edit="multi">Spatialized Logistics means that resource transportation, distribution and buffering must happen through structures with explicit spatial constraints. Resources do not move instantly or abstractly through the system. Instead, they travel along visible paths and are affected by distance, path capacity, intersections and layout decisions. Logistics therefore becomes a system that must be designed, not just a background process.</p>
+<p data-edit="multi">More importantly, spatialized logistics makes system problems visible. When supply is insufficient, resources pile up upstream. When layouts are inefficient, production lines sit idle. When transport capacity is too low, resources visibly stall along routes. These are not abstract warnings but ongoing, observable states. Because problems appear directly in resource movement, players can diagnose where the structure fails and redesign layouts or flows accordingly.</p>
+</section>
+<section class="block doc" aria-labelledby="b3">
+<h2 class="section-title" id="b3" data-edit>Testing the Definition</h2>
+<div class="table-scroll"><table class="data-table"><tr><th data-edit></th><th data-edit>Automated Production</th><th data-edit>Quantifiable Production</th><th data-edit>Scalable Replication and Modularity</th><th data-edit>Spatialized Logistics</th></tr><tr><td data-edit><i>Factorio</i></td><td data-edit>Manual gathering and fuel handling are only early transitional mechanics. As the game progresses, resource extraction, processing and power generation are quickly taken over by automated systems; once built, a production structure can operate continuously without further player intervention.</td><td data-edit>All production logic is based on fixed and reliable input–output relationships. Recipes, machine speeds and transport rates are consistent, so players can calculate a production module's output before building it.</td><td data-edit>Production setups can be abstracted into reusable modules. Once a structure is proven effective, it can be copied and deployed in arrays to support larger scales, without the player relearning its internal logic.</td><td data-edit>All resources are tightly bound to physical space, moving along explicit paths constrained by bandwidth, intersections and distance. Congestion, backups and idle machines are clearly visible, guiding players to resolve bottlenecks through spatial redesign.</td></tr><tr><td data-edit><i>Dyson Sphere Program</i></td><td data-edit>Manual interaction is largely limited to the early transition from a single planet into space. As systems expand, resource extraction, processing and transport are almost entirely automated.</td><td data-edit>Deterministic input–output logic is maintained. Recipe ratios, building speeds and transport capacities stay consistent, so even planetary- and interstellar-scale systems can be analyzed as rate and throughput problems.</td><td data-edit>Production structures can be copied across planets and star systems using blueprints. In the late game, each planet can function as a high-level production module in a much larger network, enabling massive scale without exponential cognitive load.</td><td data-edit>Resource flow extends beyond local layouts into planetary surfaces, orbital space and interstellar transport networks. Distance, capacity and route organization all directly affect system efficiency.</td></tr><tr><td data-edit><i>Shapez</i></td><td data-edit>All production actions are executed by the system from the beginning. The player's role is to design structures that can run continuously on their own.</td><td data-edit>Even purer than many traditional factory games. All cutting, combining and processing steps follow fixed input–output rules, and production rates are fully consistent at the system level.</td><td data-edit>Level goals encourage players to reuse and recombine proven structures. Solutions are rarely one-off designs; they are copied, mirrored and scaled to meet higher output demands.</td><td data-edit>Visual elements move along clear paths, with constraints on bandwidth, intersections and layout. Despite its simplicity, resource flow remains spatially constrained and observable.</td></tr></table></div>
+<p data-edit="multi"><i>Shapez</i> has no narrative, characters or realistic theme, yet preserves the core structure of factory games in a highly abstract form; <i>Dyson Sphere Program</i> and <i>Factorio</i> differ greatly in presentation and scale, yet both fully satisfy the same four patterns.</p>
+</section>
+<section class="block doc" aria-labelledby="b4">
+<h2 class="section-title" id="b4" data-edit>Counterexample: <i>Anno 1800</i></h2>
+<p data-edit="multi"><i>Anno 1800</i> is often described as an automation or factory game and is frequently included in discussions of the genre. While this classification has some surface-level justification, it does not fully meet the definition established above. It is better understood as a city-building management simulation that uses production chains as tools.</p>
+<ul class="points" data-edit-list><li data-edit><b>Automated Production:</b> <i>Anno 1800</i> does include continuously operating buildings, but production is tightly coupled to population needs, policies and external supply conditions. Production is never fully delegated to the system; players must constantly intervene to maintain stability.</li><li data-edit><b>Quantifiable Production:</b> although recipes and production times exist, efficiency is affected by many contextual variables such as happiness, trade conditions and supply fluctuations. Production speed is expressed as time per item rather than stable throughput, making rate-based planning difficult and reducing predictability.</li><li data-edit><b>Spatialized Logistics:</b> resources are largely abstracted into route-level exchanges. Island inventories are shared rather than stored in observable logistics nodes, and resource flow appears mainly as stock changes rather than continuous movement.</li></ul>
+<p data-edit="multi">Overall, <i>Anno 1800</i> focuses on managing a complex economic and population ecosystem. Production chains support city management goals rather than serving as objects of engineering design. So despite surface similarities, <i>Anno 1800</i> is more accurately classified as a city-building management game, not a factory game.</p>
+</section>
+
+
+<nav class="pager" aria-label="Back"><a href="../../index.html#notes"><small>Back to</small>Home</a></nav>
+</div>
+<footer class="page-foot">© 2026 Yunhao Chen</footer>
+<script src="../../../assets/edit.js"></script>
+<script src="../../../assets/toc.js"></script>
+</body>
+</html>

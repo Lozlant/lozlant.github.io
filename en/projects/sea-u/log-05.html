@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Audio and Event Management | Sea U at Seacab | Yunhao Chen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,900;1,400&family=Noto+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Serif+SC:wght@400;600;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/sub.css">
+</head>
+<body data-log-page>
+<div class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="index.html">Sea U at Seacab</a><span>/</span>Design Log</nav>
+<header class="page-head">
+  <p class="kicker" data-edit>Entry 04　2026.03</p>
+  <h1 data-edit>Audio and Event Management</h1>
+  <p class="tagline" data-edit>Building naming conventions into the logic: an audio database, automatic voice-line grouping and decoupled events.</p>
+</header>
+<article class="entry block">
+<h2 data-edit>Problem: How the Audio Files Were Named</h2>
+<p data-edit="multi">During the transition to Beta, we worked on audio importing and binding. Before any of that could begin, a teammate handed me a rather shocking set of files.</p>
+<ul class="points" data-edit-list><li data-edit>All audio files were named with numbers, 1, 2, 3, relying entirely on folder structure to distinguish categories.</li><li data-edit>Voice files were organized by character rather than by dialogue line.</li><li data-edit>These two things together created a specific problem: even if I could read the correct file through its folder path, I had no way to verify inside the engine whether the file was loaded correctly, because the filename I saw was always just 1, 2 or 3. If the voice files kept growing, this structure would become extremely difficult to maintain.</li></ul>
+<h2 data-edit>Thinking: A Communication Problem</h2>
+<p data-edit="multi">I had never actually told my teammate what the naming structure should be. In an earlier stage of narrative design, I had required dialogue files to follow the format "[character name]_[dialogue category]_[index]" and explained the reasoning behind it. I assumed that logic would naturally extend to the audio export stage, but I never explicitly said "please name the audio files by this rule as well." The convention existed, but only inside my own assumptions, not in any document anyone could actually read and follow.</p>
+<p data-edit="multi">This was not my teammate's fault. It was a failure of communication on my part. Expecting someone to connect the dots on their own is an unreasonable assumption, especially in cross-discipline collaboration, where the other person has no visibility into what the engine actually needs. If I want a specific format, I should write it down clearly before the work begins, put it in the project's shared documentation, and state explicitly that it is a requirement.</p>
+<h2 data-edit>Audio System</h2>
+<ul class="points" data-edit-list><li data-edit>I put all audio assets into a single ScriptableObject, AudioDataBase, for centralized management. Other code only needs to pass in an enum value or a string ID; looking up the entry and playing it is handled by AudioManager. If you want to quickly swap out a sound effect, you only need to change it in the SO.</li><li data-edit>When reading files from a folder for a particular type of audio, I assign a category enum value at the same time. This feeds into four separate AudioSources, because in this project their behaviors are quite different: BGM needs to loop; SFX can stack with PlayOneShot; voice needs to know when the current line has finished playing, and triggers a callback to advance the dialogue when it does. Keeping them physically separate also lets the AudioMixer control the volume of each channel independently without interference.</li></ul>
+<h2 data-edit>VoiceSplitUtility: A Naming Convention Instead of Manual Sorting</h2>
+<p data-edit="multi">This is a small tool I built that I am fairly happy with.</p>
+<ul class="points" data-edit-list><li data-edit><b>The need:</b> customer voice lines in the game are split into two phases. One set plays while the customer is in the car, and another plays after they get out.</li><li data-edit><b>The problem with the obvious approach:</b> the most straightforward approach would be to manually maintain two separate lists in the data. But then every time a designer adds or removes a line, they have to update both lists, which makes it easy to end up with mismatches or missing entries.</li><li data-edit><b>My solution:</b> establish a naming convention for voice files, "[prefix]_[index]", and store a single boundary index in the data. At initialization, VoiceSplitUtility reads that index and automatically splits the voice list into an "in-car" group and an "out-of-car" group, writing each into the corresponding data object.</li><li data-edit><b>The benefit:</b> designers only need to fill in voice entries in order, following the naming convention, and the tool handles the grouping automatically. Adding or removing lines only requires adjusting the boundary index, with no manual moving of data.</li></ul>
+<p data-edit="multi">Using a naming convention and a single index to replace manual sorting is the smallest but most practical decision I made in this whole system. It also made me realize that data naming conventions are not just about looking tidy; they can directly become part of the logic. That is really what I was getting at when I brought up the file naming issue at the beginning.</p>
+<h2 data-edit>Volume Control</h2>
+<ul class="points" data-edit-list><li data-edit>I built volume control with the Audio Mixer. In the game we use a 0–100% slider, and I naturally mapped those values linearly to the Mixer's dB parameter. The result was disappointing: as the value dropped, the change in perceived volume shrank rapidly, and near the bottom of the range the sound barely changed at all. I assumed it was a problem with my upper and lower bounds, but after trying several different values I realized that probably was not it.</li><li data-edit>The fix is to apply a logarithmic conversion before assigning the value: <code>Mathf.Log10(volume) * 20</code>, which maps the 0–1 linear range to dB in a way that sounds like a uniform change to the ear.</li><li data-edit>That said, I wonder whether the logarithmic calculation is even necessary. Players do not really need infinitely fine volume control; what they usually want is a few distinct levels. Instead of a continuous logarithmic curve, you could just hardcode a handful of fixed steps with their corresponding dB values: simpler to implement, and more predictable. I did not change it this time, but if I rebuild the volume system in a future project, I will probably try that approach first.</li><li data-edit>A side note: if you are not familiar with building volume controls and you do not want your ears to suffer, double-check your values carefully, and add a Clamp.</li><li data-edit>Last week I also got an introduction to FMOD in an audio course. It was only a surface-level look, but I think it could be useful for audio management in future projects.</li></ul>
+<h2 data-edit>Event Management Architecture</h2>
+<p data-edit="multi">The last thing I want to talk about is some decoupling work I did in code, by building an event management architecture.</p>
+<ul class="points" data-edit-list><li data-edit><b>The problem:</b> in the early stages of the project, events were defined directly inside their respective Managers. This created a problem that would only get worse as the project grew: every system that needed to respond to an event had to directly hold a reference to the Manager that owned it. The UI had to know about TimeManager, Quest had to know about PauseManager, Tutorial had to know about CustomerManager, and eventually the whole project became a web where everyone knew everyone. Adding a new system meant touching several unrelated places at once.</li><li data-edit><b>The refactor:</b> strip event ownership out of the individual Managers and consolidate everything under a single singleton, GameEventsManager. Events are grouped by domain, and each group is its own class:</li></ul>
+<pre class="code"><code>GameEventsManager (singleton)
+├── customerStateEvents  // order selection, order complete, pick up, drop off
+├── gameTimeEvents       // minute passed, hour updated, day ended
+├── sceneEvents          // scene transitions, cutscene events
+├── pauseEvents          // pause / resume
+├── questEvents          // quest started, advanced, completed
+└── tutorialEvents       // tutorial steps</code></pre>
+<p data-edit="multi">The groups have no dependencies on each other; everything routes through GameEventsManager. Any system only needs to know GameEventsManager.instance to subscribe to or trigger any event, with no direct references between sender and receiver:</p>
+<pre class="code"><code>// Subscribe
+void OnEnable() {
+    GameEventsManager.instance.pauseEvents.onGamePaused += ShowPauseMenu;
+}
+// Unsubscribe
+void OnDisable() {
+    GameEventsManager.instance.pauseEvents.onGamePaused -= ShowPauseMenu;
+}
+// Fire
+GameEventsManager.instance.pauseEvents.GamePaused();</code></pre>
+<p data-edit="multi">This system is one of the modules I plan to properly clean up and decouple before the end of the semester. The event infrastructure itself does not depend on any game-specific logic, so it should be portable to a future project, with only the group definitions needing to be replaced.</p>
+<p class="doc-note" data-edit="multi">Original post: <a href="https://charcolatte.itch.io/housing-on-ocean/devlog/1468755/devlog-audio-and-event-manage" target="_blank" rel="noopener">Devlog - Audio and Event Manage</a>, itch.io, 2026.03.25.</p>
+</article>
+<nav class="pager" aria-label="Previous and next entries"><a href="log-03.html" data-edit-href><small>Previous</small>From MVP to Alpha</a><a href="index.html#s-log" class="back-link"><small>Back to</small>Sea U at Seacab</a></nav>
+</div>
+<footer class="page-foot">© 2026 Yunhao Chen</footer>
+<script src="../../../assets/edit.js"></script>
+<script src="../../../assets/toc.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Kingdom Rush 5: Progression Redesign | Yunhao Chen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,900;1,400&family=Noto+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Serif+SC:wght@400;600;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/sub.css">
+</head>
+<body>
+<div class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span>Projects</nav>
+<header class="page-head">
+  <p class="kicker" data-edit>Systems design course assignment</p>
+  <h1 data-edit>Kingdom Rush 5: Progression Redesign</h1>
+  <p class="tagline" data-edit>Hero-specific side quests that let players truly get to know each hero.</p>
+  <dl class="facts">
+    <div><dt>Role</dt><dd data-edit>Systems Designer</dd></div>
+    <div><dt>Team</dt><dd data-edit>4 people; led the systems design and documentation</dd></div>
+    <div><dt>Timeline</dt><dd data-edit>2024.11 – 2024.12</dd></div>
+    <div><dt>Subject</dt><dd data-edit><i>Kingdom Rush 5: Alliance</i> (Ironhide Game Studio, 2024)</dd></div>
+  </dl>
+</header>
+
+<section class="block" aria-labelledby="s-overview">
+  <h2 class="section-title" id="s-overview">Overview</h2>
+  <ul class="points" data-edit-list>
+    <li data-edit>Set the system goals based on two player personas: the Commander and the Hero.</li>
+    <li data-edit>Designed 1–3 side-quest levels for each hero, using deployment restrictions and waves in stages to teach how to use heroes and towers.</li>
+    <li data-edit>Kept the total number of skill points the same, but turned the hero level 9–10 cap and some skill points into side-quest rewards; wrote the feature specification and configured levels and waves in Excel.</li>
+  </ul>
+</section>
+
+<section class="block" aria-labelledby="s-goal">
+  <h2 class="section-title" id="s-goal">Design Goal</h2>
+  <div class="prose">
+    <p data-edit="multi">Help players truly get to know each hero through play: understand its strengths and weaknesses, know which towers it pairs well with, and learn its story. At the same time, serve two kinds of players: the "Commander", who enjoys strategic challenge, and the "Hero", who cares more about character growth and story.</p>
+  </div>
+</section>
+
+<section class="block" aria-labelledby="s-system">
+  <h2 class="section-title" id="s-system">Systems Overview</h2>
+  <ol class="loop" aria-label="System loop">
+    <li data-edit-block><b data-edit>Main Levels</b><span data-edit>Progress through the campaign to unlock new heroes and side quests</span></li>
+    <li data-edit-block><b data-edit>Hero Side Quests</b><span data-edit>Deployment restrictions + tutorial waves in stages + comics before and after each level</span></li>
+    <li data-edit-block><b data-edit>Completion Rewards</b><span data-edit>Unlock the level 9–10 cap, earn skill points, see more of the hero's story</span></li>
+    <li data-edit-block><b data-edit>Stronger Heroes</b><span data-edit>Better understanding of heroes and towers makes the main levels easier</span></li>
+  </ol>
+  <p class="loop-note" data-edit>The four steps follow one another and lead back to the main levels, forming a loop.</p>
+</section>
+
+<section class="block" aria-labelledby="s-doc">
+  <h2 class="section-title" id="s-doc">Design Documents</h2>
+  <div class="doc-entry">
+    <p><b data-edit>Analysis of the Original: Skill Atoms of Hero Progression</b><span data-edit>Course assignment. Uses skill atoms to break down how players gradually learn hero progression in the original game.</span></p>
+    <a class="download-btn" href="atoms.html" data-edit-href data-edit>Read Document</a>
+  </div>
+  <div class="doc-entry">
+    <p><b data-edit>Feature Specification</b><span data-edit>The full specification of the hero side-quest system: entry points and onboarding, level flow and wave design, level and skill point rewards, narrative structure.</span></p>
+    <a class="download-btn" href="spec.html" data-edit-href data-edit>Read Document</a>
+  </div>
+</section>
+
+</div>
+<footer class="page-foot">© 2026 Yunhao Chen</footer>
+<script src="../../../assets/edit.js"></script>
+<script src="../../../assets/toc.js"></script>
+</body>
+</html>

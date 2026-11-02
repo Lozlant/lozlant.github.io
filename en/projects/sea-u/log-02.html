@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>From City-Building to Water Taxi | Sea U at Seacab | Yunhao Chen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,900;1,400&family=Noto+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Serif+SC:wght@400;600;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/sub.css">
+</head>
+<body data-log-page>
+<div class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="index.html">Sea U at Seacab</a><span>/</span>Design Log</nav>
+<header class="page-head">
+  <p class="kicker" data-edit>Entry 02　2026.01</p>
+  <h1 data-edit>From City-Building to Water Taxi</h1>
+  <p class="tagline" data-edit>The theme sat on the surface and the scope was out of control. After reviewing why, we narrowed the direction to a "water taxi driver".</p>
+</header>
+<article class="entry block">
+<h2 data-edit>Problem</h2>
+<p data-edit="multi">At the beginning of this semester, our project ran into major problems. The transformation goal was considered unclear, and the project scope was too broad and overloaded with content.</p>
+
+<h2 data-edit>Thinking</h2>
+<ul class="points" data-edit-list>
+<li data-edit><b>The blueprint came before the theme.</b> The project blueprint appeared before we properly researched the transformation. I did not keep an open design mindset; instead, I kept trying to "attach" transformation theory onto an already-formed project. The theory existed only on the surface, like sticky notes pasted on top, rather than acting as the core structure that connects everything.</li>
+<li data-edit><b>Poor scope control.</b> At the start, I had unrealistic ambitions. When switching between multiple tasks, I often lost focus. I also failed to reflect and reduce the scope in time, and kept believing I could manage everything even as the project became chaotic.</li>
+<li data-edit><b>Not enough team communication.</b> I was the only designer and the only programmer on multiple projects. Being the only programmer was unavoidable, but being the only designer was my responsibility as the lead designer: I should have adjusted the project scope based on the team's design abilities, broken down design tasks earlier, and predicted possible problems with clear proposals.</li>
+<li data-edit><b>Time management.</b> I am bad at scheduling, so it should have been handled by other team members. But because I failed to clearly communicate the full vision of the project, team members who were not involved in planning did not understand the details and felt more like outsourced workers. I should have supported them and involved them more in the planning process.</li>
+</ul>
+
+<h2 data-edit>Decision: A New Direction</h2>
+<ul class="points" data-edit-list>
+<li data-edit>After feeling stuck while revising the project, I booked office hours with Professor Douglas, who clearly explained the project requirements and working approach and gave us concrete, effective advice.</li>
+<li data-edit>On the same day, the team held an urgent discussion and developed a new direction: we kept the original inspiration of a floating city, but shifted focus to individual people and problems we could realistically address. I shared all the floating-city research I had collected, and through discussion we narrowed the scope to work and transportation. This led to the early concept of a "water taxi driver", and everyone contributed ideas.</li>
+<li data-edit>The new concept: the player drives a water taxi between different modules of a floating city and learns about different aspects of city life by talking with passengers. The core systems are boat navigation and conversations with passengers.</li>
+</ul>
+<div class="doc-figs">
+<figure><a href="../../../assets/media/seau-ideation-1.jpg" data-lightbox><div class="fig-imgs"><img src="../../../assets/media/seau-ideation-1.jpg" width="1050" height="1400" alt="Ideation whiteboard: a mind map centered on "lifestyle"" loading="lazy"></div></a><figcaption data-edit>Ideation whiteboard 1: a mind map centered on "lifestyle", with several gameplay directions listed at the bottom right; "taxi boat simulator" is starred (labels in Chinese)</figcaption></figure>
+<figure><a href="../../../assets/media/seau-ideation-2.jpg" data-lightbox><div class="fig-imgs"><img src="../../../assets/media/seau-ideation-2.jpg" width="1400" height="1050" alt="Ideation whiteboard: the game loop of the taxi boat simulator" loading="lazy"></div></a><figcaption data-edit>Ideation whiteboard 2: a draft game loop for the "taxi boat simulator" (labels in Chinese)</figcaption></figure>
+</div>
+
+<h2 data-edit>Decision: Team and Process</h2>
+<ul class="points" data-edit-list>
+<li data-edit>Started using Jira's Scrum framework to guide development: organized systems as Epics, then created user stories, assigned tasks and set system owners. Revisiting these methods from a previous semester helped me a lot.</li>
+</ul>
+
+<h2 data-edit>Prototype</h2>
+<p data-edit="multi">As the programmer, I built a very simple prototype for the core gameplay. The boat interior exists as the UI, while the player can see the 3D ocean surface and port buildings through the windows.</p>
+<ul class="points" data-edit-list>
+<li data-edit><b>Ocean:</b> worried that using Unity Asset Store assets directly would bloat the project, I followed a tutorial by DitzelGames that creates an ocean mesh by moving points on the surface and layering wave functions, so I could generate dynamic oceans of any size, and I learned how to make an ocean material. Our 3D artist suggested parameter adjustments, helped find suitable colors, and proposed different ocean materials for different times of day. Rather than switching materials abruptly, I think a smoother approach is to use time as a variable in a transition function.</li>
+<li data-edit><b>Reused systems:</b> I reused the scene transition system and dialogue management system from my previous narrative projects. The dialogue system uses articy:draft X as its database; my previous implementation was incomplete and still needs to be adapted to this project.</li>
+</ul>
+
+<h2 data-edit>Driving Design</h2>
+<ul class="points" data-edit-list>
+<li data-edit><b>Cockpit view:</b> in a discussion with the art team, we found the original cockpit view was too high, making the player feel like they were sitting on the ground looking up. Using real-world motorboats and the perspective of <i>Euro Truck Simulator</i> as references, we redesigned a wider and more comfortable cockpit layout.</li>
+</ul>
+<div class="doc-figs">
+<figure><div class="fig-imgs"><img src="../../../assets/media/seau-proto-cockpit.png" width="415" height="254" alt="Cockpit view in the early prototype" loading="lazy"></div><figcaption data-edit>Cockpit view in the early prototype</figcaption></figure>
+<figure><div class="fig-imgs"><img src="../../../assets/media/seau-cockpit-redesign.png" width="442" height="271" alt="Redesigned cockpit layout" loading="lazy"></div><figcaption data-edit>Redesigned cockpit layout</figcaption></figure>
+</div>
+<ul class="points" data-edit-list>
+<li data-edit><b>Controls:</b> I explored different approaches to boat handling and decided to focus on a motorboat-style control model. Since I have no real boating experience, I plan to gather design principles from several sources: watching motorboat driving videos to understand the feel, studying tutorials to learn the basic principles and physics, and asking people with real boating experience to clarify details.</li>
+<li data-edit><b>Design principle:</b> this is not a "boat driving simulator", and the simulation depth should not aim to match <i>Euro Truck Simulator</i>. The goal is a convincing sense of boat control with as few rules as possible, to support immersion. At the same time, driving should not overshadow the core experience: inside the boat, the player's attention should stay on conversations with passengers.</li>
+</ul>
+
+<h2 data-edit>Next Steps</h2>
+<ul class="points" data-edit-list>
+<li data-edit>Propose several control schemes based on these two goals and keep the one that performs best.</li>
+<li data-edit>Use the team's completed research on transformation pain points as a foundation to finalize the system designs and build greybox versions of the core systems.</li>
+</ul>
+
+<p class="doc-note" data-edit="multi">Original post: <a href="https://charcolatte.itch.io/housing-on-ocean/devlog/1324095/devlog-yunhao-jan21" target="_blank" rel="noopener">Devlog-Yunhao-Jan21</a>, itch.io, 2026.01.21. Tutorials: <a href="https://www.youtube.com/watch?v=_Ij24zRI9J0" target="_blank" rel="noopener">DitzelGames ocean tutorial</a>, <a href="https://www.youtube.com/watch?v=oejg12YyYyI&amp;t=901s" target="_blank" rel="noopener">The Code Otter scene transition tutorial</a>.</p>
+</article>
+<nav class="pager" aria-label="Previous and next entries"><a href="log-06.html" data-edit-href><small>Previous</small>Cut Concept: City-Building System Design</a><a href="index.html#s-log" class="back-link"><small>Back to</small>Sea U at Seacab</a><a class="next" href="log-07.html" data-edit-href><small>Next</small>Water Taxi Concept: Gameplay and Systems Design</a></nav>
+</div>
+<footer class="page-foot">© 2026 Yunhao Chen</footer>
+<script src="../../../assets/edit.js"></script>
+<script src="../../../assets/toc.js"></script>
+</body>
+</html>

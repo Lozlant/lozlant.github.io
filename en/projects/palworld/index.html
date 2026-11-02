@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Information Design in Palworld · System Analysis | Yunhao Chen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,900;1,400&family=Noto+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Serif+SC:wght@400;600;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/sub.css">
+</head>
+<body>
+<div class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span>System Analysis</nav>
+<header class="page-head">
+  <p class="kicker" data-edit>System Analysis · Individual course assignment</p>
+  <h1 data-edit><i>Palworld</i>: In-Game Information and Community Resources</h1>
+  <p class="tagline" data-edit>When players shift from exploring to planning, the game's information design doesn't shift with them.</p>
+  <dl class="facts"><div><dt>Type</dt><dd data-edit>Information design analysis</dd></div><div><dt>Date</dt><dd data-edit>2026.03</dd></div><div><dt>Subject</dt><dd data-edit><i>Palworld</i> and the community database PalDB</dd></div></dl>
+</header>
+
+<section class="block doc" aria-labelledby="a1">
+<h2 class="section-title" id="a1" data-edit>Background</h2>
+<p data-edit="multi"><i>Palworld</i> is a survival crafting game where you capture and manage creature companions called Pals. PalDB (paldb.cc) is a fan-made database that collects nearly every data point in the game, such as stats, drop rates, breeding results and spawn maps.</p>
+<p data-edit="multi">This journal compares the information the game provides with the information the community database provides, through two systems: item drops and breeding.</p>
+</section>
+<section class="block doc" aria-labelledby="a2">
+<h2 class="section-title" id="a2" data-edit>Item Drops</h2>
+<h3 data-edit>In Game</h3>
+<p data-edit="multi">Opening the inventory and hovering over an item shows the item name, a category label, a one-line description and the current stack count. There is no information about sources or drop rates of any kind.</p>
+<div class="doc-figs"><figure><a href="../../../assets/media/pal-inventory.jpg" data-lightbox><div class="fig-imgs"><img src="../../../assets/media/pal-inventory.jpg" width="501" height="428" alt="In game: item information in the inventory" loading="lazy" style="max-width:501px"></div></a><figcaption data-edit>In game: item information in the inventory</figcaption></figure></div>
+<p data-edit="multi">The Paldeck does slightly more. Lamball's entry includes a Possible Drops section on the right side, listing Wool and Lamball Mutton. But no probabilities are given, no conditions, and no distinction between combat drops and ranch output. A player cannot tell whether the drop chance is 0.1% or 90%. There is also no way to filter Pals by what they drop, because the lookup only works in one direction. The information exists, but it is kept deliberately vague.</p>
+<div class="doc-figs"><figure><a href="../../../assets/media/pal-paldeck.jpg" data-lightbox><div class="fig-imgs"><img src="../../../assets/media/pal-paldeck.jpg" width="910" height="519" alt="In game: Lamball's entry in the Paldeck" loading="lazy" style="max-width:910px"></div></a><figcaption data-edit>In game: Lamball's entry in the Paldeck</figcaption></figure></div>
+<h3 data-edit>PalDB</h3>
+<p data-edit="multi">On the Pal side, PalDB splits Lamball's drop data into two sections. The Partner Skill section covers ranch output: Lamball always produces Wool when assigned to a ranch, with quantity scaling linearly by level and a consistent 100% rate. The Possible Drops section covers combat: Wool ×1–3 and Lamball Mutton ×1, both at 100%.</p>
+<div class="doc-figs"><figure><a href="../../../assets/media/paldb-lamball-1.jpg" data-lightbox><div class="fig-imgs"><img src="../../../assets/media/paldb-lamball-1.jpg" width="852" height="553" alt="PalDB: Lamball's Partner Skill (ranch output)" loading="lazy" style="max-width:852px"></div></a><figcaption data-edit>PalDB: Lamball's Partner Skill (ranch output)</figcaption></figure><figure><a href="../../../assets/media/paldb-lamball-2.jpg" data-lightbox><div class="fig-imgs"><img src="../../../assets/media/paldb-lamball-2.jpg" width="857" height="172" alt="PalDB: Lamball's Possible Drops (combat drops)" loading="lazy" style="max-width:857px"></div></a><figcaption data-edit>PalDB: Lamball's Possible Drops (combat drops)</figcaption></figure></div>
+<p data-edit="multi">On the item side, PalDB offers a reverse lookup. The Wool page lists every source grouped by type. The Dropped By section lists all 7 wild Pals that drop Wool, with quantity ranges and probabilities per row. The Wandering Merchant section lists three merchant sources. The Treasure Box section shows both chest drop rates and ranch output rates. However, these two sources are quite different in practice: chest drops are random and unreliable, while ranch output is consistent and predictable. Grouping them together makes the section harder to read.</p>
+<div class="doc-figs"><figure><a href="../../../assets/media/paldb-wool-1.jpg" data-lightbox><div class="fig-imgs"><img src="../../../assets/media/paldb-wool-1.jpg" width="845" height="420" alt="PalDB: wild Pals that drop Wool" loading="lazy" style="max-width:845px"></div></a><figcaption data-edit>PalDB: wild Pals that drop Wool</figcaption></figure><figure><a href="../../../assets/media/paldb-wool-2.jpg" data-lightbox><div class="fig-imgs"><img src="../../../assets/media/paldb-wool-2.jpg" width="874" height="674" alt="PalDB: merchant and treasure box sources of Wool" loading="lazy" style="max-width:874px"></div></a><figcaption data-edit>PalDB: merchant and treasure box sources of Wool</figcaption></figure></div>
+<h3 data-edit>Analysis</h3>
+<p data-edit="multi">For item drops specifically, the in-game information is largely useless to me in practice. I never read item descriptions; the icons are clear enough. And I rarely check the Paldeck's Possible Drops section, because when I need drop information, I already know what item I'm missing. What I need is a source, not a confirmation. Looking up Pals one by one in the Paldeck is slow, and it fails entirely if I haven't unlocked a Pal's entry yet.</p>
+<p data-edit="multi">In those moments I go straight to PalDB. It tells me the fastest way to get a specific material and gives me enough data to plan around it, including targeted breeding if I want a reliable supply.</p>
+<p data-edit="multi">On hiding drop rates: most games do this, and I think it works well early on. Not knowing what drops from what makes the early game feel exploratory: you try things, you catch Pals, you experiment. But <i>Palworld</i> is a resource management game, and by the mid-to-late game most players will eventually need this data to reduce friction. At that point, keeping it hidden only pushes them to a third-party site. I think it would be better to surface this information in the game at a certain stage, so players can stay in the game rather than tab out.</p>
+</section>
+<section class="block doc" aria-labelledby="a3">
+<h2 class="section-title" id="a3" data-edit>Breeding System</h2>
+<h3 data-edit>In Game</h3>
+<p data-edit="multi"><i>Palworld</i>'s breeding system is complex, but the in-game explanation is minimal. Players unlock the Breeding Farm at Technology Level 19, build it, place two Pals and a Cake inside, and wait. The game never tells you what offspring a pairing will produce, and there are no in-game tools to help plan a breeding chain. The only things a player can figure out through play are that the same pair always produces the same offspring, and that two identical Pals breed true.</p>
+<div class="doc-figs"><figure><a href="../../../assets/media/pal-breeding-farm.jpg" data-lightbox><div class="fig-imgs"><img src="../../../assets/media/pal-breeding-farm.jpg" width="745" height="413" alt="In game: the Breeding Farm" loading="lazy" style="max-width:745px"></div></a><figcaption data-edit>In game: the Breeding Farm</figcaption></figure></div>
+<p data-edit="multi">IV values and passive skill inheritance are also hidden. The only thing players can observe on their own is that passive skills can be inherited by offspring, with some element of chance.</p>
+<h3 data-edit>PalDB</h3>
+<p data-edit="multi">The breeding calculator is probably the most-used feature across Pal database sites. In PalDB, players select any two Pals from a dropdown and the calculator instantly returns the guaranteed offspring. It also supports reverse lookup: a player who wants a Suzaku can enter Suzaku as the target and get every valid parent combination. A third mode lets you pick one parent and one target offspring, and returns the shortest breeding path between them. PalDB also has a feature not found on other sites: you can input your current Pal collection and it calculates every new species you can breed from what you already own, which is useful for completing the Paldeck.</p>
+<div class="doc-figs"><figure><a href="../../../assets/media/paldb-breeding-1.jpg" data-lightbox><div class="fig-imgs"><img src="../../../assets/media/paldb-breeding-1.jpg" width="782" height="437" alt="PalDB: shortest breeding path" loading="lazy" style="max-width:782px"></div></a><figcaption data-edit>PalDB: shortest breeding path</figcaption></figure><figure><a href="../../../assets/media/paldb-breeding-2.jpg" data-lightbox><div class="fig-imgs"><img src="../../../assets/media/paldb-breeding-2.jpg" width="805" height="682" alt="PalDB: breeding calculator" loading="lazy" style="max-width:805px"></div></a><figcaption data-edit>PalDB: breeding calculator</figcaption></figure></div>
+<p data-edit="multi">One gap worth noting: the site does not explain IV values or passive skill inheritance rules.</p>
+<h3 data-edit>Analysis</h3>
+<p data-edit="multi">The breeding system gives players no way to understand the numbers behind it. PalDB's calculator turns it into something players can actually plan around. Pal breeding, which many consider one of the most unique and enjoyable parts of the game, is only accessible as a real system because of this community tool: the community provided the rules and the routes. Without it, players are left with a black box. The developers built an interesting system but handed off the part that makes it playable to the community.</p>
+<p data-edit="multi">That handoff carries a real risk. After major updates, breeding data can become outdated, and the whole system becomes harder to use until the site catches up. The gap also splits the player base: players who find external resources can engage fully with breeding, while players who don't are just waiting for eggs with no understanding of what they'll get. The same system delivers a completely different experience depending on whether a player knows PalDB exists.</p>
+</section>
+<section class="block doc" aria-labelledby="a4">
+<h2 class="section-title" id="a4" data-edit>Conclusion and Directions for Improvement</h2>
+<p data-edit="multi">Both cases point to the same problem: <i>Palworld</i>'s information design is built around discovery, but it is also a heavy resource management game. When players shift from exploring to planning, the game doesn't shift with them. Both cases suggest three directions for improvement:</p>
+<ol class="points" data-edit-list><li data-edit><b>Release information in stages.</b> Hiding drop rates early on is reasonable, but as players move into the resource management phase, the game could gradually surface that data through Paldeck progress, technology unlocks or playtime. This keeps the early game feeling exploratory without pushing mid-to-late game players to a third-party site.</li><li data-edit><b>Add a planning interface.</b> A system that only works with external tools is missing a planning interface. A simple breeding preview, not the underlying formula, just "these two Pals produce this offspring", would make the breeding system accessible to all players, not only those who know to look outside the game.</li><li data-edit><b>An official companion site.</b> If the developers prefer not to integrate this in the game, an official companion site is a reasonable alternative. PalDB proves the demand is real. An official version's advantage isn't more features; it's reliable data, timely updates, a consistent visual identity, and no dependence on a single community volunteer to keep it running.</li></ol>
+</section>
+<p class="doc-note" data-edit="multi">Screenshots are from <i>Palworld</i> and PalDB (paldb.cc) and are used for design analysis only.</p>
+
+<nav class="pager" aria-label="Back"><a href="../../index.html#notes"><small>Back to</small>Home</a></nav>
+</div>
+<footer class="page-foot">© 2026 Yunhao Chen</footer>
+<script src="../../../assets/edit.js"></script>
+<script src="../../../assets/toc.js"></script>
+</body>
+</html>

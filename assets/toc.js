@@ -4,6 +4,31 @@
    - 隐藏（不公开）的章节不会出现在目录里
    - 目录是运行时生成的（带 ed-ui 类），编辑模式保存时会被自动去掉
 */
+/* 语言：<html lang="en"> 的页面显示英文界面文字 */
+var TOC_EN = /^en/i.test(document.documentElement.lang || '');
+
+/* 语言切换：右上角「EN / 中文」按钮，跳到另一种语言的同一页（英文页面放在 en/ 文件夹下）
+   - 线上只在对应页面存在时才显示；本地（file://）总是显示 */
+(function(){
+  var s = document.currentScript;
+  if (!s || !/assets\/toc\.js/.test(s.src)) return;
+  var root = s.src.replace(/assets\/toc\.js.*$/, '');
+  var here = location.href.split('#')[0].split('?')[0];
+  if (here.indexOf(root) !== 0) return;
+  var rel = here.slice(root.length);
+  var target = /^en\//.test(rel) ? root + rel.slice(3) : root + 'en/' + rel;
+  var css = document.createElement('style'); css.className = 'ed-ui';
+  css.textContent = '.lang-switch{position:absolute;top:16px;right:16px;z-index:45;font-family:var(--sans);font-size:14px;line-height:1.4;padding:5px 14px;border:1px solid var(--tide);border-radius:999px;background:var(--foam);color:var(--tide);text-decoration:none}' +
+    '.crumbs{padding-right:76px}.lang-switch:hover{background:var(--tide);color:var(--foam)}.lang-switch:focus-visible{outline:2px solid var(--sun);outline-offset:3px}@media print{.lang-switch{display:none}}';
+  document.head.appendChild(css);
+  var a = document.createElement('a'); a.className = 'lang-switch ed-ui'; a.href = target;
+  a.textContent = TOC_EN ? '中文' : 'EN';
+  a.setAttribute('lang', TOC_EN ? 'zh-CN' : 'en');
+  a.setAttribute('aria-label', TOC_EN ? '切换到中文' : 'Switch to English');
+  if (location.protocol === 'file:') { document.body.appendChild(a); return; }
+  fetch(target, {method:'HEAD'}).then(function(r){ if (r.ok) document.body.appendChild(a); }).catch(function(){});
+})();
+
 /* 图片大图查看：页面内弹出，点 ×、点背景或按 Esc 关闭（用于带 data-lightbox 的链接） */
 (function(){
   var links = document.querySelectorAll('a[data-lightbox]');
@@ -20,8 +45,8 @@
     'a[data-lightbox]{cursor:zoom-in}'
   ].join('\n');
   document.head.appendChild(css);
-  var box = document.createElement('div'); box.className = 'lb ed-ui'; box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'true'); box.setAttribute('aria-label', '查看大图');
-  var x = document.createElement('button'); x.type = 'button'; x.className = 'lb-close'; x.setAttribute('aria-label', '关闭'); x.textContent = '×';
+  var box = document.createElement('div'); box.className = 'lb ed-ui'; box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'true'); box.setAttribute('aria-label', TOC_EN ? 'Enlarged image' : '查看大图');
+  var x = document.createElement('button'); x.type = 'button'; x.className = 'lb-close'; x.setAttribute('aria-label', TOC_EN ? 'Close' : '关闭'); x.textContent = '×';
   var img = document.createElement('img'); img.alt = '';
   box.appendChild(x); box.appendChild(img); document.body.appendChild(box);
   var last = null;
@@ -72,7 +97,7 @@
   function makeList(){
     var ul = document.createElement('ul'); ul.className = 'toc-list';
     var top = document.createElement('li'); top.className = 'toc-top';
-    var ta = document.createElement('a'); ta.href = '#'; ta.textContent = '↑ 回到顶部';
+    var ta = document.createElement('a'); ta.href = '#'; ta.textContent = TOC_EN ? '↑ Back to top' : '↑ 回到顶部';
     ta.addEventListener('click', function(e){ e.preventDefault(); scrollTo({top:0, behavior:'smooth'}); close(); });
     top.appendChild(ta); ul.appendChild(top);
     heads.forEach(function(h){
@@ -87,11 +112,11 @@
   }
 
   var box = document.createElement('nav');
-  box.className = 'toc ed-ui'; box.setAttribute('aria-label', '页面目录');
-  var btn = document.createElement('button'); btn.type = 'button'; btn.className = 'toc-btn'; btn.textContent = '目录';
+  box.className = 'toc ed-ui'; box.setAttribute('aria-label', TOC_EN ? 'Page contents' : '页面目录');
+  var btn = document.createElement('button'); btn.type = 'button'; btn.className = 'toc-btn'; btn.textContent = TOC_EN ? 'Contents' : '目录';
   btn.setAttribute('aria-expanded', 'false');
   var panel = document.createElement('div'); panel.className = 'toc-panel';
-  var title = document.createElement('p'); title.className = 'toc-title'; title.textContent = '目录';
+  var title = document.createElement('p'); title.className = 'toc-title'; title.textContent = TOC_EN ? 'Contents' : '目录';
   var list = makeList();
   box.appendChild(title); box.appendChild(list);
   document.body.appendChild(box);
