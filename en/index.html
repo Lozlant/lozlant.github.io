@@ -78,6 +78,8 @@
     .project.featured{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);column-gap:32px;align-content:start;padding-left:0;padding-top:0;padding-bottom:0}
     .project.featured > *{grid-column:2}
     .project.featured > .project-head{margin-top:26px}
+    .project.featured > .case-link{margin-bottom:26px}
+    .project.featured{align-content:center}
     .project.featured > details{margin-top:0;padding-bottom:22px}
     .project.featured > .card-media{grid-column:1;grid-row:1 / span 12;margin:0;align-self:stretch;display:flex;flex-direction:column;justify-content:center}
     .project.featured .card-media figcaption{padding:8px 16px 10px;background:var(--ink);color:#cfe0dc}
@@ -101,6 +103,9 @@
   body.editing .media-link{cursor:auto}
   body.editing .media-link::after{display:none}
   .mini-card .case-link{margin-top:14px}
+  /* 卡片精简后：按钮贴底，同一行卡片的按钮对齐 */
+  .project > .tagline{margin-bottom:22px}
+  .project > .case-link{margin-top:auto}
   details{margin-top:auto;padding-top:18px}
   summary{cursor:pointer;color:var(--tide);font-size:14px;list-style:none;display:inline-flex;align-items:center;gap:8px}
   summary::-webkit-details-marker{display:none}
@@ -267,16 +272,7 @@
     <div class="project-head"><h3>Project Lich</h3><span class="when">2026.04 – Present</span></div>
     <p class="meta">Lead Designer, Programmer, Project Lead | 6-person capstone project</p>
     <p class="tagline">Turning mischief between friends into the fun of the game itself.</p>
-    <ul class="skills" aria-label="Skills shown"><li class="core">Systems Design</li><li>Prototyping</li><li>Programming</li><li>Documentation</li><li>Team Coordination</li><li>AI-Assisted Development</li></ul>
     <a class="case-link" href="projects/lich/index.html">View Project</a>
-    <details><summary>Key points</summary><div class="more">
-      <p style="margin:0">A 3D top-down co-op magic combat game about necromancers (Unity 6). It is in the POC stage, with the goal of showing it at the Level Up showcase in May 2027.</p>
-      <ol class="route" aria-label="Prototype sequence"><li><b>Paper prototype</b>Player behavior</li><li><b>Data prototype</b>Resource loop</li><li><b>Playable POC</b>Feedback and feel</li></ol>
-      <ul>
-        <li>Wrote the GDD and system documents; iterated on game feel and visuals based on playtest feedback.</li>
-        <li>Used AI to break down tasks, implement features and create config files.</li>
-        <li>Ran brainstorms and weekly meetings, assigned tasks, and set up the Git + LFS workflow.</li>
-      </ul></div></details>
   </article>
 
   <article class="project">
@@ -287,13 +283,7 @@
     <div class="project-head"><h3>Sea U at Seacab</h3><span class="when">2025.09 – 2026.04</span></div>
     <p class="meta">Game Designer, Programmer | 4-person course project</p>
     <p class="tagline">Get to know a city at sea while driving its passengers around.</p>
-    <ul class="skills" aria-label="Skills shown"><li class="core">Iterating on Feedback</li><li>Gameplay Design</li><li>Programming</li></ul>
     <a class="case-link" href="projects/sea-u/index.html">View Project</a>
-    <details><summary>Key points</summary><div class="more"><ul>
-      <li>Theme: "Transformation". Uses narrative and city tours to draw players' attention to sea-level rise.</li>
-      <li>Based on feedback, scaled an oversized city-building concept down to a narrative and sightseeing design.</li>
-      <li>Implemented driving, passenger pickup, city generation, dialogue and UI in Unity, and completed the vertical slice.</li>
-    </ul></div></details>
   </article>
   <article class="project">
     <figure class="card-media">
@@ -303,13 +293,7 @@
     <div class="project-head"><h3>The Tidebound</h3><span class="when">2025.09 – 2025.12</span></div>
     <p class="meta">Lead Designer, Narrative Designer, Programmer | 3-person narrative course project</p>
     <p class="tagline">As the island sinks, the queen must choose between love and sacrifice.</p>
-    <ul class="skills" aria-label="Skills shown"><li class="core">Narrative Design</li><li>Project Planning</li><li>Programming</li></ul>
     <a class="case-link" href="projects/tidebound/index.html">View Project</a>
-    <details><summary>Key points</summary><div class="more"><ul>
-      <li>Wrote the project proposal and divided the work; built the world and wrote the main story.</li>
-      <li>Designed a block-world puzzle concept, drawing on <i>Catherine</i>.</li>
-      <li>Wrote branching dialogue in articy:draft and built a multi-ending prototype in Unity.</li>
-    </ul></div></details>
   </article>
 
   </div>
@@ -325,13 +309,7 @@
     <div class="project-head"><h3>Kingdom Rush 5: Progression Redesign</h3><span class="when">2024.11 – 2024.12</span></div>
     <p class="meta">Systems Designer | 4-person course assignment; led design and documentation</p>
     <p class="tagline">Hero-specific side quests that let players truly get to know each hero.</p>
-    <ul class="skills" aria-label="Skills shown"><li class="core">Systems Design</li><li>Player Research</li><li>Progression Balancing</li></ul>
     <a class="case-link" href="projects/kingdom-rush/index.html">View Project</a>
-    <details><summary>Key points</summary><div class="more"><ul>
-      <li>Set the system goals based on two player personas: the Commander and the Hero.</li>
-      <li>Designed 1–3 side-quest levels per hero, with deployment restrictions and tutorial waves in stages.</li>
-      <li>Kept the total number of skill points the same, but turned the level 9–10 cap and some skill points into side-quest rewards; wrote the feature specification and configured levels and waves in Excel.</li>
-    </ul></div></details>
   </article>
   <article class="project" id="sennaar">
     <figure class="card-media">
@@ -341,13 +319,7 @@
     <div class="project-head"><h3><i>Chants of Sennaar</i>: Language System Redesign</h3><span class="when">2026.03</span></div>
     <p class="meta">System Analysis and Redesign | Individual course assignment</p>
     <p class="tagline">Players are not just listeners and observers of a language. They speak it too.</p>
-    <ul class="skills" aria-label="Skills shown"><li class="core">System Analysis</li><li>System Redesign</li><li>Thematic Expression</li></ul>
     <a class="case-link" href="projects/sennaar/index.html">Read Analysis</a>
-    <details><summary>Key points</summary><div class="more"><ul>
-      <li>Broke down the core loop of reading, guessing, verifying and understanding, and how the notebook system connects to levels, NPCs, narrative and role-play.</li>
-      <li>Redesigned it around communication: players record sentences, combine them to reply to NPCs, and decode each glyph further the more they use it.</li>
-      <li>Analyzed why the original designers made these choices from three angles: difficulty control, development cost and the theme of separation.</li>
-    </ul></div></details>
   </article>
     </div>
   </section>
@@ -400,7 +372,6 @@
           <h3>Niumiemie Defense</h3>
           <p class="meta">Gameplay Programmer | Gcores BOOOM × Kaituoxin Game Creation Challenge, Top 7 Most Popular</p>
           <p class="mini-line">Helped the designers define skill-casting rules and enemy AI behavior, and built the combat loop with state machines; implemented enemies, units and towers in Unity.</p>
-          <ul class="skills" aria-label="Skills shown"><li class="core">Programming</li><li>Combat Logic</li><li>Enemy AI</li></ul>
           <a class="case-link ext-link" href="https://www.gcores.com/games/126256" target="_blank" rel="noopener">Download on Gcores</a>
         </div>
       </article>
@@ -414,7 +385,6 @@
           <h3>WOE</h3>
           <p class="meta">Game Designer, Programmer | Course team project</p>
           <p class="mini-line">An ice-sliding maze puzzle game. Designed several levels and mechanics with a focus on puzzle pacing and spatial flow; designed and implemented the UI and item systems.</p>
-          <ul class="skills" aria-label="Skills shown"><li class="core">Level Design</li><li>Mechanics Design</li><li>Programming</li></ul>
           <a class="case-link" href="projects/woe/index.html" data-hidden>View Project</a>
         </div>
       </article>
